@@ -1,0 +1,132 @@
+[
+  {
+    "id": "tm-hackasat-domains",
+    "kind": "threat_model",
+    "title": "Hack-A-Sat qualifier challenge taxonomy as a map of satellite attack surfaces",
+    "text": "Hack-A-Sat is the US Air Force / Defense Digital Service Space Security Challenge. Its 2020 public qualifier challenges exercise the full satellite attack surface in a controlled, authorized competition, which makes the challenge set a useful taxonomy for a development-time testbed. The documented challenge domains, from the public challenges repo and competitor write-ups, span: radio-frequency and communication systems (link, modem, signal recovery), cryptography (key handling and protocol crypto), the ground segment (antenna tracking, ground-station logic), flight dynamics and attitude determination and control (star trackers, sun sensors, orbit/pointing), payload handling, and binary exploitation of onboard software. Relevance: these are the same surfaces a router-orchestrated attacker should cover, and the public challenges and write-ups are reusable, openly licensed targets and ground truth for an evaluation harness.",
+    "surface": "cross",
+    "sparta": null,
+    "lifecycle": [],
+    "parent_id": null,
+    "children": [],
+    "source": "DoD/DDS Hack-A-Sat Resource Library (github.com/deptofdefense/hack-a-sat-library, archived 2025); HAS 2020 Qualifier Challenges (github.com/deptofdefense/HAS-Qualifier-Challenges); competitor write-ups linked therein.",
+    "unverified": false,
+    "metadata": {
+      "case": "Hack-A-Sat-2020",
+      "kind_note": "competition-taxonomy",
+      "license": "public/DoD",
+      "phase": "reference"
+    }
+  },
+  {
+    "id": "ref-hackasat-emulation",
+    "kind": "technique",
+    "title": "Emulating a satellite for security testing (QEMU + GDB + CCSDS via scapy)",
+    "text": "Testbed-building reference (phase: tooling), drawn from the Solar Wine 'tools-for-hack-a-sat-2020' release. It emulates a satellite onboard computer with QEMU and debugs it with GDB, and crafts and parses CCSDS telemetry and telecommand frames with scapy. This is a concrete, open pattern for the emulated and digital-twin targets in our own testbed: it lets an attacker agent exercise flight software and CCSDS protocol logic without flight hardware, while a deterministic checker observes crashes and state via GDB. Included as a defensive/tooling reference, not an attack, to inform the choice of emulated targets and the protocol-fuzzing harness.",
+    "surface": "cross",
+    "sparta": null,
+    "lifecycle": [
+      {
+        "standard": "CCSDS",
+        "clause": "TM/TC frames",
+        "text": "CCSDS telemetry/telecommand framing exercised in emulation"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Solar Wine, 'tools-for-hack-a-sat-2020' (github.com/solar-wine/tools-for-hack-a-sat-2020) and write-ups (github.com/solar-wine/writeups), via the Hack-A-Sat Resource Library.",
+    "unverified": false,
+    "metadata": {
+      "case": "Hack-A-Sat-2020",
+      "phase": "tooling",
+      "tools": "QEMU,GDB,scapy,CCSDS"
+    }
+  },
+  {
+    "id": "tech-hackasat-attitude-spoof",
+    "kind": "technique",
+    "title": "Misleading attitude determination by spoofing sun-sensor / star-tracker inputs",
+    "text": "Satellite attitude determination and control (ADCS) derives orientation from sensors such as sun sensors and star trackers. If those sensor inputs or their processing can be manipulated, the spacecraft can be driven to a wrong attitude, with consequences ranging from loss of pointing to pointing optics at the sun (compare the ROSAT case). This class was exercised in Hack-A-Sat 2020 challenges including 'Sun? On my Sat?' and 'Seeing Stars'. Mechanism for a testbed: feed crafted sensor frames or exploit ADCS input handling and check whether the computed attitude or a commanded slew violates a safety constraint. Deterministic check: an attitude-safety invariant (for example sun-avoidance) is violated, or the ADCS accepts physically inconsistent sensor data.",
+    "surface": "flight_software",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0014",
+      "name": "Spoofing"
+    },
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "onboard safety constraints",
+        "text": "attitude safety interlocks and sensor plausibility checks"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Hack-A-Sat 2020 write-ups: 'Sun? On my Sat?' (starfleetcadet75) and 'Seeing Stars' (P. Delteil), via the Hack-A-Sat Resource Library.",
+    "unverified": false,
+    "metadata": {
+      "case": "Hack-A-Sat-2020",
+      "challenges": "Sun-on-my-Sat; Seeing-Stars",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "tech-hackasat-crypto-leak",
+    "kind": "technique",
+    "title": "Cryptographic key/material leakage in satellite communication links",
+    "text": "Satellite command and telemetry links depend on correct cryptography for authentication and confidentiality. Weak key handling, side channels, or protocol-crypto mistakes can leak key material or let an attacker forge or read traffic, undermining command authentication (the missing control behind many uplink-injection cases). This class was exercised in the Hack-A-Sat 2020 'Leaky Crypto' challenge. Mechanism for a testbed: probe the crypto implementation in the comms stack for key leakage, weak randomness, or verification flaws. Deterministic check: recovered key material, or a forged frame accepted by the authentication oracle.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0006",
+      "name": "Disable/Bypass Encryption"
+    },
+    "lifecycle": [
+      {
+        "standard": "CCSDS",
+        "clause": "SDLS",
+        "text": "correct, side-channel-resistant link authentication and encryption"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Hack-A-Sat 2020 write-up: 'Leaky Crypto' (ADDVulcan), via the Hack-A-Sat Resource Library.",
+    "unverified": false,
+    "metadata": {
+      "case": "Hack-A-Sat-2020",
+      "challenge": "Leaky-Crypto",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "tech-hackasat-ground-comms",
+    "kind": "technique",
+    "title": "Ground-segment tracking and communication-system manipulation",
+    "text": "Establishing and holding a link requires the ground segment to point an antenna and track the satellite, then to recover and decode the communication waveform. Errors or manipulable logic in tracking and in the comms chain can deny the link or let an attacker inject. This class was exercised in Hack-A-Sat 2020 challenges including 'Track the Sat - Ground Segment' and '56k Flex Magic - Communication Systems'. Mechanism for a testbed: exercise the ground tracking/pointing computation and the modem/demod chain with crafted inputs. Deterministic check: tracking solution diverges, or the comms chain accepts/decodes an injected frame it should reject.",
+    "surface": "ground_segment",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0007",
+      "name": "Compromise Ground System"
+    },
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "ground segment security",
+        "text": "integrity of tracking and link-processing logic"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Hack-A-Sat 2020 write-ups: 'Track the Sat - Ground Segment' and '56k Flex Magic' (Keramas; S. Tan), via the Hack-A-Sat Resource Library.",
+    "unverified": false,
+    "metadata": {
+      "case": "Hack-A-Sat-2020",
+      "challenges": "Track-the-Sat; 56k-Flex-Magic",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  }
+]

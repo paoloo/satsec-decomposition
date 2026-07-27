@@ -1,0 +1,283 @@
+[
+  {
+    "id": "tm-viasat-ground-segment",
+    "kind": "threat_model",
+    "title": "ViaSat KA-SAT ground-segment threat model (operator VPN to one-to-many modem management)",
+    "text": "Case: ViaSat KA-SAT broadband network, attacked 24 February 2022, about one hour before Russia's invasion of Ukraine. Operator of record: Skylogic. Assets: the internet-facing operator VPN (Fortinet FortiGate), Skylogic Gateway Earth Stations and Point-of-Presence (POP) servers, the trusted management network used to operate SurfBeam2 user modems, and the firmware/flash of roughly 40,000 to 45,000 modems. Trust boundary: the VPN is the perimeter; once inside, the management network is treated as trusted and can push software to the whole modem fleet. Key lesson and reason to include: the attackers never touched the space segment or the satellite. They compromised the ground segment and the user terminals and still caused fleet-wide denial. The management push channel is a one-to-many weapon, and a flat trust model behind the VPN turned a single foothold into tens of thousands of bricked modems. Defensive controls that were missing: VPN patching, segmentation between the operator IT/management/modem networks, authenticated and rate-limited fleet management, and modem firmware integrity/secure boot.",
+    "surface": "ground_segment",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0007",
+      "name": "Compromise Ground System"
+    },
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "ground segment security",
+        "text": "segmentation and authentication across operator and management networks"
+      },
+      {
+        "standard": "NIST SSDF",
+        "clause": "RV.1/RV.3",
+        "text": "track and remediate known vulnerabilities (the FortiGate flaw was known)"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Kazi, Kazi & Bhosale (2025), 'Invisible Battlefields: Analyzing the Viasat Attack', Scientific Bulletin XXX(1), DOI 10.2478/bsaft-2025-0007; primary sources: SentinelOne AcidRain (Guerrero-Saade & Van Amerongen, 2022), Viasat KA-SAT overview (2022), Boschetti et al., AIAA ASCEND 2022.",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "date": "2022-02-24",
+      "operator": "Skylogic",
+      "modems_wiped": "40000-45000",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "tech-viasat-acidrain-wiper",
+    "kind": "technique",
+    "title": "AcidRain modem wiper (overwrites terminal firmware/flash to brick devices)",
+    "text": "AcidRain is a wiper malware built to destroy modems and routers. Once delivered to a SurfBeam2 modem it erased configuration and firmware by overwriting the device flash memory, leaving the terminal inoperable. It was pushed to tens of thousands of modems at once. SentinelLabs linked AcidRain to the 2018 VPNFilter campaign attributed to the Russian government, and it sits in the same destructive-wiper family as WhisperGate used against Ukraine. EU and Five Eyes formally attributed it to Russian military intelligence (GRU) on 10 May 2022. Relevance to a development-time testbed: this is a firmware-destruction payload whose precondition is an authenticated-looking management push and a terminal that accepts unsigned firmware writes. The defenses to test for are firmware signing / secure boot, write protection, and detection of mass-write events. Detection oracle: a terminal that will accept and apply a firmware/flash overwrite without verifying a signature is the vulnerable signature.",
+    "surface": "bus_firmware",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0010.02",
+      "name": "Wiper Malware"
+    },
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "PS.2/PW.4",
+        "text": "firmware integrity, signing, and verified update"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "SentinelOne 'AcidRain: A Modem Wiper Rains Down on Europe' (Guerrero-Saade & Van Amerongen, 2022); as analyzed in Kazi et al. (2025), DOI 10.2478/bsaft-2025-0007.",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "malware": "AcidRain",
+      "family": "VPNFilter/WhisperGate-adjacent",
+      "attribution": "Russia GRU (EU/Five Eyes, 2022-05-10)",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-viasat-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Disable a satellite broadband fleet by wiping user-terminal firmware via the ground management network (ViaSat method)",
+    "text": "High-level objective realized in the ViaSat KA-SAT attack. Without touching the space segment, reach the operator's modem management network and push a wiper that bricks the user-terminal fleet, then suppress recovery. Decomposes into: gain ground access through the operator VPN, pivot into the trusted management network, weaponize a modem wiper, abuse the fleet management mechanism to deliver it, overwrite terminal firmware, and run a simultaneous denial-of-service to block reconnection and slow mitigation. Teaching point: a ground-segment and supply-chain chain produced a strategic, fleet-wide effect, which is why ground and terminal surfaces belong in the satellite threat model alongside RF and onboard software.",
+    "surface": "ground_segment",
+    "sparta": {
+      "tactic_id": "ST0009",
+      "technique_id": "IMP-0003",
+      "name": "Denial"
+    },
+    "lifecycle": [],
+    "parent_id": null,
+    "children": [
+      "at-viasat-vpn-access",
+      "at-viasat-weaponize",
+      "at-viasat-push-wiper",
+      "at-viasat-wipe-flash",
+      "at-viasat-dos-suppress"
+    ],
+    "source": "Kazi et al. (2025), DOI 10.2478/bsaft-2025-0007; Boschetti et al., AIAA ASCEND 2022; Viasat (2022).",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-viasat-vpn-access",
+    "kind": "attack_tree",
+    "title": "Gain VPN access and pivot to the modem management network",
+    "text": "Sub-step of the ViaSat chain. Exploit the unpatched operator VPN, then use the resulting ground-system foothold to reach the trusted internal network that manages the modem fleet. Deterministic check: a perimeter foothold has an authorized-lab path to the fleet management plane.",
+    "surface": "ground_segment",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0007",
+      "name": "Compromise Ground System"
+    },
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "RV.1/RV.3",
+        "text": "remediate the known VPN vulnerability and rotate exposed credentials"
+      }
+    ],
+    "parent_id": "at-viasat-root",
+    "children": [],
+    "source": "Kazi et al. (2025); Abrams (2021, BleepingComputer) on the 500k FortiGate credential leak.",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "vuln": "FortiGate VPN (known, unpatched)",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-viasat-lateral-mgmt",
+    "kind": "attack_tree",
+    "title": "Pivot into the trusted modem management network",
+    "text": "Sub-step of the ViaSat chain. From the VPN session reach Skylogic's Gateway Earth Stations and POP servers, then move laterally into the trusted internal network used to manage and operate the SurfBeam2 modems. The flat trust behind the perimeter is what makes this pivot cheap. Deterministic check: from a perimeter foothold, an unsegmented path reaches the fleet management plane.",
+    "surface": "ground_segment",
+    "sparta": null,
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "ground segment security",
+        "text": "network segmentation between perimeter and management plane"
+      }
+    ],
+    "parent_id": "at-viasat-root",
+    "children": [],
+    "source": "Boschetti et al., AIAA ASCEND 2022; Kazi et al. (2025).",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09",
+      "mapping_note": "ground-network lateral movement; maps to MITRE ATT&CK TA0008, no spacecraft-specific SPARTA technique"
+    }
+  },
+  {
+    "id": "at-viasat-weaponize",
+    "kind": "attack_tree",
+    "title": "Weaponize a modem/router wiper (AcidRain)",
+    "text": "Sub-step of the ViaSat chain. Develop AcidRain, a wiper tailored to the SurfBeam2 modem and router platform, designed to overwrite flash and erase firmware and configuration. Reusable capability that turns management access into a destructive, fleet-wide effect. Deterministic check: the lab payload overwrites only the designated emulator image and produces the expected non-bootable test state.",
+    "surface": "supply_chain",
+    "sparta": {
+      "tactic_id": "ST0002",
+      "technique_id": "RD-0003.01",
+      "name": "Exploit/Payload"
+    },
+    "lifecycle": [],
+    "parent_id": "at-viasat-root",
+    "children": [],
+    "source": "SentinelOne AcidRain report (Guerrero-Saade & Van Amerongen, 2022); Kazi et al. (2025).",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "malware": "AcidRain",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-viasat-push-wiper",
+    "kind": "attack_tree",
+    "title": "Abuse the fleet management mechanism to push the wiper (supply-chain delivery)",
+    "text": "Sub-step of the ViaSat chain and the force multiplier. Use the legitimate KA-SAT management/distribution mechanism to push AcidRain to roughly 40,000 to 45,000 modems at once, a supply-chain-style delivery that rides a trusted one-to-many channel. Deterministic check: the management plane can deliver an arbitrary, unsigned software image to many terminals without integrity verification or rate limiting.",
+    "surface": "supply_chain",
+    "sparta": {
+      "tactic_id": "ST0002",
+      "technique_id": "RD-0004.02",
+      "name": "Upload Exploit/Payload"
+    },
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "PS.1/PS.2",
+        "text": "protect and verify the integrity of distributed software/updates"
+      }
+    ],
+    "parent_id": "at-viasat-root",
+    "children": [],
+    "source": "Guerrero-Saade & Van Amerongen (2022); Kazi et al. (2025).",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "fanout_modems": "40000-45000",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-viasat-wipe-flash",
+    "kind": "attack_tree",
+    "title": "Overwrite terminal flash to brick the modems",
+    "text": "Sub-step of the ViaSat chain. On each modem, AcidRain overwrites the flash memory, erasing firmware and configuration so the device cannot boot or rejoin the network. Some terminals suffered lasting damage and were replaced (ViaSat shipped at least 30,000 replacement modems). Deterministic check: a terminal applies a flash-overwrite payload without verifying a firmware signature, leaving it non-bootable.",
+    "surface": "bus_firmware",
+    "sparta": {
+      "tactic_id": "ST0009",
+      "technique_id": "IMP-0005",
+      "name": "Destruction"
+    },
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "PW.4/PS.2",
+        "text": "verified, signed firmware update and secure boot on terminals"
+      }
+    ],
+    "parent_id": "at-viasat-root",
+    "children": [],
+    "source": "Guerrero-Saade & Van Amerongen (2022); Viasat (2022); Kazi et al. (2025).",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "replacements": "30000+",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-viasat-dos-suppress",
+    "kind": "attack_tree",
+    "title": "Run a simultaneous denial-of-service to block reconnection and slow mitigation",
+    "text": "Sub-step of the ViaSat chain. While modems dropped offline, the attackers flooded the network so surviving and recovering terminals could not reconnect, and so ViaSat and Skylogic had less room to deploy mitigations. Deterministic check: the network control path has no surge/abuse protection that preserves operator management access during a flood.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0009",
+      "technique_id": "IMP-0002",
+      "name": "Disruption"
+    },
+    "lifecycle": [],
+    "parent_id": "at-viasat-root",
+    "children": [],
+    "source": "Viasat (2022); Kazi et al. (2025).",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "def-viasat-lessons",
+    "kind": "technique",
+    "title": "DEFENSIVE: lessons and mitigations from the ViaSat KA-SAT attack",
+    "text": "Defensive endpoint for the ViaSat case (phase: mitigation). A compounding factor per Boschetti et al.: the wiped SurfBeam2 modems were running an older, unpatched firmware version, so ViaSat had already failed to push updates to its own fleet, the same management capability the attackers then abused to push the wiper. Controls that would have blunted the attack: patch and monitor the operator VPN and rotate exposed credentials; segment the operator IT, management, and modem networks so a VPN foothold does not reach the fleet plane; authenticate, rate-limit, and log fleet management actions, with alerting on mass-push events; sign firmware and enforce secure boot on terminals so an unsigned wiper cannot apply; and keep terminal firmware current so the update channel is exercised and trusted. Response actions taken: ViaSat stabilized service over hours to days, engaged Mandiant for incident response and forensics, and shipped at least 30,000 replacement modems. Policy outcome: the EU treated space as critical infrastructure and pushed stronger SATCOM security after this incident. Included so the corpus carries the fix side of the case, not only the attack.",
+    "surface": "ground_segment",
+    "sparta": null,
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "ground segment + lifecycle security",
+        "text": "segmentation, authentication, monitoring across the ground segment"
+      },
+      {
+        "standard": "NIST SSDF",
+        "clause": "PS.2/PW.4/RV.1",
+        "text": "firmware integrity, verified update, vulnerability remediation"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Viasat (2022); Poireault (2023, Infosecurity Magazine); Kazi et al. (2025), DOI 10.2478/bsaft-2025-0007.",
+    "unverified": false,
+    "metadata": {
+      "case": "ViaSat-KA-SAT",
+      "phase": "mitigation",
+      "ir_partner": "Mandiant"
+    }
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "inc-pavur-satcom-eavesdrop-2020",
+    "kind": "technique",
+    "title": "Passive eavesdropping of satellite broadband downlinks with consumer equipment (Pavur, 2020)",
+    "text": "At Black Hat USA 2020 ('Whispers Among the Stars'), James Pavur showed that the forward (downlink) traffic of geostationary satellite broadband is broadcast in the clear over a wide footprint and can be captured passively with about 300 USD of consumer TV equipment and free software. The team recorded roughly 4 TB from 18 satellites and recovered sensitive plaintext: account credentials, in-flight passenger wifi sessions, maritime crew and operational data, and industrial SCADA such as wind-turbine control panels sending credentials in clear text. Mechanism: passive interception of an unencrypted IP-over-satellite link, distinct from Turla's link abuse because the attacker only listens. No spacecraft is touched. Relevance to a development-time testbed: any mission using a satellite link for sensitive data must encrypt it; a downlink that carries plaintext is the finding. Deterministic check: captured link frames yield readable application data without keys.",
+    "surface": "protocol",
+    "sparta": {"tactic_id": "ST0008", "technique_id": "EXF-0003", "name": "Signal Interception"},
+    "lifecycle": [
+      {"standard": "CCSDS", "clause": "SDLS / link encryption", "text": "confidentiality on space and ground links removes plaintext interception"}
+    ],
+    "source": "James Pavur et al., 'Whispers Among the Stars: A Practical Look at Perpetrating (and Preventing) Satellite Eavesdropping Attacks', Black Hat USA 2020; coverage: Threatpost 2020, Aviation Today 2020.",
+    "unverified": false,
+    "metadata": {"case": "Pavur-SATCOM-eavesdrop", "year": 2020, "mechanism": "passive-downlink-interception", "data_captured": "~4TB/18 sats", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "inc-starlink-ut-faultinjection-2022",
+    "kind": "technique",
+    "title": "Voltage fault injection on a Starlink user terminal to bypass secure boot (Wouters, 2022)",
+    "text": "At Black Hat USA 2022 ('Glitched on Earth by Humans'), Lennert Wouters demonstrated a low-cost (about 25 USD) custom mod chip that performs a voltage fault-injection (glitching) attack against the SpaceX Starlink user terminal. A precisely timed power glitch corrupts the boot process so the terminal's secure-boot signature check is bypassed, allowing execution of unsigned, attacker-modified firmware and root access to the terminal for further research. Mechanism: hardware fault injection defeats a software root of trust. Relevance to a development-time testbed: this is exactly the secure-boot and firmware-integrity property our firmware surface must verify; glitch resistance and signature enforcement are the controls. Deterministic check: the boot chain executes unsigned firmware after an induced fault, i.e. secure boot is not glitch-resistant.",
+    "surface": "bus_firmware",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0004", "name": "Compromise Boot Memory"},
+    "lifecycle": [
+      {"standard": "NIST SSDF", "clause": "PW.4/PS.2", "text": "verified, signed firmware and a glitch-resistant secure boot"}
+    ],
+    "source": "Lennert Wouters, 'Glitched on Earth by Humans: A Black-Box Security Evaluation of the SpaceX Starlink User Terminal', Black Hat USA 2022; coverage: Threatpost 2022.",
+    "unverified": false,
+    "metadata": {"case": "Starlink-UT-fault-injection", "year": 2022, "mechanism": "voltage-glitch-secure-boot-bypass", "cost_usd": 25, "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "inc-santamarta-satcom-backdoors",
+    "kind": "technique",
+    "title": "Backdoors and hardcoded credentials in SATCOM terminal firmware (Santamarta / IOActive, 2014 and 2018)",
+    "text": "Across two IOActive studies ('A Wake-up Call for SATCOM Security', 2014, and 'Last Call for SATCOM Security', Black Hat USA 2018), Ruben Santamarta reverse-engineered the firmware of commercial SATCOM terminals from multiple vendors (aviation, maritime, and military product lines) and found recurring critical weaknesses: undocumented backdoors, hardcoded credentials, insecure or undocumented protocols, and weak encryption. In some terminals an attacker could trigger functionality, including installing new firmware or compromising the device, simply by sending a crafted SMS or message. Several of these terminal classes were implicated in the destructive SATCOM-terminal exploitation reported at the start of the war in Ukraine. Mechanism: vendor firmware ships with backdoors and unauthenticated remote-update paths. Relevance to a development-time testbed: terminal and modem firmware are part of the satellite system attack surface; the findings to detect are hardcoded secrets, backdoors, and unauthenticated firmware-update triggers. Deterministic check: a terminal accepts a firmware install or privileged action from an unauthenticated message.",
+    "surface": "ground_segment",
+    "sparta": {"tactic_id": "ST0005", "technique_id": "PER-0002", "name": "Backdoor"},
+    "lifecycle": [
+      {"standard": "NIST SSDF", "clause": "PW.4/PS.1/PS.2", "text": "no backdoors or hardcoded secrets; authenticated, verified updates"},
+      {"standard": "ECSS-E-ST-80C", "clause": "ground/terminal security", "text": "authentication on remote management and update paths"}
+    ],
+    "source": "Ruben Santamarta / IOActive, 'A Wake-up Call for SATCOM Security' (2014) and 'Last Call for SATCOM Security' (Black Hat USA 2018); IOActive 'Missed Calls for SATCOM Cybersecurity' (2022).",
+    "unverified": false,
+    "metadata": {"case": "Santamarta-SATCOM-terminals", "years": "2014,2018", "mechanism": "firmware-backdoors+SMS-triggered-update", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "inc-gnss-spoofing-realworld",
+    "kind": "technique",
+    "title": "Real-world mass GNSS spoofing events (Black Sea 2017, Shanghai 2019, Ukraine 2022 onward)",
+    "text": "Documented real-world GNSS spoofing at scale, complementing the general PNT-spoofing technique. In June 2017 more than 20 vessels in the Black Sea reported GPS positions placing them inland at Gelendzhik airport, an early public case of mass maritime spoofing. In 2019 investigators documented 'circle spoofing' around Shanghai, where ship tracks formed impossible rings. From 2022 onward, widespread spoofing and jamming have accompanied the war in Ukraine, with vessel-tracking clusters appearing in impossible locations into 2025, and spillover affecting civil aviation. Mechanism: counterfeit GNSS signals overpower the authentic ones so receivers compute false position or time, at a regional scale. Relevance: confirms PNT spoofing is an operational, not just laboratory, threat; PNT plausibility checks, multi-constellation and inertial cross-checks, and spoofing detection are the controls. See also inc-gnss-spoofing (the technique).",
+    "surface": "rf_uplink",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0014.04", "name": "Position, Navigation, and Timing (PNT) Spoofing"},
+    "lifecycle": [
+      {"standard": "CCSDS", "clause": "PNT integrity", "text": "spoofing-resistant timing/position with cross-checks"}
+    ],
+    "source": "GPS World and Maritime Executive (Black Sea, 2017); C4ADS 'Above Us Only Stars' and SkyTruth (Shanghai circle spoofing, 2019); ongoing reporting on Ukraine-region spoofing/jamming 2022-2025.",
+    "unverified": false,
+    "metadata": {"case": "GNSS-spoofing-realworld", "events": "BlackSea-2017; Shanghai-2019; Ukraine-2022+", "mechanism": "mass-PNT-spoofing", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  }
+]

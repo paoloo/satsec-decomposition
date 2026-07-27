@@ -1,0 +1,957 @@
+[
+  {
+    "id": "at-spaceodyssey-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Command a satellite over an unauthenticated telecommand link (Space Odyssey class)",
+    "text": "Decomposition of the missing-telecommand-authentication finding reported for real in-orbit satellites. Objective: from a rogue uplink, issue a telecommand the spacecraft accepts because the link has no cryptographic authentication, then change an on-board value to degrade the mission. Targets are emulated flight software on a bench.",
+    "surface": "rf_uplink",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0012",
+      "name": "Modify On-Board Values"
+    },
+    "children": [
+      "at-spaceodyssey-recon",
+      "at-spaceodyssey-rogue",
+      "at-spaceodyssey-inject",
+      "at-spaceodyssey-degrade"
+    ],
+    "source": "Willbold et al., Space Odyssey: An Experimental Software Security Analysis of Satellites, IEEE S&P 2023; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Space-Odyssey-unauth-TC",
+      "attribution": "research (authorized/emulated)",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-spaceodyssey-recon",
+    "kind": "attack_tree",
+    "title": "Characterize the commanding protocol",
+    "text": "Sub-step. Enumerate the telecommand frame format and command dictionary of the target bus. Deterministic check: reconstructed TC frame that the emulated receiver parses.",
+    "surface": "protocol",
+    "parent_id": "at-spaceodyssey-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0003",
+      "name": "Gather Spacecraft Communications Information"
+    },
+    "source": "Willbold et al., Space Odyssey: An Experimental Software Security Analysis of Satellites, IEEE S&P 2023; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Space-Odyssey-unauth-TC",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-spaceodyssey-rogue",
+    "kind": "attack_tree",
+    "title": "Stand up a rogue uplink",
+    "text": "Sub-step. Transmit from an external station the spacecraft cannot distinguish from the real operator. Deterministic check: emulated receiver accepts frames from the rogue station.",
+    "surface": "rf_uplink",
+    "parent_id": "at-spaceodyssey-root",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0008",
+      "name": "Rogue External Entity"
+    },
+    "source": "Willbold et al., Space Odyssey: An Experimental Software Security Analysis of Satellites, IEEE S&P 2023; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Space-Odyssey-unauth-TC",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-spaceodyssey-inject",
+    "kind": "attack_tree",
+    "title": "Issue an unauthenticated telecommand",
+    "text": "Sub-step. Send a command that is executed because no authentication is enforced on the link. Deterministic check: on-board value changes to the commanded setting on the bench.",
+    "surface": "flight_software",
+    "parent_id": "at-spaceodyssey-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0012",
+      "name": "Modify On-Board Values"
+    },
+    "source": "Willbold et al., Space Odyssey: An Experimental Software Security Analysis of Satellites, IEEE S&P 2023; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Space-Odyssey-unauth-TC",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-spaceodyssey-degrade",
+    "kind": "attack_tree",
+    "title": "Degrade the mission",
+    "text": "Sub-step. Use the accepted command to reduce a mission function, such as mispointing an antenna. Deterministic check: measured degradation of the emulated function versus baseline.",
+    "surface": "flight_software",
+    "parent_id": "at-spaceodyssey-root",
+    "sparta": {
+      "tactic_id": "ST0009",
+      "technique_id": "IMP-0004",
+      "name": "Degradation"
+    },
+    "source": "Willbold et al., Space Odyssey: An Experimental Software Security Analysis of Satellites, IEEE S&P 2023; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Space-Odyssey-unauth-TC",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-opssat-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Take control of an on-board experiment environment (OPS-SAT authorized exercise)",
+    "text": "Decomposition of an authorized ethical-hacking exercise against a flying experimental testbed. Objective: from code running inside the hosted experiment slot, reach system interfaces and manipulate a payload, then persist. Conducted under an explicit consent-to-test agreement.",
+    "surface": "flight_software",
+    "sparta": {
+      "tactic_id": "ST0007",
+      "technique_id": "LM-0001",
+      "name": "Hosted Payload"
+    },
+    "children": [
+      "at-opssat-exec",
+      "at-opssat-escalate",
+      "at-opssat-persist",
+      "at-opssat-manip"
+    ],
+    "source": "Thales / ESA OPS-SAT ethical-hacking demonstration, CYSAT 2023; ESA; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "OPS-SAT-authorized-takeover",
+      "attribution": "authorized (consented exercise)",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-opssat-exec",
+    "kind": "attack_tree",
+    "title": "Execute code in the hosted experiment",
+    "text": "Sub-step. Run attacker-supplied code inside the experiment container provided to third parties. Deterministic check: code executes in the experiment sandbox on the emulated bench.",
+    "surface": "flight_software",
+    "parent_id": "at-opssat-root",
+    "sparta": {
+      "tactic_id": "ST0007",
+      "technique_id": "LM-0001",
+      "name": "Hosted Payload"
+    },
+    "source": "Thales / ESA OPS-SAT ethical-hacking demonstration, CYSAT 2023; ESA; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "OPS-SAT-authorized-takeover",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-opssat-escalate",
+    "kind": "attack_tree",
+    "title": "Reach system interfaces",
+    "text": "Sub-step. From the experiment slot, call system APIs to change ADCS or payload parameters. Deterministic check: on-board parameter changes from within the experiment context.",
+    "surface": "flight_software",
+    "parent_id": "at-opssat-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0012",
+      "name": "Modify On-Board Values"
+    },
+    "source": "Thales / ESA OPS-SAT ethical-hacking demonstration, CYSAT 2023; ESA; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "OPS-SAT-authorized-takeover",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-opssat-persist",
+    "kind": "attack_tree",
+    "title": "Persist in the experiment slot",
+    "text": "Sub-step. Install a hook that survives an experiment restart. Deterministic check: hook re-executes after a simulated experiment restart.",
+    "surface": "flight_software",
+    "parent_id": "at-opssat-root",
+    "sparta": {
+      "tactic_id": "ST0005",
+      "technique_id": "PER-0002",
+      "name": "Backdoor"
+    },
+    "source": "Thales / ESA OPS-SAT ethical-hacking demonstration, CYSAT 2023; ESA; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "OPS-SAT-authorized-takeover",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-opssat-manip",
+    "kind": "attack_tree",
+    "title": "Manipulate a payload function",
+    "text": "Sub-step. Alter a payload output such as the imager to degrade its product. Deterministic check: payload output deviates from the expected emulated baseline.",
+    "surface": "flight_software",
+    "parent_id": "at-opssat-root",
+    "sparta": {
+      "tactic_id": "ST0009",
+      "technique_id": "IMP-0004",
+      "name": "Degradation"
+    },
+    "source": "Thales / ESA OPS-SAT ethical-hacking demonstration, CYSAT 2023; ESA; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "OPS-SAT-authorized-takeover",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-gmr-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Decrypt satellite phone traffic by exploiting a weak air-interface cipher (GMR-1/GMR-2)",
+    "text": "Decomposition of the satphone-cipher analysis of the GMR-1 and GMR-2 standards. Objective: from a recorded downlink, exploit the weak stream cipher to recover keystream and reconstruct call content. Confidentiality attack; capture is of an emulated or consented link.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0005",
+      "name": "Eavesdropping"
+    },
+    "children": [
+      "at-gmr-ident",
+      "at-gmr-intercept",
+      "at-gmr-decrypt"
+    ],
+    "source": "Driessen et al., Don't Trust Satellite Phones: A Security Analysis of Two Satphone Standards, IEEE S&P 2012; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "GMR-satphone-cipher",
+      "attribution": "research (emulated/consented)",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-gmr-ident",
+    "kind": "attack_tree",
+    "title": "Identify the air-interface standard",
+    "text": "Sub-step. Fingerprint the GMR framing and burst structure of the captured signal. Deterministic check: demodulated bursts align to the documented GMR frame layout.",
+    "surface": "protocol",
+    "parent_id": "at-gmr-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0003",
+      "name": "Gather Spacecraft Communications Information"
+    },
+    "source": "Driessen et al., Don't Trust Satellite Phones: A Security Analysis of Two Satphone Standards, IEEE S&P 2012; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "GMR-satphone-cipher",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-gmr-intercept",
+    "kind": "attack_tree",
+    "title": "Intercept and demodulate the downlink",
+    "text": "Sub-step. Capture and demodulate the satphone downlink bursts. Deterministic check: recorded I/Q yields decoded ciphertext bursts.",
+    "surface": "protocol",
+    "parent_id": "at-gmr-root",
+    "sparta": {
+      "tactic_id": "ST0008",
+      "technique_id": "EXF-0003",
+      "name": "Signal Interception"
+    },
+    "source": "Driessen et al., Don't Trust Satellite Phones: A Security Analysis of Two Satphone Standards, IEEE S&P 2012; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "GMR-satphone-cipher",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-gmr-decrypt",
+    "kind": "attack_tree",
+    "title": "Recover keystream and decrypt",
+    "text": "Sub-step. Exploit the weak stream cipher to recover keystream and reconstruct plaintext. Deterministic check: decrypted frame matches a known-plaintext control message.",
+    "surface": "protocol",
+    "parent_id": "at-gmr-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0005",
+      "name": "Eavesdropping"
+    },
+    "source": "Driessen et al., Don't Trust Satellite Phones: A Security Analysis of Two Satphone Standards, IEEE S&P 2012; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "GMR-satphone-cipher",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-iridium-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Recover message content from an unencrypted satellite link (Iridium class)",
+    "text": "Decomposition of open-source Iridium decoding of an unencrypted link. Objective: capture the L-band downlink and reassemble plaintext messages that travel without link-layer encryption. Passive confidentiality attack against an emulated or consented feed.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0005",
+      "name": "Eavesdropping"
+    },
+    "children": [
+      "at-iridium-ident",
+      "at-iridium-capture",
+      "at-iridium-reassemble"
+    ],
+    "source": "gr-iridium / iridium-toolkit (muccc; Sec and Schneider); 'Iridium Update', 32C3, 2015; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Iridium-plaintext-eavesdrop",
+      "attribution": "research (passive/consented)",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-iridium-ident",
+    "kind": "attack_tree",
+    "title": "Identify the link framing",
+    "text": "Sub-step. Characterize the Iridium L-band framing and channel plan. Deterministic check: demodulated frames align to the documented Iridium structure.",
+    "surface": "protocol",
+    "parent_id": "at-iridium-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0003",
+      "name": "Gather Spacecraft Communications Information"
+    },
+    "source": "gr-iridium / iridium-toolkit (muccc; Sec and Schneider); 'Iridium Update', 32C3, 2015; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Iridium-plaintext-eavesdrop",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-iridium-capture",
+    "kind": "attack_tree",
+    "title": "Capture and demodulate the downlink",
+    "text": "Sub-step. Record the L-band downlink with an SDR and demodulate frames. Deterministic check: SDR capture yields decoded link-layer frames.",
+    "surface": "protocol",
+    "parent_id": "at-iridium-root",
+    "sparta": {
+      "tactic_id": "ST0008",
+      "technique_id": "EXF-0003",
+      "name": "Signal Interception"
+    },
+    "source": "gr-iridium / iridium-toolkit (muccc; Sec and Schneider); 'Iridium Update', 32C3, 2015; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Iridium-plaintext-eavesdrop",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-iridium-reassemble",
+    "kind": "attack_tree",
+    "title": "Reassemble plaintext messages",
+    "text": "Sub-step. Reassemble message content that is sent without link-layer encryption. Deterministic check: reconstructed message matches an emulated reference transmission.",
+    "surface": "protocol",
+    "parent_id": "at-iridium-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0005",
+      "name": "Eavesdropping"
+    },
+    "source": "gr-iridium / iridium-toolkit (muccc; Sec and Schneider); 'Iridium Update', 32C3, 2015; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "Iridium-plaintext-eavesdrop",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-tcreplay-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Re-execute a privileged action by replaying a captured telecommand (no anti-replay)",
+    "text": "Decomposition of a replay against a telecommand link that lacks anti-replay protection (for example CCSDS without SDLS). Objective: capture an authentic telecommand and retransmit it within the acceptance window so the action executes again. Targets are emulated.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0001",
+      "name": "Replay"
+    },
+    "children": [
+      "at-tcreplay-recon",
+      "at-tcreplay-capture",
+      "at-tcreplay-replay",
+      "at-tcreplay-effect"
+    ],
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "TC-replay-no-SDLS",
+      "attribution": "emulated",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-tcreplay-recon",
+    "kind": "attack_tree",
+    "title": "Characterize the acceptance window",
+    "text": "Sub-step. Determine the telecommand frame format and the counters or timetags that gate acceptance. Deterministic check: documented acceptance conditions for a valid TC frame.",
+    "surface": "protocol",
+    "parent_id": "at-tcreplay-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0003",
+      "name": "Gather Spacecraft Communications Information"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "TC-replay-no-SDLS",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-tcreplay-capture",
+    "kind": "attack_tree",
+    "title": "Capture an authentic telecommand",
+    "text": "Sub-step. Record a legitimate telecommand frame on the uplink. Deterministic check: stored TC frame that the emulated receiver validates.",
+    "surface": "protocol",
+    "parent_id": "at-tcreplay-root",
+    "sparta": {
+      "tactic_id": "ST0008",
+      "technique_id": "EXF-0003",
+      "name": "Signal Interception"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "TC-replay-no-SDLS",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-tcreplay-replay",
+    "kind": "attack_tree",
+    "title": "Replay the captured frame",
+    "text": "Sub-step. Retransmit the captured frame within the acceptance window because no anti-replay is enforced. Deterministic check: emulated receiver accepts the replayed frame a second time.",
+    "surface": "protocol",
+    "parent_id": "at-tcreplay-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0001",
+      "name": "Replay"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "TC-replay-no-SDLS",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-tcreplay-effect",
+    "kind": "attack_tree",
+    "title": "Re-apply the on-board state change",
+    "text": "Sub-step. The replayed command re-applies its state change on the target. Deterministic check: on-board value returns to the replayed setting.",
+    "surface": "flight_software",
+    "parent_id": "at-tcreplay-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0012",
+      "name": "Modify On-Board Values"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "TC-replay-no-SDLS",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-jtag-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Extract and patch firmware through an enabled debug interface (development-time exposure)",
+    "text": "Decomposition of a hardware debug exposure caught during development. Objective: use a debug interface left enabled on the flight hardware to read firmware and load a modified image, then persist. Shift-left, bench-only against development hardware.",
+    "surface": "bus_firmware",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0001.02",
+      "name": "Firmware"
+    },
+    "children": [
+      "at-jtag-locate",
+      "at-jtag-patch",
+      "at-jtag-persist"
+    ],
+    "source": "SPARTA; common enabled-debug-interface exposure on flight hardware.",
+    "unverified": false,
+    "metadata": {
+      "case": "JTAG-debug-firmware",
+      "attribution": "emulated (dev bench)",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-jtag-locate",
+    "kind": "attack_tree",
+    "title": "Locate the enabled debug interface",
+    "text": "Sub-step. Identify exposed JTAG or SWD test points and the target microcontroller. Deterministic check: debug probe halts the core over the exposed interface.",
+    "surface": "bus_firmware",
+    "parent_id": "at-jtag-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0001.02",
+      "name": "Firmware"
+    },
+    "source": "SPARTA; common enabled-debug-interface exposure on flight hardware.",
+    "unverified": false,
+    "metadata": {
+      "case": "JTAG-debug-firmware",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-jtag-patch",
+    "kind": "attack_tree",
+    "title": "Load modified firmware",
+    "text": "Sub-step. Patch the secure-boot check or write a modified image through the debug port. Deterministic check: modified image runs past the boot integrity check on the bench.",
+    "surface": "bus_firmware",
+    "parent_id": "at-jtag-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0004",
+      "name": "Compromise Boot Memory"
+    },
+    "source": "SPARTA; common enabled-debug-interface exposure on flight hardware.",
+    "unverified": false,
+    "metadata": {
+      "case": "JTAG-debug-firmware",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-jtag-persist",
+    "kind": "attack_tree",
+    "title": "Persist the modified image",
+    "text": "Sub-step. Write the modified image so it survives a power cycle. Deterministic check: modified image re-runs after a bench reset.",
+    "surface": "bus_firmware",
+    "parent_id": "at-jtag-root",
+    "sparta": {
+      "tactic_id": "ST0005",
+      "technique_id": "PER-0002",
+      "name": "Backdoor"
+    },
+    "source": "SPARTA; common enabled-debug-interface exposure on flight hardware.",
+    "unverified": false,
+    "metadata": {
+      "case": "JTAG-debug-firmware",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-uart-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Verify the serial console is not an unauthenticated foothold on the flight build",
+    "text": "Development-time bench check. Objective: connect to the board's UART, determine whether it exposes an unauthenticated shell, a bootloader interrupt, or secret-leaking logs, and confirm the flight build disables or authenticates the console. Bench-only against development hardware.",
+    "surface": "bus_firmware",
+    "sparta": {
+      "tactic_id": "ST0005",
+      "technique_id": "PER-0002",
+      "name": "Backdoor"
+    },
+    "children": [
+      "at-uart-locate",
+      "at-uart-shell",
+      "at-uart-boot",
+      "at-uart-leak"
+    ],
+    "source": "SPARTA; serial-console exposure in embedded flight software (shift-left check).",
+    "unverified": false,
+    "metadata": {
+      "case": "UART-console-check",
+      "attribution": "emulated (dev bench)",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-uart-locate",
+    "kind": "attack_tree",
+    "title": "Identify the UART interface",
+    "text": "Sub-step. Locate the UART test points and determine the baud rate and framing on the dev board. Deterministic check: readable console banner captured on the serial line.",
+    "surface": "bus_firmware",
+    "parent_id": "at-uart-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0001.02",
+      "name": "Firmware"
+    },
+    "source": "SPARTA; serial-console exposure in embedded flight software (shift-left check).",
+    "unverified": false,
+    "metadata": {
+      "case": "UART-console-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-uart-shell",
+    "kind": "attack_tree",
+    "title": "Test for an unauthenticated console",
+    "text": "Sub-step. Interact with the console to check whether it accepts commands without authentication. Deterministic check: flight build requires authentication or the console is absent, not an open shell.",
+    "surface": "bus_firmware",
+    "parent_id": "at-uart-root",
+    "sparta": {
+      "tactic_id": "ST0005",
+      "technique_id": "PER-0002",
+      "name": "Backdoor"
+    },
+    "source": "SPARTA; serial-console exposure in embedded flight software (shift-left check).",
+    "unverified": false,
+    "metadata": {
+      "case": "UART-console-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-uart-boot",
+    "kind": "attack_tree",
+    "title": "Test for a bootloader interrupt",
+    "text": "Sub-step. Attempt to interrupt the bootloader over the console to reach a lower-level prompt. Deterministic check: flight build ignores the interrupt rather than dropping to a bootloader prompt.",
+    "surface": "bus_firmware",
+    "parent_id": "at-uart-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0004",
+      "name": "Compromise Boot Memory"
+    },
+    "source": "SPARTA; serial-console exposure in embedded flight software (shift-left check).",
+    "unverified": false,
+    "metadata": {
+      "case": "UART-console-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-uart-leak",
+    "kind": "attack_tree",
+    "title": "Check for secret leakage in console output",
+    "text": "Sub-step. Review console and log output for keys, credentials, or memory addresses. Deterministic check: no sensitive material appears in the flight-build console output.",
+    "surface": "bus_firmware",
+    "parent_id": "at-uart-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0001",
+      "name": "Gather Spacecraft Design Information"
+    },
+    "source": "SPARTA; serial-console exposure in embedded flight software (shift-left check).",
+    "unverified": false,
+    "metadata": {
+      "case": "UART-console-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-sdrlink-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Verify the RF link enforces authentication, anti-replay, and confidentiality at the bench",
+    "text": "Development-time bench check. Objective: attach an SDR to the dev flatsat, send a telecommand and receive telemetry, and verify the link authenticates commands, rejects replays, and does not expose sensitive telemetry in plaintext. Emulated flatsat, no on-orbit action.",
+    "surface": "rf_uplink",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0003",
+      "name": "Gather Spacecraft Communications Information"
+    },
+    "children": [
+      "at-sdrlink-establish",
+      "at-sdrlink-auth",
+      "at-sdrlink-replay",
+      "at-sdrlink-conf"
+    ],
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "SDR-link-bringup-check",
+      "attribution": "emulated (dev flatsat)",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-sdrlink-establish",
+    "kind": "attack_tree",
+    "title": "Establish the SDR link",
+    "text": "Sub-step. Configure the SDR to the link frequency and framing and exchange frames with the flatsat. Deterministic check: SDR closes the link and a valid telecommand is acknowledged.",
+    "surface": "protocol",
+    "parent_id": "at-sdrlink-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0003",
+      "name": "Gather Spacecraft Communications Information"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "SDR-link-bringup-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-sdrlink-auth",
+    "kind": "attack_tree",
+    "title": "Verify command authentication",
+    "text": "Sub-step. Send a telecommand without valid authentication from the SDR. Deterministic check: flatsat rejects the unauthenticated command in the flight build.",
+    "surface": "rf_uplink",
+    "parent_id": "at-sdrlink-root",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0008",
+      "name": "Rogue External Entity"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "SDR-link-bringup-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-sdrlink-replay",
+    "kind": "attack_tree",
+    "title": "Verify anti-replay",
+    "text": "Sub-step. Capture a valid telecommand and retransmit it to the flatsat. Deterministic check: flatsat rejects the replayed frame with anti-replay enforced.",
+    "surface": "protocol",
+    "parent_id": "at-sdrlink-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0001",
+      "name": "Replay"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "SDR-link-bringup-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-sdrlink-conf",
+    "kind": "attack_tree",
+    "title": "Verify downlink confidentiality",
+    "text": "Sub-step. Receive and demodulate the telemetry downlink and inspect it for plaintext sensitive fields. Deterministic check: sensitive telemetry fields are encrypted, not readable in the capture.",
+    "surface": "protocol",
+    "parent_id": "at-sdrlink-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0005",
+      "name": "Eavesdropping"
+    },
+    "source": "CCSDS 355.0-B Space Data Link Security; SPARTA.",
+    "unverified": false,
+    "metadata": {
+      "case": "SDR-link-bringup-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-busprobe-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Verify internal bus registers and tables are not writable without authorization",
+    "text": "Development-time bench check. Objective: probe an internal bus (I2C, CAN, MIL-STD-1553, or SpaceWire) on the dev harness and verify that sensitive registers, parameter tables, and mode controls cannot be modified without authorization. Bench-only against development hardware.",
+    "surface": "bus_firmware",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0001",
+      "name": "Gather Spacecraft Design Information"
+    },
+    "children": [
+      "at-busprobe-map",
+      "at-busprobe-write",
+      "at-busprobe-fdir"
+    ],
+    "source": "SPARTA; internal-bus authorization checks (shift-left).",
+    "unverified": false,
+    "metadata": {
+      "case": "Onboard-bus-probe-check",
+      "attribution": "emulated (dev bench)",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-busprobe-map",
+    "kind": "attack_tree",
+    "title": "Map the internal bus",
+    "text": "Sub-step. Enumerate bus devices and the register and table map on the dev harness. Deterministic check: device map matches the documented bus topology.",
+    "surface": "bus_firmware",
+    "parent_id": "at-busprobe-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0001",
+      "name": "Gather Spacecraft Design Information"
+    },
+    "source": "SPARTA; internal-bus authorization checks (shift-left).",
+    "unverified": false,
+    "metadata": {
+      "case": "Onboard-bus-probe-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-busprobe-write",
+    "kind": "attack_tree",
+    "title": "Attempt an unauthorized register write",
+    "text": "Sub-step. Write to a sensitive register or parameter table over the bus without authorization. Deterministic check: write is rejected or gated by authorization in the flight build.",
+    "surface": "bus_firmware",
+    "parent_id": "at-busprobe-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0012",
+      "name": "Modify On-Board Values"
+    },
+    "source": "SPARTA; internal-bus authorization checks (shift-left).",
+    "unverified": false,
+    "metadata": {
+      "case": "Onboard-bus-probe-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-busprobe-fdir",
+    "kind": "attack_tree",
+    "title": "Attempt to disable fault management over the bus",
+    "text": "Sub-step. Try to turn off an FDIR monitor through a bus command. Deterministic check: FDIR controls resist unauthorized change over the bus.",
+    "surface": "flight_software",
+    "parent_id": "at-busprobe-root",
+    "sparta": {
+      "tactic_id": "ST0006",
+      "technique_id": "DE-0001",
+      "name": "Disable Fault Management"
+    },
+    "source": "SPARTA; internal-bus authorization checks (shift-left).",
+    "unverified": false,
+    "metadata": {
+      "case": "Onboard-bus-probe-check",
+      "phase": "pre-flight",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-safemode-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Command a spacecraft through reduced protections after forcing safe mode",
+    "text": "Decomposition of safe-mode abuse. Objective: trip a monitored limit to drive the vehicle into safe mode, then issue commands accepted under the relaxed authentication that some safe modes use. Targets are emulated flight software.",
+    "surface": "flight_software",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0010",
+      "name": "Unauthorized Access During Safe-Mode"
+    },
+    "children": [
+      "at-safemode-recon",
+      "at-safemode-force",
+      "at-safemode-command"
+    ],
+    "source": "SPARTA IA-0010; ECSS FDIR/safe-mode practice.",
+    "unverified": false,
+    "metadata": {
+      "case": "Safe-mode-abuse",
+      "attribution": "emulated",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-safemode-recon",
+    "kind": "attack_tree",
+    "title": "Learn the safe-mode triggers",
+    "text": "Sub-step. Determine which monitored limits enter safe mode and the reduced command set it exposes. Deterministic check: documented safe-mode entry condition and command set.",
+    "surface": "protocol",
+    "parent_id": "at-safemode-root",
+    "sparta": {
+      "tactic_id": "ST0001",
+      "technique_id": "REC-0003",
+      "name": "Gather Spacecraft Communications Information"
+    },
+    "source": "SPARTA IA-0010; ECSS FDIR/safe-mode practice.",
+    "unverified": false,
+    "metadata": {
+      "case": "Safe-mode-abuse",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-safemode-force",
+    "kind": "attack_tree",
+    "title": "Force entry into safe mode",
+    "text": "Sub-step. Change a monitored on-board value to trip a limit and drive the vehicle to safe mode. Deterministic check: emulated FDIR transitions the vehicle into safe mode.",
+    "surface": "flight_software",
+    "parent_id": "at-safemode-root",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0012",
+      "name": "Modify On-Board Values"
+    },
+    "source": "SPARTA IA-0010; ECSS FDIR/safe-mode practice.",
+    "unverified": false,
+    "metadata": {
+      "case": "Safe-mode-abuse",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  },
+  {
+    "id": "at-safemode-command",
+    "kind": "attack_tree",
+    "title": "Command under relaxed protections",
+    "text": "Sub-step. Issue commands accepted under safe mode's reduced authentication. Deterministic check: command accepted in safe mode that baseline mode would reject.",
+    "surface": "flight_software",
+    "parent_id": "at-safemode-root",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0010",
+      "name": "Unauthorized Access During Safe-Mode"
+    },
+    "source": "SPARTA IA-0010; ECSS FDIR/safe-mode practice.",
+    "unverified": false,
+    "metadata": {
+      "case": "Safe-mode-abuse",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-07-07"
+    }
+  }
+]

@@ -1,0 +1,340 @@
+[
+  {
+    "id": "at-starlink-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Gain root on a satellite user terminal by defeating secure boot (Starlink method)",
+    "text": "Decomposition of the Wouters 2022 Starlink user-terminal attack (see inc-starlink-ut-faultinjection-2022). Objective: run attacker-controlled firmware on the terminal by defeating its software root of trust with a hardware fault. Steps: characterize the boot chain, build a low-cost glitcher, induce a timed voltage fault to bypass the secure-boot signature check, then load unsigned firmware. Teaching point: a software root of trust falls to a hardware fault unless the boot is glitch-resistant.",
+    "surface": "bus_firmware",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0004", "name": "Compromise Boot Memory"},
+    "children": ["at-starlink-recon", "at-starlink-glitcher", "at-starlink-glitch", "at-starlink-unsigned"],
+    "source": "Lennert Wouters, 'Glitched on Earth by Humans', Black Hat USA 2022.",
+    "unverified": false,
+    "metadata": {"case": "Starlink-UT-fault-injection", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-starlink-recon",
+    "kind": "attack_tree",
+    "title": "Characterize the terminal boot chain and SoC",
+    "text": "Sub-step. Obtain a terminal, identify the SoC, locate the boot ROM and the secure-boot stage, and find the power rail to glitch. Deterministic check: the secure-boot verification step and a glitchable power/clock target are identified.",
+    "surface": "bus_firmware",
+    "parent_id": "at-starlink-root",
+    "sparta": {"tactic_id": "ST0001", "technique_id": "REC-0001.02", "name": "Firmware"},
+    "source": "Wouters, Black Hat USA 2022.",
+    "unverified": false,
+    "metadata": {"case": "Starlink-UT-fault-injection", "phase": "recon", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-starlink-glitcher",
+    "kind": "attack_tree",
+    "title": "Build a low-cost voltage fault-injection mod chip",
+    "text": "Sub-step. Fabricate an inexpensive (about 25 USD) custom board that drives a precisely timed voltage glitch onto the terminal. Deterministic check: the glitcher can deliver a repeatable fault aligned to the boot signature-check window.",
+    "surface": "bus_firmware",
+    "parent_id": "at-starlink-root",
+    "sparta": {"tactic_id": "ST0002", "technique_id": "RD-0005", "name": "Obtain Non-Cyber Capabilities"},
+    "source": "Wouters, Black Hat USA 2022.",
+    "unverified": false,
+    "metadata": {"case": "Starlink-UT-fault-injection", "phase": "resource-dev", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-starlink-glitch",
+    "kind": "attack_tree",
+    "title": "Voltage-glitch the boot to bypass the secure-boot signature check",
+    "text": "Sub-step and the core trick. Inject the timed fault so the signature check is skipped or mis-evaluated, breaking the chain of trust. Deterministic check: the boot proceeds past signature verification with an unsigned image present.",
+    "surface": "bus_firmware",
+    "parent_id": "at-starlink-root",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0004", "name": "Compromise Boot Memory"},
+    "lifecycle": [
+      {"standard": "NIST SSDF", "clause": "PW.4/PS.2", "text": "glitch-resistant secure boot and signed firmware"}
+    ],
+    "source": "Wouters, Black Hat USA 2022.",
+    "unverified": false,
+    "metadata": {"case": "Starlink-UT-fault-injection", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-starlink-unsigned",
+    "kind": "attack_tree",
+    "title": "Load and run unsigned attacker firmware (root)",
+    "text": "Sub-step. With verification defeated, boot a modified image and obtain a root shell for further research. Deterministic check: unsigned firmware executes and grants privileged access.",
+    "surface": "bus_firmware",
+    "parent_id": "at-starlink-root",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0010", "name": "Malicious Code"},
+    "source": "Wouters, Black Hat USA 2022.",
+    "unverified": false,
+    "metadata": {"case": "Starlink-UT-fault-injection", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+
+  {
+    "id": "at-satcom-term-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Compromise a SATCOM terminal via firmware backdoor and unauthenticated update (Santamarta method)",
+    "text": "Decomposition of the Santamarta/IOActive SATCOM terminal findings (see inc-santamarta-satcom-backdoors). Objective: gain control of a SATCOM terminal by exploiting backdoors, hardcoded credentials, and an unauthenticated remote-update path. Steps: extract firmware, find the backdoor/credentials, trigger a privileged action via a crafted message, and persist by installing attacker firmware.",
+    "surface": "ground_segment",
+    "sparta": {"tactic_id": "ST0005", "technique_id": "PER-0002", "name": "Backdoor"},
+    "children": ["at-satcom-term-firmware", "at-satcom-term-backdoor", "at-satcom-term-trigger", "at-satcom-term-persist"],
+    "source": "Santamarta / IOActive (2014, 2018).",
+    "unverified": false,
+    "metadata": {"case": "Santamarta-SATCOM-terminals", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-satcom-term-firmware",
+    "kind": "attack_tree",
+    "title": "Obtain and reverse-engineer terminal firmware",
+    "text": "Sub-step. Acquire the terminal firmware image and analyze it. Deterministic check: firmware extracted and disassembled to the point of identifying auth and update routines.",
+    "surface": "ground_segment",
+    "parent_id": "at-satcom-term-root",
+    "sparta": {"tactic_id": "ST0001", "technique_id": "REC-0001.02", "name": "Firmware"},
+    "source": "Santamarta / IOActive (2014, 2018).",
+    "unverified": false,
+    "metadata": {"case": "Santamarta-SATCOM-terminals", "phase": "recon", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-satcom-term-backdoor",
+    "kind": "attack_tree",
+    "title": "Identify a backdoor or hardcoded credentials",
+    "text": "Sub-step. Locate an undocumented backdoor account, hardcoded credential, or insecure protocol in the firmware. Deterministic check: a credential or backdoor entry point is recovered from the image.",
+    "surface": "ground_segment",
+    "parent_id": "at-satcom-term-root",
+    "sparta": {"tactic_id": "ST0005", "technique_id": "PER-0002", "name": "Backdoor"},
+    "lifecycle": [
+      {"standard": "NIST SSDF", "clause": "PW.4/PS.1", "text": "no hardcoded secrets or backdoors in firmware"}
+    ],
+    "source": "Santamarta / IOActive (2014, 2018).",
+    "unverified": false,
+    "metadata": {"case": "Santamarta-SATCOM-terminals", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-satcom-term-trigger",
+    "kind": "attack_tree",
+    "title": "Trigger a privileged action via a crafted message (e.g. SMS)",
+    "text": "Sub-step. Send an unauthenticated message that the terminal acts on, such as an SMS that initiates a firmware install. Deterministic check: the terminal performs a privileged action from an unauthenticated message.",
+    "surface": "ground_segment",
+    "parent_id": "at-satcom-term-root",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0010", "name": "Malicious Code"},
+    "source": "Santamarta / IOActive (2014, 2018).",
+    "unverified": false,
+    "metadata": {"case": "Santamarta-SATCOM-terminals", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-satcom-term-persist",
+    "kind": "attack_tree",
+    "title": "Install persistent attacker firmware",
+    "text": "Sub-step. Flash modified firmware so control survives reboot. Deterministic check: attacker code persists across a power cycle.",
+    "surface": "ground_segment",
+    "parent_id": "at-satcom-term-root",
+    "sparta": {"tactic_id": "ST0005", "technique_id": "PER-0001", "name": "Memory Compromise"},
+    "source": "Santamarta / IOActive (2014, 2018).",
+    "unverified": false,
+    "metadata": {"case": "Santamarta-SATCOM-terminals", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+
+  {
+    "id": "at-turla-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Establish covert C2/exfiltration by abusing one-way satellite downlinks (Turla method)",
+    "text": "Decomposition of the Turla satellite-link abuse (see inc-turla-satc2-2015). Objective: receive C2/exfil traffic anonymously by riding an unencrypted broadcast downlink. Steps: find an unencrypted DVB-S downlink and live subscriber IPs, send victim traffic to those IPs, and passively receive the broadcast replies anywhere in the footprint. No spacecraft is compromised; the insecure link is the vulnerability.",
+    "surface": "protocol",
+    "sparta": {"tactic_id": "ST0008", "technique_id": "EXF-0003", "name": "Signal Interception"},
+    "children": ["at-turla-find", "at-turla-relay", "at-turla-receive"],
+    "source": "Kaspersky GReAT, 'Satellite Turla' (2015).",
+    "unverified": false,
+    "metadata": {"case": "Turla-satellite-C2", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-turla-find",
+    "kind": "attack_tree",
+    "title": "Find an unencrypted downlink and active subscriber IPs",
+    "text": "Sub-step. Survey one-way satellite internet downlinks for unencrypted broadcast traffic and identify IP addresses of legitimate subscribers to impersonate as destinations. Deterministic check: live subscriber IPs are observed on an unencrypted downlink.",
+    "surface": "protocol",
+    "parent_id": "at-turla-root",
+    "sparta": {"tactic_id": "ST0001", "technique_id": "REC-0005.01", "name": "Eavesdropping"},
+    "source": "Kaspersky GReAT, 'Satellite Turla' (2015).",
+    "unverified": false,
+    "metadata": {"case": "Turla-satellite-C2", "phase": "recon", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-turla-relay",
+    "kind": "attack_tree",
+    "title": "Send victim traffic to a subscriber IP so replies broadcast over the footprint",
+    "text": "Sub-step. Direct infected hosts to a chosen subscriber IP; the provider relays replies over the broadcast downlink. Deterministic check: data sent to the subscriber IP is observable on the downlink.",
+    "surface": "protocol",
+    "parent_id": "at-turla-root",
+    "sparta": {"tactic_id": "ST0008", "technique_id": "EXF-0003.02", "name": "Downlink Exfiltration"},
+    "lifecycle": [
+      {"standard": "CCSDS", "clause": "link security", "text": "encrypted, authenticated links remove the broadcast-abuse channel"}
+    ],
+    "source": "Kaspersky GReAT, 'Satellite Turla' (2015).",
+    "unverified": false,
+    "metadata": {"case": "Turla-satellite-C2", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-turla-receive",
+    "kind": "attack_tree",
+    "title": "Passively receive the broadcast downlink from anywhere in the footprint",
+    "text": "Sub-step. Receive the replies with a cheap satellite dish from any location in the footprint, hiding the true C2 location. Deterministic check: C2 traffic is received passively with no link back to the attacker location.",
+    "surface": "protocol",
+    "parent_id": "at-turla-root",
+    "sparta": {"tactic_id": "ST0008", "technique_id": "EXF-0003", "name": "Signal Interception"},
+    "source": "Kaspersky GReAT, 'Satellite Turla' (2015).",
+    "unverified": false,
+    "metadata": {"case": "Turla-satellite-C2", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+
+  {
+    "id": "at-gnss-spoof-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Induce a false position/time by spoofing GNSS",
+    "text": "Decomposition of GNSS spoofing (see inc-gnss-spoofing and inc-gnss-spoofing-realworld). Objective: make a target receiver compute attacker-chosen position or time. Steps: obtain an SDR transmitter and spoofing software, generate and overpower the authentic signals so the receiver locks the fakes, then walk the solution to a chosen value.",
+    "surface": "rf_uplink",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0014.04", "name": "Position, Navigation, and Timing (PNT) Spoofing"},
+    "children": ["at-gnss-obtain", "at-gnss-overpower"],
+    "source": "UT Austin Radionavigation Lab (Humphreys); SoK (tyac008, 2022).",
+    "unverified": false,
+    "metadata": {"case": "GNSS-spoofing", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-gnss-obtain",
+    "kind": "attack_tree",
+    "title": "Obtain an SDR transmitter and GNSS spoofing software",
+    "text": "Sub-step. Acquire a software-defined radio capable of transmitting in the GNSS band and signal-generation software. Deterministic check: a coherent counterfeit GNSS signal can be transmitted.",
+    "surface": "rf_uplink",
+    "parent_id": "at-gnss-spoof-root",
+    "sparta": {"tactic_id": "ST0002", "technique_id": "RD-0005", "name": "Obtain Non-Cyber Capabilities"},
+    "source": "SoK (tyac008, 2022).",
+    "unverified": false,
+    "metadata": {"case": "GNSS-spoofing", "phase": "resource-dev", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-gnss-overpower",
+    "kind": "attack_tree",
+    "title": "Generate counterfeit signals and walk the receiver to a chosen solution",
+    "text": "Sub-step. Transmit counterfeit signals aligned to the constellation, gradually exceed authentic signal power, and then drive the tracked position or time toward the authorized test value. Deterministic check: the receiver tracks the counterfeit signals and its reported position or time follows the intended test trajectory.",
+    "surface": "rf_uplink",
+    "parent_id": "at-gnss-spoof-root",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0014.04", "name": "Position, Navigation, and Timing (PNT) Spoofing"},
+    "lifecycle": [
+      {"standard": "CCSDS", "clause": "PNT integrity", "text": "spoofing-resistant receivers and cross-checks"}
+    ],
+    "source": "UT Austin Radionavigation Lab (Humphreys).",
+    "unverified": false,
+    "metadata": {"case": "GNSS-spoofing", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-07-26", "audit_note": "Merged capture and carry-off under EX-0014.04; EX-0002 is geofenced execution, not spoofing carry-off."}
+  },
+  {
+    "id": "at-gnss-effect",
+    "kind": "attack_tree",
+    "title": "Walk the computed position/time to a chosen value",
+    "text": "Sub-step. Smoothly drive the spoofed solution to steer the target or shift its clock (e.g. into a geofenced region). Deterministic check: the target's reported position or time follows the attacker's intended trajectory.",
+    "surface": "rf_uplink",
+    "parent_id": "at-gnss-spoof-root",
+    "sparta": null,
+    "source": "UT Austin Radionavigation Lab (Humphreys).",
+    "unverified": false,
+    "metadata": {"case": "GNSS-spoofing", "phase": "exploit", "sparta_status": "deprecated-2026-07-26", "audit_note": "Orphaned legacy step; its action is now part of at-gnss-overpower under EX-0014.04."}
+  },
+
+  {
+    "id": "at-pavur-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Capture sensitive data by passively intercepting satellite broadband downlinks (Pavur method)",
+    "text": "Decomposition of the Pavur 2020 eavesdropping research (see inc-pavur-satcom-eavesdrop-2020). Objective: recover plaintext from others' satellite broadband sessions using cheap consumer equipment. Steps: point a consumer dish at a GEO broadband satellite, tune to and capture the forward downlink, then reassemble IP traffic and extract plaintext. Listening only; no spacecraft is touched.",
+    "surface": "protocol",
+    "sparta": {"tactic_id": "ST0008", "technique_id": "EXF-0003", "name": "Signal Interception"},
+    "children": ["at-pavur-point", "at-pavur-capture", "at-pavur-extract"],
+    "source": "James Pavur et al., 'Whispers Among the Stars', Black Hat USA 2020.",
+    "unverified": false,
+    "metadata": {"case": "Pavur-SATCOM-eavesdrop", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-pavur-point",
+    "kind": "attack_tree",
+    "title": "Point a consumer dish at a GEO broadband satellite",
+    "text": "Sub-step. Use about 300 USD of consumer TV equipment to aim at a geostationary broadband satellite. Deterministic check: a usable downlink signal is acquired.",
+    "surface": "protocol",
+    "parent_id": "at-pavur-root",
+    "sparta": {"tactic_id": "ST0002", "technique_id": "RD-0005", "name": "Obtain Non-Cyber Capabilities"},
+    "source": "Pavur, Black Hat USA 2020.",
+    "unverified": false,
+    "metadata": {"case": "Pavur-SATCOM-eavesdrop", "phase": "resource-dev", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-pavur-capture",
+    "kind": "attack_tree",
+    "title": "Tune to the forward downlink and capture the stream",
+    "text": "Sub-step. Lock the forward (downlink) carrier and record the DVB-S stream. Deterministic check: the broadcast stream is captured to disk.",
+    "surface": "protocol",
+    "parent_id": "at-pavur-root",
+    "sparta": {"tactic_id": "ST0008", "technique_id": "EXF-0003", "name": "Signal Interception"},
+    "source": "Pavur, Black Hat USA 2020.",
+    "unverified": false,
+    "metadata": {"case": "Pavur-SATCOM-eavesdrop", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-pavur-extract",
+    "kind": "attack_tree",
+    "title": "Reassemble IP traffic and extract plaintext",
+    "text": "Sub-step. Parse the captured stream back into IP flows and pull out plaintext credentials, sessions, and operational data. Deterministic check: readable application data is recovered without any key.",
+    "surface": "protocol",
+    "parent_id": "at-pavur-root",
+    "sparta": {"tactic_id": "ST0008", "technique_id": "EXF-0003.02", "name": "Downlink Exfiltration"},
+    "lifecycle": [
+      {"standard": "CCSDS", "clause": "link encryption", "text": "confidentiality removes plaintext interception"}
+    ],
+    "source": "Pavur, Black Hat USA 2020.",
+    "unverified": false,
+    "metadata": {"case": "Pavur-SATCOM-eavesdrop", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+
+  {
+    "id": "at-nasa-gs-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Reach the commanding path of an on-orbit asset via a compromised ground station",
+    "text": "Decomposition of the NASA Landsat-7 / Terra ground-station interference cases (see inc-nasa-landsat-terra-2007). Objective: from a compromised ground station, reach the spacecraft commanding interface. Steps: compromise the ground station or its connection, pivot to the commanding path, and achieve the ability to form accepted commands. Attribution alleged; modeled as a what-if for ground-to-spacecraft trust.",
+    "surface": "ground_segment",
+    "sparta": {"tactic_id": "ST0003", "technique_id": "IA-0007", "name": "Compromise Ground System"},
+    "children": ["at-nasa-gs-compromise", "at-nasa-gs-reach", "at-nasa-gs-command"],
+    "source": "2011 US-China Economic and Security Review Commission report; SoK (tyac008, 2022).",
+    "unverified": false,
+    "metadata": {"case": "Landsat-7/Terra-EOS-AM-1", "attribution": "alleged", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-nasa-gs-compromise",
+    "kind": "attack_tree",
+    "title": "Compromise the ground station or its internet connection",
+    "text": "Sub-step. Gain a foothold on the ground-station systems or the commercial connection they rely on. Deterministic check: code execution or session on a ground-station host.",
+    "surface": "ground_segment",
+    "parent_id": "at-nasa-gs-root",
+    "sparta": {"tactic_id": "ST0003", "technique_id": "IA-0007", "name": "Compromise Ground System"},
+    "source": "2011 US-China Commission report.",
+    "unverified": false,
+    "metadata": {"case": "Landsat-7/Terra-EOS-AM-1", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-nasa-gs-reach",
+    "kind": "attack_tree",
+    "title": "Pivot to the spacecraft commanding interface",
+    "text": "Sub-step. From the ground network, reach the system that uplinks commands, acting as a legitimate ground station. Deterministic check: the commanding interface is reachable from the foothold.",
+    "surface": "ground_segment",
+    "parent_id": "at-nasa-gs-root",
+    "sparta": {"tactic_id": "ST0003", "technique_id": "IA-0008.01", "name": "Rogue Ground Station"},
+    "lifecycle": [
+      {"standard": "ECSS-E-ST-80C", "clause": "command authentication", "text": "authenticated commanding resists rogue ground stations"}
+    ],
+    "source": "2011 US-China Commission report.",
+    "unverified": false,
+    "metadata": {"case": "Landsat-7/Terra-EOS-AM-1", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  },
+  {
+    "id": "at-nasa-gs-command",
+    "kind": "attack_tree",
+    "title": "Achieve the ability to form accepted commands",
+    "text": "Sub-step. Reach the point where valid commands could be issued to the spacecraft (the reported outcome: all steps required to command were achieved). Deterministic check: a well-formed command is accepted by the (emulated) spacecraft command handler.",
+    "surface": "ground_segment",
+    "parent_id": "at-nasa-gs-root",
+    "sparta": {"tactic_id": "ST0004", "technique_id": "EX-0013.01", "name": "Valid Commands"},
+    "lifecycle": [
+      {"standard": "CCSDS", "clause": "SDLS", "text": "authenticated telecommand links resist injected commands"}
+    ],
+    "source": "2011 US-China Commission report.",
+    "unverified": false,
+    "metadata": {"case": "Landsat-7/Terra-EOS-AM-1", "phase": "exploit", "sparta_status": "verified-against-SPARTA-2026-04-09"}
+  }
+]

@@ -1,0 +1,213 @@
+[
+  {
+    "id": "tm-beesat1-obc-cmd",
+    "kind": "threat_model",
+    "title": "BEESAT-1 OBC command interface threat model (unauthenticated parameter-write primitive)",
+    "text": "Case: BEESAT-1, a 1U CubeSat (TU Berlin, launched 2009). Assets: the on-board computer command handler, parameter memory in SRAM, in-memory C++ objects and their virtual function tables (vtables), and the NAND flash holding firmware. Trust boundary: telecommands arrive over an amateur-band (UHF) uplink and are accepted without authentication; the command set includes a 'write parameter words' primitive that writes attacker-chosen values to memory. Critically, the satellite has no software-update-to-flash feature, yet the parameter-write primitive alone is sufficient to reach arbitrary code execution. Adversary capability assumed: anyone within link budget on the band who can frame valid telecommands. Defensive lesson and dual-use note: the exact unauthenticated memory-write primitive that let the operators recover the satellite in 2024 is what an unauthorized party would use to take it over. The missing control is command authentication plus restricting raw memory-write commands.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0008",
+      "name": "Rogue External Entity"
+    },
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "command authentication",
+        "text": "telecommand authentication and command-set hardening shall be specified before integration"
+      },
+      {
+        "standard": "CCSDS",
+        "clause": "SDLS",
+        "text": "authenticated, replay-protected telecommand links"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "38C3 (2024) talk 'Hacking yourself a satellite, recovering BEESAT-1' by PistonMiner; corroborated by Hackaday 2024-12-30 and heise online.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "year_failed": 2013,
+      "year_recovered": 2024,
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "tech-beesat1-flash-watchdog-race",
+    "kind": "technique",
+    "title": "NAND flash erase-then-write watchdog race blanks firmware (BEESAT-1 root cause)",
+    "text": "Root-cause defect that disabled BEESAT-1. NAND flash must be erased to all-ones/zeroes before a write. A bug left a long pause between the erase and the write; during that window the watchdog timeout fired and reset the satellite, leaving the flash blanked. The satellite then transmitted 'valid zeroes', that is, well-formed telemetry frames carrying all-zero payloads, rather than real data, which is why operators saw invalid telemetry with no obvious link fault. The fault appeared first on the primary OBC (around 2011-2013) and recurred on the redundant OBC, leaving the satellite effectively dead for a decade. Relevance to a development-time testbed: this is a timing/robustness defect in a flash-write routine that a fuzzing or fault-injection campaign on the firmware surface should be able to provoke, and it shows how a non-malicious bug produces a self-inflicted denial of service. Detection oracle: a write routine that can be interrupted by a watchdog reset between erase and program, with no journaling or recovery, is the signature to flag.",
+    "surface": "bus_firmware",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0005",
+      "name": "Exploit Hardware/Firmware Corruption"
+    },
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "PW.7/PW.8",
+        "text": "review and test executable code to find defects under interruption/timeout"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "38C3 (2024) talk 'Hacking yourself a satellite, recovering BEESAT-1' by PistonMiner; Hackaday 2024-12-30.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "phase": "root-cause",
+      "defect_class": "erase-write-watchdog-race",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-beesat1-root",
+    "kind": "attack_tree",
+    "title": "ROOT: Achieve code execution and a software-update capability on an OBC that has no update feature (BEESAT-1 method)",
+    "text": "High-level objective realized in the BEESAT-1 recovery, applicable as an offensive attack tree and as a defensive what-if. With no flash-upload feature and only a memory parameter-write command, reach arbitrary code execution by hijacking C++ control flow, then bootstrap an update capability and patch the firmware. Decomposes into: establish command link, obtain a memory-write primitive, hijack control flow via a vtable overwrite, stage and run custom code, then upload an image and patch the root-cause defect. The same chain an operator uses to recover is what an attacker uses to seize control, which is the dual-use point of including it in the grounding base.",
+    "surface": "flight_software",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0009",
+      "name": "Exploit Code Flaws"
+    },
+    "lifecycle": [],
+    "parent_id": null,
+    "children": [
+      "at-beesat1-link",
+      "at-beesat1-memwrite",
+      "at-beesat1-vtable",
+      "at-beesat1-codeexec"
+    ],
+    "source": "38C3 (2024) talk 'Hacking yourself a satellite, recovering BEESAT-1' by PistonMiner; Hackaday 2024-12-30; heise online.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-beesat1-link",
+    "kind": "attack_tree",
+    "title": "Establish command link on the amateur (UHF) band",
+    "text": "Sub-step of the BEESAT-1 chain. Acquire the satellite's faint downlink with software-defined radio, recover the link and framing, and send valid telecommands on the uplink band. Precondition for everything downstream. Deterministic check: a framed telecommand on the emulated uplink is demodulated and accepted by the command handler.",
+    "surface": "rf_uplink",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0008.01",
+      "name": "Rogue Ground Station"
+    },
+    "lifecycle": [],
+    "parent_id": "at-beesat1-root",
+    "children": [],
+    "source": "38C3 (2024) BEESAT-1 talk; Hackaday 2024-12-30.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-beesat1-memwrite",
+    "kind": "attack_tree",
+    "title": "Obtain an arbitrary memory-write primitive from the parameter-write command",
+    "text": "Sub-step of the BEESAT-1 chain. The OBC has no software-upload feature but the command set allows writing parameter words to memory. Repurpose that legitimate command as an arbitrary write of attacker-chosen values to chosen SRAM addresses. This is the pivot from 'send commands' to 'change program state'. Deterministic check: confirm a parameter-write command can place a known value at a chosen address in the emulated OBC memory map.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0012.03",
+      "name": "Memory Write/Loads"
+    },
+    "lifecycle": [],
+    "parent_id": "at-beesat1-root",
+    "children": [],
+    "source": "38C3 (2024) BEESAT-1 talk; Hackaday 2024-12-30.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-beesat1-vtable",
+    "kind": "attack_tree",
+    "title": "Hijack control flow by overwriting a C++ vtable pointer",
+    "text": "Sub-step of the BEESAT-1 chain and the core trick. The flight software is C++; live objects hold a pointer to their virtual function table (vtable). Using the memory-write primitive, overwrite a vtable pointer (or a vtable entry) so the next virtual call dispatches to attacker-controlled code instead of the intended method. This converts an arbitrary data write into control-flow hijack and arbitrary code execution, without any flash write. Intercepting the vtables also let the recovery avoid the flash read/write conflict. Deterministic check: a virtual call reaches an attacker-supplied routine; control-flow-integrity or a vtable-pointer invariant is violated.",
+    "surface": "flight_software",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0009",
+      "name": "Exploit Code Flaws"
+    },
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "PW.5/PW.7",
+        "text": "memory-safe design and review of control-flow-sensitive code"
+      }
+    ],
+    "parent_id": "at-beesat1-root",
+    "children": [],
+    "source": "38C3 (2024) BEESAT-1 talk; Hackaday 2024-12-30; heise online.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "phase": "exploit",
+      "technique": "vtable-pointer-overwrite",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-beesat1-codeexec",
+    "kind": "attack_tree",
+    "title": "Stage custom code, bootstrap an update capability, upload an image",
+    "text": "Sub-step of the BEESAT-1 chain. With control flow hijacked, run custom routines and build the missing software-update capability from scratch, then upload a software image (about 300 KB in the recovery). Only part of the original source survived, so routines were manually disassembled to understand internal functions before patching. Establishes persistence and the ability to deploy further changes. Deterministic check: attacker code persists across the intended control path and a staged image is accepted and executed in the emulator.",
+    "surface": "flight_software",
+    "sparta": {
+      "tactic_id": "ST0005",
+      "technique_id": "PER-0002",
+      "name": "Backdoor"
+    },
+    "lifecycle": [],
+    "parent_id": "at-beesat1-root",
+    "children": [],
+    "source": "38C3 (2024) BEESAT-1 talk; Hackaday 2024-12-30.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "phase": "exploit",
+      "image_size_kb": 300,
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "at-beesat1-patch",
+    "kind": "attack_tree",
+    "title": "RECOVERY: patch the flash erase-then-write timing to stop the watchdog reset",
+    "text": "Defensive endpoint of the BEESAT-1 chain (the recovery, September 2024). Using the new code-execution and update capability, fix the root-cause defect: adjust the assembly-routine timing parameter (in SRAM) so the erase-to-write gap no longer lets the watchdog fire and blank the flash. After the fix the satellite resumed operation and was taking photos again. Marked as a recovery action, not an attack step: it is included to teach the full hack-to-recovery arc and to show that the same primitives used offensively close the loop defensively. Deterministic check: the patched write routine completes without a watchdog reset; flash retains written data.",
+    "surface": "bus_firmware",
+    "sparta": null,
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "RV.1/RV.2",
+        "text": "remediate the identified defect and verify the fix"
+      }
+    ],
+    "parent_id": "at-beesat1-root",
+    "children": [],
+    "source": "38C3 (2024) BEESAT-1 talk; Hackaday 2024-12-30.",
+    "unverified": false,
+    "metadata": {
+      "case": "BEESAT-1",
+      "phase": "recovery",
+      "fixes": "tech-beesat1-flash-watchdog-race"
+    }
+  }
+]

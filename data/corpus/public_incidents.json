@@ -1,0 +1,213 @@
+[
+  {
+    "id": "inc-rosat-1998",
+    "kind": "technique",
+    "title": "ROSAT destructive attitude command via alleged ground-system intrusion (1998, attribution disputed)",
+    "text": "ROSAT, a joint US-German-UK X-ray observatory, suffered hardware destruction in 1998 when it slewed so its optics/sensors pointed directly at the sun. Some accounts link this to a 1998 network intrusion at NASA Goddard Space Flight Center, where access to flight-control systems could in principle issue commands to orbiting satellites, implying a ground-system compromise leading to a destructive attitude command. IMPORTANT: the causal link between the intrusion and the ROSAT failure is disputed and was refuted by at least one project scientist; public information is thin. Included as a teaching case for the highest-severity outcome class, a software/ground-path action that causes irreversible physical loss, while modeling the uncertainty honestly. Relevance: shows why command authentication and attitude-safety interlocks (sun-avoidance constraints) belong in the satellite threat model.",
+    "surface": "ground_segment",
+    "sparta": {
+      "tactic_id": "ST0009",
+      "technique_id": "IMP-0005",
+      "name": "Destruction"
+    },
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "command authentication + safety interlocks",
+        "text": "authenticated commanding and onboard safety constraints (e.g. sun-avoidance)"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Survey: Pavur & Martinovic, 'SoK: Building a Launchpad for Impactful Satellite Cyber-Security Research' (J. Cybersecurity 8(1), tyac008, 2022; arXiv:2010.10872). Attribution disputed in that source.",
+    "unverified": false,
+    "metadata": {
+      "case": "ROSAT",
+      "year": 1998,
+      "attribution": "disputed",
+      "phase": "exploit",
+      "confidence": "low-public-detail",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "inc-nasa-landsat-terra-2007",
+    "kind": "technique",
+    "title": "Interference and commanding of NASA Landsat-7 and Terra EOS AM-1 via ground stations (2007-2008)",
+    "text": "Per the 2011 US-China Economic and Security Review Commission report, NASA's Landsat-7 experienced multiple minutes of interference in October 2007 and July 2008, and the Terra EOS AM-1 earth-observation satellite experienced interference events in 2008 during which, the report stated, the responsible party achieved all the steps required to command the satellite but did not issue commands. The reported vector was through a compromised ground station / commercial ground-station internet connection. Attribution to Chinese actors was suggested by the commission but not conclusively proven; treat as alleged. Relevance: a ground-station foothold can reach the commanding path of an on-orbit asset, which is the most consequential ground-segment risk; detection of anomalous command sessions and strong ground-to-spacecraft authentication are the controls.",
+    "surface": "ground_segment",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0007",
+      "name": "Compromise Ground System"
+    },
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "ground segment security",
+        "text": "authenticated commanding and ground-station access control"
+      },
+      {
+        "standard": "CCSDS",
+        "clause": "SDLS",
+        "text": "authenticated telecommand links resist injected commands"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Survey: Pavur & Martinovic, SoK (tyac008, 2022; arXiv:2010.10872), citing the 2011 US-China Economic and Security Review Commission report. Attribution alleged.",
+    "unverified": false,
+    "metadata": {
+      "case": "Landsat-7/Terra-EOS-AM-1",
+      "years": "2007-2008",
+      "attribution": "alleged",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "inc-turla-satc2-2015",
+    "kind": "technique",
+    "title": "Turla APT hides command-and-control by abusing one-way satellite internet downlinks (2015)",
+    "text": "Kaspersky disclosed in 2015 that the Russian-speaking Turla APT abused commercial one-way (DVB-S) satellite internet links to anonymize and hide its command-and-control. Because the downstream of such links is broadcast unencrypted to a wide footprint, Turla configured malware to send data to IP addresses of legitimate satellite-internet subscribers and then passively received the broadcast replies from anywhere in the satellite footprint, masking the true location of its C2 servers cheaply and resiliently. Distinct mechanism and important nuance: this does NOT attack or damage the satellite. It exploits an insecure link design to use the satellite as anonymizing infrastructure. Relevance: the satellite threat model must include link confidentiality and the misuse of broadcast downlinks, not only attacks that target the spacecraft.",
+    "surface": "protocol",
+    "sparta": {
+      "tactic_id": "ST0008",
+      "technique_id": "EXF-0003.02",
+      "name": "Downlink Exfiltration"
+    },
+    "lifecycle": [
+      {
+        "standard": "CCSDS",
+        "clause": "link security",
+        "text": "encrypted, authenticated links remove the broadcast-abuse channel"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Kaspersky GReAT, 'Satellite Turla: APT Command and Control in the Sky' (2015); summarized in Pavur & Martinovic, SoK (tyac008, 2022).",
+    "unverified": false,
+    "metadata": {
+      "case": "Turla-satellite-C2",
+      "year": 2015,
+      "mechanism": "link-abuse-not-spacecraft-attack",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "inc-gnss-spoofing",
+    "kind": "technique",
+    "title": "GNSS/GPS signal spoofing of position, navigation, and timing",
+    "text": "GNSS spoofing transmits counterfeit satellite-navigation signals to make a receiver compute a false position or time. Public demonstrations include a University of Texas team (Humphreys) covertly steering the yacht White Rose of Drachs off course in 2013 by gradually overpowering authentic GPS signals, and an earlier drone-spoofing demonstration; the 2011 loss of a US RQ-170 drone over Iran was attributed by Iran to GPS spoofing, though that remains disputed. Civilian GPS spoofing was also seen in Pokemon GO cheating via SDRs. Mechanism: signal-level forgery at the RF/PNT layer, not a compromise of the GNSS spacecraft. Relevance: any satellite or testbed relying on GNSS for position or time needs spoofing-resistant receivers and plausibility/consistency checks.",
+    "surface": "rf_uplink",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0014.04",
+      "name": "Position, Navigation, and Timing (PNT) Spoofing"
+    },
+    "lifecycle": [
+      {
+        "standard": "CCSDS",
+        "clause": "PNT integrity",
+        "text": "spoofing-resistant timing/position with sanity and authentication checks"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Survey: Pavur & Martinovic, SoK (tyac008, 2022; arXiv:2010.10872); UT Austin Radionavigation Lab (Humphreys et al.) for the 2013 yacht demonstration.",
+    "unverified": false,
+    "metadata": {
+      "case": "GNSS-spoofing",
+      "examples": "UT-Austin-yacht-2013; RQ-170-2011-disputed; PokemonGO-2016",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "inc-broadcast-uplink-hijack",
+    "kind": "technique",
+    "title": "Broadcast/transponder hijacking by overpowering the uplink",
+    "text": "A recurring class of attack hijacks satellite broadcast content by transmitting a stronger unauthorized uplink to a transponder, overriding the legitimate feed. Public cases: 'Captain Midnight' overrode HBO in 1986 to protest scrambling fees; a Christian Broadcasting Network employee overrode the Playboy Channel in 1987; Falun Gong hijacked Chinese satellite TV broadcasts from 2002 to 2005; the Tamil Tigers hijacked satellite broadcasts from 2007 to 2009; Hamas conducted broadcast signal intrusions against Israeli stations. Mechanism: unauthenticated, power-dominant uplink to a transponder, i.e. the link accepts whatever signal is loudest. Relevance: classic demonstration that uplinks without authentication are open to injection, the same root issue as command-link spoofing.",
+    "surface": "rf_uplink",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0008",
+      "name": "Rogue External Entity"
+    },
+    "lifecycle": [
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "uplink authentication",
+        "text": "authenticated uplinks resist power-dominant signal injection"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Survey: Pavur & Martinovic, SoK (tyac008, 2022; arXiv:2010.10872).",
+    "unverified": false,
+    "metadata": {
+      "case": "broadcast-hijack",
+      "examples": "CaptainMidnight-1986; FalunGong-2002-2005; TamilTigers-2007-2009",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "inc-gnss-satcom-jamming",
+    "kind": "technique",
+    "title": "GNSS and SATCOM jamming (denial by RF noise)",
+    "text": "Jamming denies service by flooding a receive band with noise so legitimate signals cannot be recovered. Documented patterns include a suspected Russian GPS jamming event affecting civil aviation in Norway (2014), waves of SATCOM jamming across the Middle East and North Africa from around 2010 onward (including during Arab Spring protests), and orbital-slot disputes where one operator jammed a neighbor. Mechanism: RF denial at the link layer, distinct from spoofing (forgery) and from any spacecraft compromise. Relevance: availability is part of the satellite threat model; jamming resistance, frequency agility, and jamming detection are the relevant controls and should be exercised in test.",
+    "surface": "rf_uplink",
+    "sparta": {
+      "tactic_id": "ST0004",
+      "technique_id": "EX-0016",
+      "name": "Jamming"
+    },
+    "lifecycle": [],
+    "parent_id": null,
+    "children": [],
+    "source": "Survey: Pavur & Martinovic, SoK (tyac008, 2022; arXiv:2010.10872).",
+    "unverified": false,
+    "metadata": {
+      "case": "jamming",
+      "examples": "Norway-GPS-2014; MENA-SATCOM-2010+",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  },
+  {
+    "id": "tm-ground-station-vulnerabilities",
+    "kind": "threat_model",
+    "title": "Ground-station and SATCOM-terminal vulnerability class (hardcoded credentials, backdoors, unpatched systems)",
+    "text": "Audits and research repeatedly find weak security in the ground segment and in satellite terminals. A 2014 audit of NOAA's Joint Polar Satellite System (JPSS) ground systems reported on the order of thousands of high-risk security issues, many unpatched from prior audits. Security research on commercial SATCOM terminals and ground equipment found hardcoded passwords, undocumented backdoors, and insecure protocols. Assets at risk: ground-station hosts, mission/management networks, and the commanding path they reach. Trust boundary: ground systems are often treated as internal and trusted, yet they are internet-adjacent and under-maintained. Relevance: many of the worst satellite incidents (ViaSat, the NASA ground-station cases) start in the ground segment, so a development-time testbed should treat ground-side credentials, patch state, and segmentation as first-class targets.",
+    "surface": "ground_segment",
+    "sparta": {
+      "tactic_id": "ST0003",
+      "technique_id": "IA-0007",
+      "name": "Compromise Ground System"
+    },
+    "lifecycle": [
+      {
+        "standard": "NIST SSDF",
+        "clause": "RV.1/PO.5",
+        "text": "remediate known vulnerabilities; secure development and config of ground systems"
+      },
+      {
+        "standard": "ECSS-E-ST-80C",
+        "clause": "ground segment security",
+        "text": "credential management, segmentation, monitoring"
+      }
+    ],
+    "parent_id": null,
+    "children": [],
+    "source": "Survey: Pavur & Martinovic, SoK (tyac008, 2022; arXiv:2010.10872); JPSS audit (2014); IOActive SATCOM terminal research (Santamarta, 2014).",
+    "unverified": false,
+    "metadata": {
+      "case": "ground-station-vuln-class",
+      "examples": "JPSS-2014; SATCOM-terminal-backdoors",
+      "phase": "exploit",
+      "sparta_status": "verified-against-SPARTA-2026-04-09"
+    }
+  }
+]
