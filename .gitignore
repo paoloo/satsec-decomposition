@@ -1,0 +1,38 @@
+# Operating-system metadata
+.DS_Store
+**/.DS_Store
+._*
+Thumbs.db
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Generated dataset exports
+data/hf_export/
+
+# LLM weights, adapters, checkpoints, and local model caches
+models/
+checkpoints/
+artifacts/**/adapters/
+artifacts/**/checkpoints/
+artifacts/**/models/
+*.safetensors
+*.gguf
+*.ggml
+*.ckpt
+*.pt
+*.pth
+*.onnx
+pytorch_model*.bin
+adapter_model*.bin
+.cache/huggingface/
+.huggingface/
+hf_cache/
+transformers_cache/
+wandb/
+
+# Raw prediction JSONL files from paper runs are intentionally versioned.
