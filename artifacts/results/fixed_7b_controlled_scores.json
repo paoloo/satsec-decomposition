@@ -1,0 +1,208 @@
+{
+  "predictions": "artifacts/raw_predictions/fixed_7b_controlled_all.jsonl",
+  "dataset": "data/tuning_set.v2.jsonl",
+  "split": "test",
+  "reference_cases": 6,
+  "decompose": {
+    "+adapter (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.7666666666666666,
+        "sample_std": 0.050460839234958206
+      },
+      "precision": {
+        "mean": 0.6716666666666666,
+        "sample_std": 0.028355111455944108
+      },
+      "ordering": {
+        "mean": 0.6833333333333333,
+        "sample_std": 0.16735967034880073
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base+retrieval (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.12777777777777777,
+        "sample_std": 0.09337631285539784
+      },
+      "precision": {
+        "mean": 0.09027777777777778,
+        "sample_std": 0.08391004148329563
+      },
+      "ordering": {
+        "mean": 0.16666666666666666,
+        "sample_std": 0.11785113019775792
+      },
+      "grounding": {
+        "mean": 0.225,
+        "sample_std": 0.17579185924774154
+      },
+      "check": {
+        "mean": 0.11297619047619048,
+        "sample_std": 0.11718815664970976
+      }
+    },
+    "poscopy (retrieval-order)": {
+      "completeness": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.3958333333333333,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.4444444444444445,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base+schema (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.7027777777777777,
+        "sample_std": 0.061016340656913304
+      },
+      "precision": {
+        "mean": 0.5894444444444444,
+        "sample_std": 0.06641735791266287
+      },
+      "ordering": {
+        "mean": 0.8444444444444444,
+        "sample_std": 0.08002700161604409
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base+2shot-fixed (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.6611111111111112,
+        "sample_std": 0.04347909956249594
+      },
+      "precision": {
+        "mean": 0.4115079365079365,
+        "sample_std": 0.03735431936345619
+      },
+      "ordering": {
+        "mean": 0.7444444444444445,
+        "sample_std": 0.20544291207889548
+      },
+      "grounding": {
+        "mean": 0.9167460317460318,
+        "sample_std": 0.02270789775737361
+      },
+      "check": {
+        "mean": 0.9200396825396826,
+        "sample_std": 0.019498527798112803
+      }
+    }
+  },
+  "next_step": {
+    "+adapter rollout (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.29473684210526313,
+        "sample_std": 0.0798197415163321
+      },
+      "precision": {
+        "mean": 0.29473684210526313,
+        "sample_std": 0.0798197415163321
+      },
+      "ordering": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base rollout (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.042105263157894736,
+        "sample_std": 0.023537557657892522
+      },
+      "precision": {
+        "mean": 0.042105263157894736,
+        "sample_std": 0.023537557657892522
+      },
+      "ordering": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 0.3157894736842105,
+        "sample_std": 0.03721614637823934
+      },
+      "check": {
+        "mean": 0.010526315789473684,
+        "sample_std": 0.023537557657892522
+      }
+    },
+    "+adapter teacher-forced (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.3684210526315789,
+        "sample_std": 0.03721614637823934
+      },
+      "precision": {
+        "mean": 0.3684210526315789,
+        "sample_std": 0.03721614637823934
+      },
+      "ordering": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base teacher-forced (Qwen2.5-7B-Instruct)": {
+      "completeness": {
+        "mean": 0.09473684210526315,
+        "sample_std": 0.023537557657892522
+      },
+      "precision": {
+        "mean": 0.09473684210526315,
+        "sample_std": 0.023537557657892522
+      },
+      "ordering": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 0.3684210526315789,
+        "sample_std": 0.03721614637823934
+      },
+      "check": {
+        "mean": 0.021052631578947368,
+        "sample_std": 0.02882750302658769
+      }
+    }
+  }
+}

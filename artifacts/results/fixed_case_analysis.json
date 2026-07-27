@@ -1,0 +1,1846 @@
+{
+  "case_count": 6,
+  "sizes": {
+    "0.5b": {
+      "case_means": {
+        "adapter": {
+          "GNSS-spoofing": {
+            "check": 1.0,
+            "completeness": 0.2,
+            "grounding": 1.0,
+            "ordering": 0.4,
+            "precision": 0.08
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 0.26666666666666666,
+            "grounding": 0.96,
+            "ordering": 0.8,
+            "precision": 0.19666666666666666
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 1.0,
+            "completeness": 0.13333333333333333,
+            "grounding": 1.0,
+            "ordering": 0.4,
+            "precision": 0.11666666666666667
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 0.25,
+            "grounding": 0.9333333333333333,
+            "ordering": 1.0,
+            "precision": 0.39999999999999997
+          },
+          "TC-replay-no-SDLS": {
+            "check": 1.0,
+            "completeness": 0.4,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.6
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 0.3333333333333333,
+            "grounding": 0.96,
+            "ordering": 0.8,
+            "precision": 0.24666666666666667
+          }
+        },
+        "candidate-only": {
+          "GNSS-spoofing": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "JTAG-debug-firmware": {
+            "check": 0.025,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.02,
+            "completeness": 0.06666666666666667,
+            "grounding": 0.2,
+            "ordering": 0.2,
+            "precision": 0.1
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.02857142857142857,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "Turla-satellite-C2": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          }
+        },
+        "positional-copy": {
+          "GNSS-spoofing": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.25
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.5
+          },
+          "TC-replay-no-SDLS": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.5
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          }
+        },
+        "schema": {
+          "GNSS-spoofing": {
+            "check": 0.8984126984126983,
+            "completeness": 0.4,
+            "grounding": 0.28214285714285714,
+            "ordering": 0.4,
+            "precision": 0.15714285714285714
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 0.39999999999999997,
+            "grounding": 0.67,
+            "ordering": 0.5333333333333333,
+            "precision": 0.38
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.9277777777777778,
+            "completeness": 0.06666666666666667,
+            "grounding": 0.13333333333333333,
+            "ordering": 0.2,
+            "precision": 0.02857142857142857
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 0.7714285714285715,
+            "completeness": 0.1,
+            "grounding": 0.22857142857142856,
+            "ordering": 0.4,
+            "precision": 0.22857142857142856
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.9777777777777777,
+            "completeness": 0.1,
+            "grounding": 0.2916666666666667,
+            "ordering": 0.4,
+            "precision": 0.06857142857142857
+          },
+          "Turla-satellite-C2": {
+            "check": 0.9380952380952381,
+            "completeness": 0.06666666666666667,
+            "grounding": 0.4,
+            "ordering": 0.2,
+            "precision": 0.03333333333333333
+          }
+        },
+        "two-shot": {
+          "GNSS-spoofing": {
+            "check": 0.8873015873015873,
+            "completeness": 0.6,
+            "grounding": 0.5773809523809523,
+            "ordering": 0.6,
+            "precision": 0.22523809523809524
+          },
+          "JTAG-debug-firmware": {
+            "check": 0.9714285714285714,
+            "completeness": 0.3333333333333333,
+            "grounding": 0.82,
+            "ordering": 0.4,
+            "precision": 0.3
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.9178571428571428,
+            "completeness": 0.13333333333333333,
+            "grounding": 0.47214285714285714,
+            "ordering": 0.4,
+            "precision": 0.11666666666666667
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 0.9714285714285714,
+            "completeness": 0.1,
+            "grounding": 0.6047619047619047,
+            "ordering": 0.4,
+            "precision": 0.09
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.8416666666666667,
+            "completeness": 0.25,
+            "grounding": 0.3933333333333333,
+            "ordering": 0.8,
+            "precision": 0.25666666666666665
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 0.26666666666666666,
+            "grounding": 0.68,
+            "ordering": 0.4,
+            "precision": 0.21333333333333332
+          }
+        }
+      },
+      "cases": [
+        "GNSS-spoofing",
+        "JTAG-debug-firmware",
+        "Pavur-SATCOM-eavesdrop",
+        "Space-Odyssey-unauth-TC",
+        "TC-replay-no-SDLS",
+        "Turla-satellite-C2"
+      ],
+      "formatting": {
+        "adapter": {
+          "complete_step_rate": 1.0,
+          "fully_structured_prediction_rate": 1.0,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 1.0
+        },
+        "candidate-only": {
+          "complete_step_rate": 0.0,
+          "fully_structured_prediction_rate": 0.0,
+          "parsed_prediction_rate": 0.5666666666666667,
+          "predictions": 30,
+          "technique_field_step_rate": 0.06756756756756757
+        },
+        "positional-copy": {
+          "complete_step_rate": 1.0,
+          "fully_structured_prediction_rate": 1.0,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 1.0
+        },
+        "schema": {
+          "complete_step_rate": 0.5307262569832403,
+          "fully_structured_prediction_rate": 0.3,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 0.553072625698324
+        },
+        "two-shot": {
+          "complete_step_rate": 0.8452380952380952,
+          "fully_structured_prediction_rate": 0.5333333333333333,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 60,
+          "technique_field_step_rate": 0.9166666666666666
+        }
+      },
+      "ordering_support": {
+        "adapter": {
+          "comparable_pairs": 4,
+          "mean_matched_steps": 0.8666666666666667,
+          "pair_weighted_ordering": 1.0,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 4
+        },
+        "candidate-only": {
+          "comparable_pairs": 0,
+          "mean_matched_steps": 0.03333333333333333,
+          "pair_weighted_ordering": null,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 0
+        },
+        "positional-copy": {
+          "comparable_pairs": 110,
+          "mean_matched_steps": 3.1666666666666665,
+          "pair_weighted_ordering": 0.36363636363636365,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 30
+        },
+        "schema": {
+          "comparable_pairs": 5,
+          "mean_matched_steps": 0.5333333333333333,
+          "pair_weighted_ordering": 0.6,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 3
+        },
+        "two-shot": {
+          "comparable_pairs": 12,
+          "mean_matched_steps": 0.8,
+          "pair_weighted_ordering": 0.5,
+          "predictions": 60,
+          "predictions_with_at_least_two_matches": 12
+        }
+      },
+      "paired_comparisons": {
+        "schema": {
+          "check": {
+            "adapter_minus_baseline_mean": 0.08108465608465609,
+            "case_resampling_95pct_interval": [
+              0.029761904761904767,
+              0.14523809523809525
+            ],
+            "exact_sign_flip_p": 0.0625,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.10158730158730167,
+              "JTAG-debug-firmware": 0.0,
+              "Pavur-SATCOM-eavesdrop": 0.07222222222222219,
+              "Space-Odyssey-unauth-TC": 0.22857142857142854,
+              "TC-replay-no-SDLS": 0.022222222222222254,
+              "Turla-satellite-C2": 0.06190476190476191
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.0973015873015873,
+              "leave_one_case_out_min": 0.051587301587301605,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.07698412698412697,
+                "JTAG-debug-firmware": 0.0973015873015873,
+                "Pavur-SATCOM-eavesdrop": 0.08285714285714288,
+                "Space-Odyssey-unauth-TC": 0.051587301587301605,
+                "TC-replay-no-SDLS": 0.09285714285714286,
+                "Turla-satellite-C2": 0.08492063492063492
+              }
+            }
+          },
+          "completeness": {
+            "adapter_minus_baseline_mean": 0.07500000000000001,
+            "case_resampling_95pct_interval": [
+              -0.07777777777777777,
+              0.21944444444444444
+            ],
+            "exact_sign_flip_p": 0.40625,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.2,
+              "JTAG-debug-firmware": -0.1333333333333333,
+              "Pavur-SATCOM-eavesdrop": 0.06666666666666667,
+              "Space-Odyssey-unauth-TC": 0.15,
+              "TC-replay-no-SDLS": 0.30000000000000004,
+              "Turla-satellite-C2": 0.26666666666666666
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.13,
+              "leave_one_case_out_min": 0.030000000000000002,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.13,
+                "JTAG-debug-firmware": 0.11666666666666667,
+                "Pavur-SATCOM-eavesdrop": 0.07666666666666667,
+                "Space-Odyssey-unauth-TC": 0.06000000000000001,
+                "TC-replay-no-SDLS": 0.030000000000000002,
+                "Turla-satellite-C2": 0.03666666666666668
+              }
+            }
+          },
+          "grounding": {
+            "adapter_minus_baseline_mean": 0.6412698412698412,
+            "case_resampling_95pct_interval": [
+              0.4776190476190475,
+              0.7642857142857142
+            ],
+            "exact_sign_flip_p": 0.03125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.7178571428571429,
+              "JTAG-debug-firmware": 0.2899999999999999,
+              "Pavur-SATCOM-eavesdrop": 0.8666666666666667,
+              "Space-Odyssey-unauth-TC": 0.7047619047619048,
+              "TC-replay-no-SDLS": 0.7083333333333333,
+              "Turla-satellite-C2": 0.5599999999999999
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.7115238095238096,
+              "leave_one_case_out_min": 0.5961904761904762,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.6259523809523809,
+                "JTAG-debug-firmware": 0.7115238095238096,
+                "Pavur-SATCOM-eavesdrop": 0.5961904761904762,
+                "Space-Odyssey-unauth-TC": 0.6285714285714286,
+                "TC-replay-no-SDLS": 0.6278571428571429,
+                "Turla-satellite-C2": 0.6575238095238095
+              }
+            }
+          },
+          "ordering": {
+            "adapter_minus_baseline_mean": 0.37777777777777777,
+            "case_resampling_95pct_interval": [
+              0.1777777777777778,
+              0.5444444444444445
+            ],
+            "exact_sign_flip_p": 0.0625,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.0,
+              "JTAG-debug-firmware": 0.2666666666666667,
+              "Pavur-SATCOM-eavesdrop": 0.2,
+              "Space-Odyssey-unauth-TC": 0.6,
+              "TC-replay-no-SDLS": 0.6,
+              "Turla-satellite-C2": 0.6000000000000001
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.45333333333333337,
+              "leave_one_case_out_min": 0.3333333333333333,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.45333333333333337,
+                "JTAG-debug-firmware": 0.4,
+                "Pavur-SATCOM-eavesdrop": 0.41333333333333333,
+                "Space-Odyssey-unauth-TC": 0.33333333333333337,
+                "TC-replay-no-SDLS": 0.33333333333333337,
+                "Turla-satellite-C2": 0.3333333333333333
+              }
+            }
+          },
+          "precision": {
+            "adapter_minus_baseline_mean": 0.12396825396825395,
+            "case_resampling_95pct_interval": [
+              -0.0473809523809524,
+              0.30999999999999994
+            ],
+            "exact_sign_flip_p": 0.3125,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.07714285714285714,
+              "JTAG-debug-firmware": -0.18333333333333335,
+              "Pavur-SATCOM-eavesdrop": 0.0880952380952381,
+              "Space-Odyssey-unauth-TC": 0.1714285714285714,
+              "TC-replay-no-SDLS": 0.5314285714285714,
+              "Turla-satellite-C2": 0.21333333333333335
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.18542857142857141,
+              "leave_one_case_out_min": 0.04247619047619047,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.16419047619047616,
+                "JTAG-debug-firmware": 0.18542857142857141,
+                "Pavur-SATCOM-eavesdrop": 0.13114285714285712,
+                "Space-Odyssey-unauth-TC": 0.11447619047619047,
+                "TC-replay-no-SDLS": 0.04247619047619047,
+                "Turla-satellite-C2": 0.10609523809523808
+              }
+            }
+          }
+        },
+        "two-shot": {
+          "check": {
+            "adapter_minus_baseline_mean": 0.0683862433862434,
+            "case_resampling_95pct_interval": [
+              0.027976190476190488,
+              0.1138888888888889
+            ],
+            "exact_sign_flip_p": 0.0625,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.11269841269841274,
+              "JTAG-debug-firmware": 0.02857142857142858,
+              "Pavur-SATCOM-eavesdrop": 0.08214285714285718,
+              "Space-Odyssey-unauth-TC": 0.02857142857142858,
+              "TC-replay-no-SDLS": 0.15833333333333333,
+              "Turla-satellite-C2": 0.0
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.08206349206349209,
+              "leave_one_case_out_min": 0.05039682539682542,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.059523809523809534,
+                "JTAG-debug-firmware": 0.07634920634920636,
+                "Pavur-SATCOM-eavesdrop": 0.06563492063492064,
+                "Space-Odyssey-unauth-TC": 0.07634920634920636,
+                "TC-replay-no-SDLS": 0.05039682539682542,
+                "Turla-satellite-C2": 0.08206349206349209
+              }
+            }
+          },
+          "completeness": {
+            "adapter_minus_baseline_mean": -0.01666666666666666,
+            "case_resampling_95pct_interval": [
+              -0.1861111111111111,
+              0.11111111111111112
+            ],
+            "exact_sign_flip_p": 0.9375,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.39999999999999997,
+              "JTAG-debug-firmware": -0.06666666666666665,
+              "Pavur-SATCOM-eavesdrop": 0.0,
+              "Space-Odyssey-unauth-TC": 0.15,
+              "TC-replay-no-SDLS": 0.15000000000000002,
+              "Turla-satellite-C2": 0.06666666666666665
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": false,
+              "leave_one_case_out_max": 0.060000000000000005,
+              "leave_one_case_out_min": -0.049999999999999996,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.060000000000000005,
+                "JTAG-debug-firmware": -0.006666666666666659,
+                "Pavur-SATCOM-eavesdrop": -0.01999999999999999,
+                "Space-Odyssey-unauth-TC": -0.04999999999999999,
+                "TC-replay-no-SDLS": -0.049999999999999996,
+                "Turla-satellite-C2": -0.03333333333333332
+              }
+            }
+          },
+          "grounding": {
+            "adapter_minus_baseline_mean": 0.3842857142857143,
+            "case_resampling_95pct_interval": [
+              0.2594047619047619,
+              0.5059126984126984
+            ],
+            "exact_sign_flip_p": 0.03125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.42261904761904767,
+              "JTAG-debug-firmware": 0.14,
+              "Pavur-SATCOM-eavesdrop": 0.5278571428571428,
+              "Space-Odyssey-unauth-TC": 0.3285714285714286,
+              "TC-replay-no-SDLS": 0.6066666666666667,
+              "Turla-satellite-C2": 0.2799999999999999
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.43314285714285716,
+              "leave_one_case_out_min": 0.3398095238095238,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.37661904761904763,
+                "JTAG-debug-firmware": 0.43314285714285716,
+                "Pavur-SATCOM-eavesdrop": 0.3555714285714286,
+                "Space-Odyssey-unauth-TC": 0.3954285714285714,
+                "TC-replay-no-SDLS": 0.3398095238095238,
+                "Turla-satellite-C2": 0.40514285714285714
+              }
+            }
+          },
+          "ordering": {
+            "adapter_minus_baseline_mean": 0.23333333333333334,
+            "case_resampling_95pct_interval": [
+              1.850371707708594e-17,
+              0.43333333333333335
+            ],
+            "exact_sign_flip_p": 0.1875,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.19999999999999996,
+              "JTAG-debug-firmware": 0.4,
+              "Pavur-SATCOM-eavesdrop": 0.0,
+              "Space-Odyssey-unauth-TC": 0.6,
+              "TC-replay-no-SDLS": 0.19999999999999996,
+              "Turla-satellite-C2": 0.4
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.32,
+              "leave_one_case_out_min": 0.16,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.32,
+                "JTAG-debug-firmware": 0.2,
+                "Pavur-SATCOM-eavesdrop": 0.28,
+                "Space-Odyssey-unauth-TC": 0.16,
+                "TC-replay-no-SDLS": 0.24000000000000002,
+                "Turla-satellite-C2": 0.2
+              }
+            }
+          },
+          "precision": {
+            "adapter_minus_baseline_mean": 0.073015873015873,
+            "case_resampling_95pct_interval": [
+              -0.07174603174603174,
+              0.22333333333333333
+            ],
+            "exact_sign_flip_p": 0.4375,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.14523809523809522,
+              "JTAG-debug-firmware": -0.10333333333333333,
+              "Pavur-SATCOM-eavesdrop": 0.0,
+              "Space-Odyssey-unauth-TC": 0.30999999999999994,
+              "TC-replay-no-SDLS": 0.3433333333333333,
+              "Turla-satellite-C2": 0.033333333333333354
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.11666666666666665,
+              "leave_one_case_out_min": 0.01895238095238095,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.11666666666666665,
+                "JTAG-debug-firmware": 0.10828571428571428,
+                "Pavur-SATCOM-eavesdrop": 0.08761904761904761,
+                "Space-Odyssey-unauth-TC": 0.025619047619047625,
+                "TC-replay-no-SDLS": 0.01895238095238095,
+                "Turla-satellite-C2": 0.08095238095238094
+              }
+            }
+          }
+        }
+      },
+      "prediction_file": "artifacts/raw_predictions/fixed_0.5b_controlled_all.jsonl"
+    },
+    "1.5b": {
+      "case_means": {
+        "adapter": {
+          "GNSS-spoofing": {
+            "check": 1.0,
+            "completeness": 0.1,
+            "grounding": 1.0,
+            "ordering": 0.2,
+            "precision": 0.06666666666666667
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 0.5333333333333333,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.48333333333333334
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.9,
+            "completeness": 0.5333333333333333,
+            "grounding": 1.0,
+            "ordering": 0.8,
+            "precision": 0.5333333333333333
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 0.6,
+            "grounding": 1.0,
+            "ordering": 0.9,
+            "precision": 0.66
+          },
+          "TC-replay-no-SDLS": {
+            "check": 1.0,
+            "completeness": 0.5,
+            "grounding": 0.5833333333333334,
+            "ordering": 0.33333333333333337,
+            "precision": 0.5833333333333333
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 0.3333333333333333,
+            "grounding": 0.9,
+            "ordering": 1.0,
+            "precision": 0.3333333333333333
+          }
+        },
+        "candidate-only": {
+          "GNSS-spoofing": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "JTAG-debug-firmware": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 0.0,
+            "completeness": 0.05,
+            "grounding": 0.06666666666666667,
+            "ordering": 0.2,
+            "precision": 0.03333333333333333
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "Turla-satellite-C2": {
+            "check": 0.02,
+            "completeness": 0.06666666666666667,
+            "grounding": 0.02222222222222222,
+            "ordering": 0.2,
+            "precision": 0.025
+          }
+        },
+        "positional-copy": {
+          "GNSS-spoofing": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.25
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.5
+          },
+          "TC-replay-no-SDLS": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.5
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          }
+        },
+        "schema": {
+          "GNSS-spoofing": {
+            "check": 0.9047619047619048,
+            "completeness": 0.4,
+            "grounding": 0.4857142857142857,
+            "ordering": 0.6,
+            "precision": 0.18
+          },
+          "JTAG-debug-firmware": {
+            "check": 0.8964285714285715,
+            "completeness": 0.5333333333333333,
+            "grounding": 0.95,
+            "ordering": 0.8,
+            "precision": 0.2857142857142857
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.9314285714285714,
+            "completeness": 0.3333333333333333,
+            "grounding": 0.6476190476190476,
+            "ordering": 0.6,
+            "precision": 0.22
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 0.8,
+            "grounding": 0.9777777777777777,
+            "ordering": 0.6666666666666667,
+            "precision": 0.5176190476190476
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.9777777777777777,
+            "completeness": 0.5,
+            "grounding": 0.8666666666666667,
+            "ordering": 0.8666666666666667,
+            "precision": 0.48
+          },
+          "Turla-satellite-C2": {
+            "check": 0.8559523809523809,
+            "completeness": 0.8666666666666667,
+            "grounding": 1.0,
+            "ordering": 0.7333333333333334,
+            "precision": 0.4407142857142857
+          }
+        },
+        "two-shot": {
+          "GNSS-spoofing": {
+            "check": 0.5380952380952381,
+            "completeness": 0.2,
+            "grounding": 0.5380952380952381,
+            "ordering": 0.4,
+            "precision": 0.1
+          },
+          "JTAG-debug-firmware": {
+            "check": 0.9464285714285714,
+            "completeness": 0.13333333333333333,
+            "grounding": 0.8416666666666667,
+            "ordering": 0.0,
+            "precision": 0.05714285714285714
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.5527777777777778,
+            "completeness": 0.3333333333333333,
+            "grounding": 0.475,
+            "ordering": 0.4,
+            "precision": 0.17
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 0.7714285714285715,
+            "completeness": 0.5,
+            "grounding": 0.92,
+            "ordering": 0.7333333333333334,
+            "precision": 0.3933333333333333
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.5714285714285714,
+            "completeness": 0.35,
+            "grounding": 0.51,
+            "ordering": 0.5333333333333333,
+            "precision": 0.35
+          },
+          "Turla-satellite-C2": {
+            "check": 0.7380952380952381,
+            "completeness": 0.39999999999999997,
+            "grounding": 0.7,
+            "ordering": 0.2,
+            "precision": 0.23333333333333334
+          }
+        }
+      },
+      "cases": [
+        "GNSS-spoofing",
+        "JTAG-debug-firmware",
+        "Pavur-SATCOM-eavesdrop",
+        "Space-Odyssey-unauth-TC",
+        "TC-replay-no-SDLS",
+        "Turla-satellite-C2"
+      ],
+      "formatting": {
+        "adapter": {
+          "complete_step_rate": 0.9904761904761905,
+          "fully_structured_prediction_rate": 0.9666666666666667,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 1.0
+        },
+        "candidate-only": {
+          "complete_step_rate": 0.0,
+          "fully_structured_prediction_rate": 0.0,
+          "parsed_prediction_rate": 0.13333333333333333,
+          "predictions": 30,
+          "technique_field_step_rate": 0.6666666666666666
+        },
+        "positional-copy": {
+          "complete_step_rate": 1.0,
+          "fully_structured_prediction_rate": 1.0,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 1.0
+        },
+        "schema": {
+          "complete_step_rate": 0.8155339805825242,
+          "fully_structured_prediction_rate": 0.3,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 0.8786407766990292
+        },
+        "two-shot": {
+          "complete_step_rate": 0.8652482269503546,
+          "fully_structured_prediction_rate": 0.36666666666666664,
+          "parsed_prediction_rate": 0.7666666666666667,
+          "predictions": 60,
+          "technique_field_step_rate": 0.9645390070921985
+        }
+      },
+      "ordering_support": {
+        "adapter": {
+          "comparable_pairs": 22,
+          "mean_matched_steps": 1.4666666666666666,
+          "pair_weighted_ordering": 0.6363636363636364,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 15
+        },
+        "candidate-only": {
+          "comparable_pairs": 0,
+          "mean_matched_steps": 0.06666666666666667,
+          "pair_weighted_ordering": null,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 0
+        },
+        "positional-copy": {
+          "comparable_pairs": 110,
+          "mean_matched_steps": 3.1666666666666665,
+          "pair_weighted_ordering": 0.36363636363636365,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 30
+        },
+        "schema": {
+          "comparable_pairs": 45,
+          "mean_matched_steps": 1.8666666666666667,
+          "pair_weighted_ordering": 0.6666666666666666,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 18
+        },
+        "two-shot": {
+          "comparable_pairs": 42,
+          "mean_matched_steps": 1.0666666666666667,
+          "pair_weighted_ordering": 0.5714285714285714,
+          "predictions": 60,
+          "predictions_with_at_least_two_matches": 24
+        }
+      },
+      "paired_comparisons": {
+        "schema": {
+          "check": {
+            "adapter_minus_baseline_mean": 0.05560846560846563,
+            "case_resampling_95pct_interval": [
+              0.0058730158730159005,
+              0.10515873015873017
+            ],
+            "exact_sign_flip_p": 0.1875,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.09523809523809523,
+              "JTAG-debug-firmware": 0.10357142857142854,
+              "Pavur-SATCOM-eavesdrop": -0.03142857142857136,
+              "Space-Odyssey-unauth-TC": 0.0,
+              "TC-replay-no-SDLS": 0.022222222222222254,
+              "Turla-satellite-C2": 0.1440476190476191
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.07301587301587302,
+              "leave_one_case_out_min": 0.03792063492063493,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.0476825396825397,
+                "JTAG-debug-firmware": 0.046015873015873045,
+                "Pavur-SATCOM-eavesdrop": 0.07301587301587302,
+                "Space-Odyssey-unauth-TC": 0.06673015873015875,
+                "TC-replay-no-SDLS": 0.0622857142857143,
+                "Turla-satellite-C2": 0.03792063492063493
+              }
+            }
+          },
+          "completeness": {
+            "adapter_minus_baseline_mean": -0.13888888888888892,
+            "case_resampling_95pct_interval": [
+              -0.33333333333333337,
+              0.04444444444444443
+            ],
+            "exact_sign_flip_p": 0.375,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.30000000000000004,
+              "JTAG-debug-firmware": 0.0,
+              "Pavur-SATCOM-eavesdrop": 0.2,
+              "Space-Odyssey-unauth-TC": -0.20000000000000007,
+              "TC-replay-no-SDLS": 0.0,
+              "Turla-satellite-C2": -0.5333333333333334
+            },
+            "reference_case_sensitivity": {
+              "all_negative": true,
+              "all_positive": false,
+              "leave_one_case_out_max": -0.06000000000000002,
+              "leave_one_case_out_min": -0.20666666666666672,
+              "omitted_case_means": {
+                "GNSS-spoofing": -0.1066666666666667,
+                "JTAG-debug-firmware": -0.1666666666666667,
+                "Pavur-SATCOM-eavesdrop": -0.20666666666666672,
+                "Space-Odyssey-unauth-TC": -0.1266666666666667,
+                "TC-replay-no-SDLS": -0.1666666666666667,
+                "Turla-satellite-C2": -0.06000000000000002
+              }
+            }
+          },
+          "grounding": {
+            "adapter_minus_baseline_mean": 0.0925925925925926,
+            "case_resampling_95pct_interval": [
+              -0.11574074074074073,
+              0.3075396825396825
+            ],
+            "exact_sign_flip_p": 0.46875,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.5142857142857142,
+              "JTAG-debug-firmware": 0.050000000000000044,
+              "Pavur-SATCOM-eavesdrop": 0.35238095238095235,
+              "Space-Odyssey-unauth-TC": 0.022222222222222254,
+              "TC-replay-no-SDLS": -0.2833333333333333,
+              "Turla-satellite-C2": -0.09999999999999998
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.16777777777777778,
+              "leave_one_case_out_min": 0.008253968253968269,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.008253968253968269,
+                "JTAG-debug-firmware": 0.10111111111111111,
+                "Pavur-SATCOM-eavesdrop": 0.04063492063492065,
+                "Space-Odyssey-unauth-TC": 0.10666666666666666,
+                "TC-replay-no-SDLS": 0.16777777777777778,
+                "Turla-satellite-C2": 0.13111111111111112
+              }
+            }
+          },
+          "ordering": {
+            "adapter_minus_baseline_mean": -0.005555555555555564,
+            "case_resampling_95pct_interval": [
+              -0.26666666666666666,
+              0.23333333333333328
+            ],
+            "exact_sign_flip_p": 1.0,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.39999999999999997,
+              "JTAG-debug-firmware": 0.19999999999999996,
+              "Pavur-SATCOM-eavesdrop": 0.20000000000000007,
+              "Space-Odyssey-unauth-TC": 0.23333333333333328,
+              "TC-replay-no-SDLS": -0.5333333333333333,
+              "Turla-satellite-C2": 0.2666666666666666
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": false,
+              "leave_one_case_out_max": 0.09999999999999999,
+              "leave_one_case_out_min": -0.06,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.07333333333333332,
+                "JTAG-debug-firmware": -0.04666666666666667,
+                "Pavur-SATCOM-eavesdrop": -0.04666666666666669,
+                "Space-Odyssey-unauth-TC": -0.05333333333333333,
+                "TC-replay-no-SDLS": 0.09999999999999999,
+                "Turla-satellite-C2": -0.06
+              }
+            }
+          },
+          "precision": {
+            "adapter_minus_baseline_mean": 0.08932539682539682,
+            "case_resampling_95pct_interval": [
+              -0.03361111111111112,
+              0.21126984126984127
+            ],
+            "exact_sign_flip_p": 0.28125,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.11333333333333333,
+              "JTAG-debug-firmware": 0.19761904761904764,
+              "Pavur-SATCOM-eavesdrop": 0.31333333333333335,
+              "Space-Odyssey-unauth-TC": 0.14238095238095239,
+              "TC-replay-no-SDLS": 0.10333333333333328,
+              "Turla-satellite-C2": -0.10738095238095241
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.12985714285714284,
+              "leave_one_case_out_min": 0.044523809523809514,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.12985714285714284,
+                "JTAG-debug-firmware": 0.06766666666666665,
+                "Pavur-SATCOM-eavesdrop": 0.044523809523809514,
+                "Space-Odyssey-unauth-TC": 0.07871428571428571,
+                "TC-replay-no-SDLS": 0.08652380952380953,
+                "Turla-satellite-C2": 0.12866666666666665
+              }
+            }
+          }
+        },
+        "two-shot": {
+          "check": {
+            "adapter_minus_baseline_mean": 0.296957671957672,
+            "case_resampling_95pct_interval": [
+              0.18134920634920634,
+              0.39834656084656084
+            ],
+            "exact_sign_flip_p": 0.03125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.46190476190476193,
+              "JTAG-debug-firmware": 0.0535714285714286,
+              "Pavur-SATCOM-eavesdrop": 0.3472222222222222,
+              "Space-Odyssey-unauth-TC": 0.22857142857142854,
+              "TC-replay-no-SDLS": 0.4285714285714286,
+              "Turla-satellite-C2": 0.26190476190476186
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.34563492063492063,
+              "leave_one_case_out_min": 0.26396825396825396,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.26396825396825396,
+                "JTAG-debug-firmware": 0.34563492063492063,
+                "Pavur-SATCOM-eavesdrop": 0.2869047619047619,
+                "Space-Odyssey-unauth-TC": 0.31063492063492065,
+                "TC-replay-no-SDLS": 0.2706349206349206,
+                "Turla-satellite-C2": 0.303968253968254
+              }
+            }
+          },
+          "completeness": {
+            "adapter_minus_baseline_mean": 0.1138888888888889,
+            "case_resampling_95pct_interval": [
+              -0.013888888888888886,
+              0.25
+            ],
+            "exact_sign_flip_p": 0.21875,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.1,
+              "JTAG-debug-firmware": 0.4,
+              "Pavur-SATCOM-eavesdrop": 0.2,
+              "Space-Odyssey-unauth-TC": 0.09999999999999998,
+              "TC-replay-no-SDLS": 0.15000000000000002,
+              "Turla-satellite-C2": -0.06666666666666665
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.15666666666666668,
+              "leave_one_case_out_min": 0.05666666666666667,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.15666666666666668,
+                "JTAG-debug-firmware": 0.05666666666666667,
+                "Pavur-SATCOM-eavesdrop": 0.09666666666666668,
+                "Space-Odyssey-unauth-TC": 0.11666666666666668,
+                "TC-replay-no-SDLS": 0.10666666666666667,
+                "Turla-satellite-C2": 0.15
+              }
+            }
+          },
+          "grounding": {
+            "adapter_minus_baseline_mean": 0.24976190476190477,
+            "case_resampling_95pct_interval": [
+              0.11305555555555553,
+              0.3956349206349207
+            ],
+            "exact_sign_flip_p": 0.03125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.46190476190476193,
+              "JTAG-debug-firmware": 0.15833333333333333,
+              "Pavur-SATCOM-eavesdrop": 0.525,
+              "Space-Odyssey-unauth-TC": 0.07999999999999996,
+              "TC-replay-no-SDLS": 0.07333333333333336,
+              "Turla-satellite-C2": 0.20000000000000007
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.28504761904761905,
+              "leave_one_case_out_min": 0.19471428571428573,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.20733333333333334,
+                "JTAG-debug-firmware": 0.2680476190476191,
+                "Pavur-SATCOM-eavesdrop": 0.19471428571428573,
+                "Space-Odyssey-unauth-TC": 0.28371428571428575,
+                "TC-replay-no-SDLS": 0.28504761904761905,
+                "Turla-satellite-C2": 0.25971428571428573
+              }
+            }
+          },
+          "ordering": {
+            "adapter_minus_baseline_mean": 0.3277777777777778,
+            "case_resampling_95pct_interval": [
+              -0.03888888888888886,
+              0.7
+            ],
+            "exact_sign_flip_p": 0.25,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.2,
+              "JTAG-debug-firmware": 1.0,
+              "Pavur-SATCOM-eavesdrop": 0.4,
+              "Space-Odyssey-unauth-TC": 0.16666666666666663,
+              "TC-replay-no-SDLS": -0.19999999999999996,
+              "Turla-satellite-C2": 0.8
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.43333333333333335,
+              "leave_one_case_out_min": 0.19333333333333336,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.43333333333333335,
+                "JTAG-debug-firmware": 0.19333333333333336,
+                "Pavur-SATCOM-eavesdrop": 0.31333333333333335,
+                "Space-Odyssey-unauth-TC": 0.36000000000000004,
+                "TC-replay-no-SDLS": 0.43333333333333335,
+                "Turla-satellite-C2": 0.23333333333333334
+              }
+            }
+          },
+          "precision": {
+            "adapter_minus_baseline_mean": 0.22603174603174603,
+            "case_resampling_95pct_interval": [
+              0.09944444444444442,
+              0.3416666666666666
+            ],
+            "exact_sign_flip_p": 0.0625,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.03333333333333334,
+              "JTAG-debug-firmware": 0.4261904761904762,
+              "Pavur-SATCOM-eavesdrop": 0.3633333333333333,
+              "Space-Odyssey-unauth-TC": 0.2666666666666667,
+              "TC-replay-no-SDLS": 0.23333333333333328,
+              "Turla-satellite-C2": 0.09999999999999998
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.2779047619047619,
+              "leave_one_case_out_min": 0.186,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.2779047619047619,
+                "JTAG-debug-firmware": 0.186,
+                "Pavur-SATCOM-eavesdrop": 0.19857142857142857,
+                "Space-Odyssey-unauth-TC": 0.21790476190476188,
+                "TC-replay-no-SDLS": 0.22457142857142856,
+                "Turla-satellite-C2": 0.2512380952380952
+              }
+            }
+          }
+        }
+      },
+      "prediction_file": "artifacts/raw_predictions/fixed_1.5b_controlled_all.jsonl"
+    },
+    "7b": {
+      "case_means": {
+        "adapter": {
+          "GNSS-spoofing": {
+            "check": 1.0,
+            "completeness": 0.8,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.4666666666666667
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 0.6,
+            "grounding": 1.0,
+            "ordering": 0.6,
+            "precision": 0.4266666666666667
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 1.0,
+            "completeness": 0.8666666666666667,
+            "grounding": 1.0,
+            "ordering": 0.6000000000000001,
+            "precision": 0.7166666666666667
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 0.7,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.8333333333333334
+          },
+          "TC-replay-no-SDLS": {
+            "check": 1.0,
+            "completeness": 0.9,
+            "grounding": 1.0,
+            "ordering": 0.8333333333333334,
+            "precision": 1.0
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 0.7333333333333333,
+            "grounding": 1.0,
+            "ordering": 0.06666666666666668,
+            "precision": 0.5866666666666667
+          }
+        },
+        "candidate-only": {
+          "GNSS-spoofing": {
+            "check": 0.3464285714285714,
+            "completeness": 0.3,
+            "grounding": 0.6,
+            "ordering": 0.6,
+            "precision": 0.3
+          },
+          "JTAG-debug-firmware": {
+            "check": 0.0,
+            "completeness": 0.4666666666666667,
+            "grounding": 0.6,
+            "ordering": 0.4,
+            "precision": 0.24166666666666667
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 0.0,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.17142857142857143,
+            "completeness": 0.0,
+            "grounding": 0.0,
+            "ordering": 0.0,
+            "precision": 0.0
+          },
+          "Turla-satellite-C2": {
+            "check": 0.16,
+            "completeness": 0.0,
+            "grounding": 0.15,
+            "ordering": 0.0,
+            "precision": 0.0
+          }
+        },
+        "positional-copy": {
+          "GNSS-spoofing": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.25
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.5
+          },
+          "TC-replay-no-SDLS": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.5
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 1.0,
+            "grounding": 1.0,
+            "ordering": 0.33333333333333337,
+            "precision": 0.375
+          }
+        },
+        "schema": {
+          "GNSS-spoofing": {
+            "check": 1.0,
+            "completeness": 0.6,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.9
+          },
+          "JTAG-debug-firmware": {
+            "check": 1.0,
+            "completeness": 0.8666666666666667,
+            "grounding": 1.0,
+            "ordering": 0.8,
+            "precision": 0.4657142857142857
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 1.0,
+            "completeness": 0.6666666666666666,
+            "grounding": 1.0,
+            "ordering": 0.8,
+            "precision": 0.49333333333333335
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 1.0,
+            "completeness": 0.85,
+            "grounding": 1.0,
+            "ordering": 0.8666666666666667,
+            "precision": 0.5676190476190476
+          },
+          "TC-replay-no-SDLS": {
+            "check": 1.0,
+            "completeness": 0.7,
+            "grounding": 1.0,
+            "ordering": 1.0,
+            "precision": 0.7833333333333333
+          },
+          "Turla-satellite-C2": {
+            "check": 1.0,
+            "completeness": 0.5333333333333333,
+            "grounding": 1.0,
+            "ordering": 0.6,
+            "precision": 0.32666666666666666
+          }
+        },
+        "two-shot": {
+          "GNSS-spoofing": {
+            "check": 0.9095238095238095,
+            "completeness": 0.5,
+            "grounding": 0.8361904761904762,
+            "ordering": 1.0,
+            "precision": 0.1919047619047619
+          },
+          "JTAG-debug-firmware": {
+            "check": 0.925,
+            "completeness": 0.26666666666666666,
+            "grounding": 0.7785714285714286,
+            "ordering": 0.8,
+            "precision": 0.15333333333333335
+          },
+          "Pavur-SATCOM-eavesdrop": {
+            "check": 1.0,
+            "completeness": 0.6666666666666666,
+            "grounding": 1.0,
+            "ordering": 0.6,
+            "precision": 0.5133333333333333
+          },
+          "Space-Odyssey-unauth-TC": {
+            "check": 0.9428571428571428,
+            "completeness": 0.95,
+            "grounding": 0.9428571428571428,
+            "ordering": 0.9666666666666667,
+            "precision": 0.6228571428571429
+          },
+          "TC-replay-no-SDLS": {
+            "check": 0.8571428571428571,
+            "completeness": 0.85,
+            "grounding": 1.0,
+            "ordering": 0.7000000000000001,
+            "precision": 0.64
+          },
+          "Turla-satellite-C2": {
+            "check": 0.8857142857142857,
+            "completeness": 0.7333333333333333,
+            "grounding": 0.9428571428571428,
+            "ordering": 0.4,
+            "precision": 0.3476190476190476
+          }
+        }
+      },
+      "cases": [
+        "GNSS-spoofing",
+        "JTAG-debug-firmware",
+        "Pavur-SATCOM-eavesdrop",
+        "Space-Odyssey-unauth-TC",
+        "TC-replay-no-SDLS",
+        "Turla-satellite-C2"
+      ],
+      "formatting": {
+        "adapter": {
+          "complete_step_rate": 1.0,
+          "fully_structured_prediction_rate": 1.0,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 1.0
+        },
+        "candidate-only": {
+          "complete_step_rate": 0.0,
+          "fully_structured_prediction_rate": 0.0,
+          "parsed_prediction_rate": 0.3333333333333333,
+          "predictions": 30,
+          "technique_field_step_rate": 0.6029411764705882
+        },
+        "positional-copy": {
+          "complete_step_rate": 1.0,
+          "fully_structured_prediction_rate": 1.0,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 1.0
+        },
+        "schema": {
+          "complete_step_rate": 0.99375,
+          "fully_structured_prediction_rate": 0.9666666666666667,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 30,
+          "technique_field_step_rate": 0.99375
+        },
+        "two-shot": {
+          "complete_step_rate": 0.9029126213592233,
+          "fully_structured_prediction_rate": 0.3333333333333333,
+          "parsed_prediction_rate": 1.0,
+          "predictions": 60,
+          "technique_field_step_rate": 0.9660194174757282
+        }
+      },
+      "ordering_support": {
+        "adapter": {
+          "comparable_pairs": 62,
+          "mean_matched_steps": 2.433333333333333,
+          "pair_weighted_ordering": 0.7419354838709677,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 27
+        },
+        "candidate-only": {
+          "comparable_pairs": 6,
+          "mean_matched_steps": 0.3333333333333333,
+          "pair_weighted_ordering": 0.5,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 2
+        },
+        "positional-copy": {
+          "comparable_pairs": 110,
+          "mean_matched_steps": 3.1666666666666665,
+          "pair_weighted_ordering": 0.36363636363636365,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 30
+        },
+        "schema": {
+          "comparable_pairs": 55,
+          "mean_matched_steps": 2.2666666666666666,
+          "pair_weighted_ordering": 0.8181818181818182,
+          "predictions": 30,
+          "predictions_with_at_least_two_matches": 24
+        },
+        "two-shot": {
+          "comparable_pairs": 120,
+          "mean_matched_steps": 2.2,
+          "pair_weighted_ordering": 0.7833333333333333,
+          "predictions": 60,
+          "predictions_with_at_least_two_matches": 40
+        }
+      },
+      "paired_comparisons": {
+        "schema": {
+          "check": {
+            "adapter_minus_baseline_mean": 0.0,
+            "case_resampling_95pct_interval": [
+              0.0,
+              0.0
+            ],
+            "exact_sign_flip_p": 1.0,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.0,
+              "JTAG-debug-firmware": 0.0,
+              "Pavur-SATCOM-eavesdrop": 0.0,
+              "Space-Odyssey-unauth-TC": 0.0,
+              "TC-replay-no-SDLS": 0.0,
+              "Turla-satellite-C2": 0.0
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": false,
+              "leave_one_case_out_max": 0.0,
+              "leave_one_case_out_min": 0.0,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.0,
+                "JTAG-debug-firmware": 0.0,
+                "Pavur-SATCOM-eavesdrop": 0.0,
+                "Space-Odyssey-unauth-TC": 0.0,
+                "TC-replay-no-SDLS": 0.0,
+                "Turla-satellite-C2": 0.0
+              }
+            }
+          },
+          "completeness": {
+            "adapter_minus_baseline_mean": 0.0638888888888889,
+            "case_resampling_95pct_interval": [
+              -0.09166666666666669,
+              0.20000000000000004
+            ],
+            "exact_sign_flip_p": 0.5625,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.20000000000000007,
+              "JTAG-debug-firmware": -0.2666666666666667,
+              "Pavur-SATCOM-eavesdrop": 0.20000000000000007,
+              "Space-Odyssey-unauth-TC": -0.15000000000000002,
+              "TC-replay-no-SDLS": 0.20000000000000007,
+              "Turla-satellite-C2": 0.19999999999999996
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.13000000000000003,
+              "leave_one_case_out_min": 0.03666666666666667,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.03666666666666667,
+                "JTAG-debug-firmware": 0.13000000000000003,
+                "Pavur-SATCOM-eavesdrop": 0.03666666666666667,
+                "Space-Odyssey-unauth-TC": 0.10666666666666669,
+                "TC-replay-no-SDLS": 0.03666666666666667,
+                "Turla-satellite-C2": 0.036666666666666695
+              }
+            }
+          },
+          "grounding": {
+            "adapter_minus_baseline_mean": 0.0,
+            "case_resampling_95pct_interval": [
+              0.0,
+              0.0
+            ],
+            "exact_sign_flip_p": 1.0,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.0,
+              "JTAG-debug-firmware": 0.0,
+              "Pavur-SATCOM-eavesdrop": 0.0,
+              "Space-Odyssey-unauth-TC": 0.0,
+              "TC-replay-no-SDLS": 0.0,
+              "Turla-satellite-C2": 0.0
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": false,
+              "leave_one_case_out_max": 0.0,
+              "leave_one_case_out_min": 0.0,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.0,
+                "JTAG-debug-firmware": 0.0,
+                "Pavur-SATCOM-eavesdrop": 0.0,
+                "Space-Odyssey-unauth-TC": 0.0,
+                "TC-replay-no-SDLS": 0.0,
+                "Turla-satellite-C2": 0.0
+              }
+            }
+          },
+          "ordering": {
+            "adapter_minus_baseline_mean": -0.16111111111111112,
+            "case_resampling_95pct_interval": [
+              -0.3333333333333333,
+              -1.850371707708594e-17
+            ],
+            "exact_sign_flip_p": 0.125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.0,
+              "JTAG-debug-firmware": -0.20000000000000007,
+              "Pavur-SATCOM-eavesdrop": -0.19999999999999996,
+              "Space-Odyssey-unauth-TC": 0.1333333333333333,
+              "TC-replay-no-SDLS": -0.16666666666666663,
+              "Turla-satellite-C2": -0.5333333333333333
+            },
+            "reference_case_sensitivity": {
+              "all_negative": true,
+              "all_positive": false,
+              "leave_one_case_out_max": -0.08666666666666667,
+              "leave_one_case_out_min": -0.22,
+              "omitted_case_means": {
+                "GNSS-spoofing": -0.19333333333333333,
+                "JTAG-debug-firmware": -0.15333333333333332,
+                "Pavur-SATCOM-eavesdrop": -0.15333333333333335,
+                "Space-Odyssey-unauth-TC": -0.22,
+                "TC-replay-no-SDLS": -0.16,
+                "Turla-satellite-C2": -0.08666666666666667
+              }
+            }
+          },
+          "precision": {
+            "adapter_minus_baseline_mean": 0.08222222222222224,
+            "case_resampling_95pct_interval": [
+              -0.14261904761904762,
+              0.24761904761904763
+            ],
+            "exact_sign_flip_p": 0.40625,
+            "per_case_deltas": {
+              "GNSS-spoofing": -0.43333333333333335,
+              "JTAG-debug-firmware": -0.039047619047619,
+              "Pavur-SATCOM-eavesdrop": 0.22333333333333333,
+              "Space-Odyssey-unauth-TC": 0.2657142857142858,
+              "TC-replay-no-SDLS": 0.21666666666666667,
+              "Turla-satellite-C2": 0.26
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.18533333333333335,
+              "leave_one_case_out_min": 0.045523809523809536,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.18533333333333335,
+                "JTAG-debug-firmware": 0.10647619047619049,
+                "Pavur-SATCOM-eavesdrop": 0.05400000000000003,
+                "Space-Odyssey-unauth-TC": 0.045523809523809536,
+                "TC-replay-no-SDLS": 0.05533333333333336,
+                "Turla-satellite-C2": 0.04666666666666669
+              }
+            }
+          }
+        },
+        "two-shot": {
+          "check": {
+            "adapter_minus_baseline_mean": 0.07996031746031747,
+            "case_resampling_95pct_interval": [
+              0.04285714285714287,
+              0.11428571428571432
+            ],
+            "exact_sign_flip_p": 0.0625,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.09047619047619049,
+              "JTAG-debug-firmware": 0.07499999999999996,
+              "Pavur-SATCOM-eavesdrop": 0.0,
+              "Space-Odyssey-unauth-TC": 0.05714285714285716,
+              "TC-replay-no-SDLS": 0.1428571428571429,
+              "Turla-satellite-C2": 0.11428571428571432
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.09595238095238097,
+              "leave_one_case_out_min": 0.06738095238095239,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.07785714285714287,
+                "JTAG-debug-firmware": 0.08095238095238097,
+                "Pavur-SATCOM-eavesdrop": 0.09595238095238097,
+                "Space-Odyssey-unauth-TC": 0.08452380952380953,
+                "TC-replay-no-SDLS": 0.06738095238095239,
+                "Turla-satellite-C2": 0.0730952380952381
+              }
+            }
+          },
+          "completeness": {
+            "adapter_minus_baseline_mean": 0.10555555555555558,
+            "case_resampling_95pct_interval": [
+              -0.0611111111111111,
+              0.25555555555555554
+            ],
+            "exact_sign_flip_p": 0.3125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.30000000000000004,
+              "JTAG-debug-firmware": 0.3333333333333333,
+              "Pavur-SATCOM-eavesdrop": 0.20000000000000007,
+              "Space-Odyssey-unauth-TC": -0.25,
+              "TC-replay-no-SDLS": 0.050000000000000044,
+              "Turla-satellite-C2": 0.0
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.1766666666666667,
+              "leave_one_case_out_min": 0.06000000000000003,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.06666666666666668,
+                "JTAG-debug-firmware": 0.06000000000000003,
+                "Pavur-SATCOM-eavesdrop": 0.08666666666666668,
+                "Space-Odyssey-unauth-TC": 0.1766666666666667,
+                "TC-replay-no-SDLS": 0.11666666666666668,
+                "Turla-satellite-C2": 0.1266666666666667
+              }
+            }
+          },
+          "grounding": {
+            "adapter_minus_baseline_mean": 0.08325396825396826,
+            "case_resampling_95pct_interval": [
+              0.019047619047619053,
+              0.15563492063492065
+            ],
+            "exact_sign_flip_p": 0.125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.16380952380952385,
+              "JTAG-debug-firmware": 0.22142857142857142,
+              "Pavur-SATCOM-eavesdrop": 0.0,
+              "Space-Odyssey-unauth-TC": 0.05714285714285716,
+              "TC-replay-no-SDLS": 0.0,
+              "Turla-satellite-C2": 0.05714285714285716
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.09990476190476191,
+              "leave_one_case_out_min": 0.05561904761904764,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.06714285714285714,
+                "JTAG-debug-firmware": 0.05561904761904764,
+                "Pavur-SATCOM-eavesdrop": 0.09990476190476191,
+                "Space-Odyssey-unauth-TC": 0.08847619047619049,
+                "TC-replay-no-SDLS": 0.09990476190476191,
+                "Turla-satellite-C2": 0.08847619047619049
+              }
+            }
+          },
+          "ordering": {
+            "adapter_minus_baseline_mean": -0.061111111111111116,
+            "case_resampling_95pct_interval": [
+              -0.19444444444444448,
+              0.055555555555555546
+            ],
+            "exact_sign_flip_p": 0.5,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.0,
+              "JTAG-debug-firmware": -0.20000000000000007,
+              "Pavur-SATCOM-eavesdrop": 1.1102230246251565e-16,
+              "Space-Odyssey-unauth-TC": 0.033333333333333326,
+              "TC-replay-no-SDLS": 0.1333333333333333,
+              "Turla-satellite-C2": -0.33333333333333337
+            },
+            "reference_case_sensitivity": {
+              "all_negative": true,
+              "all_positive": false,
+              "leave_one_case_out_max": -0.006666666666666665,
+              "leave_one_case_out_min": -0.1,
+              "omitted_case_means": {
+                "GNSS-spoofing": -0.07333333333333333,
+                "JTAG-debug-firmware": -0.033333333333333326,
+                "Pavur-SATCOM-eavesdrop": -0.07333333333333336,
+                "Space-Odyssey-unauth-TC": -0.08,
+                "TC-replay-no-SDLS": -0.1,
+                "Turla-satellite-C2": -0.006666666666666665
+              }
+            }
+          },
+          "precision": {
+            "adapter_minus_baseline_mean": 0.26015873015873014,
+            "case_resampling_95pct_interval": [
+              0.2223809523809524,
+              0.30523809523809525
+            ],
+            "exact_sign_flip_p": 0.03125,
+            "per_case_deltas": {
+              "GNSS-spoofing": 0.27476190476190476,
+              "JTAG-debug-firmware": 0.2733333333333333,
+              "Pavur-SATCOM-eavesdrop": 0.20333333333333337,
+              "Space-Odyssey-unauth-TC": 0.21047619047619048,
+              "TC-replay-no-SDLS": 0.36,
+              "Turla-satellite-C2": 0.23904761904761906
+            },
+            "reference_case_sensitivity": {
+              "all_negative": false,
+              "all_positive": true,
+              "leave_one_case_out_max": 0.2715238095238095,
+              "leave_one_case_out_min": 0.2401904761904762,
+              "omitted_case_means": {
+                "GNSS-spoofing": 0.25723809523809527,
+                "JTAG-debug-firmware": 0.25752380952380954,
+                "Pavur-SATCOM-eavesdrop": 0.2715238095238095,
+                "Space-Odyssey-unauth-TC": 0.2700952380952381,
+                "TC-replay-no-SDLS": 0.2401904761904762,
+                "Turla-satellite-C2": 0.2643809523809524
+              }
+            }
+          }
+        }
+      },
+      "prediction_file": "artifacts/raw_predictions/fixed_7b_controlled_all.jsonl"
+    }
+  },
+  "training_seed_count": 1,
+  "warning": "Exploratory six-case paired analysis. Generation seeds are repeated outputs, not independent training runs or test cases."
+}

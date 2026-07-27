@@ -1,0 +1,31 @@
+[decomp_generate] config='base+retrieval (Qwen2.5-0.5B-Instruct)' type=decompose seed=0 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/base_0.jsonl
+[decomp_baseline] strategy=schema config='base+schema (Qwen2.5-0.5B-Instruct)' seed=0 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/schema_0.jsonl
+[decomp_baseline] strategy=fewshot config='base+2shot (Qwen2.5-0.5B-Instruct)' seed=0 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/fewshot_0.jsonl
+[decomp_generate] config='+adapter (Qwen2.5-0.5B-Instruct)' type=decompose seed=0 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/adapter_0.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_adapter_0.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_base_0.jsonl
+[decomp_generate] config='base+retrieval (Qwen2.5-0.5B-Instruct)' type=decompose seed=1 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/base_1.jsonl
+[decomp_baseline] strategy=schema config='base+schema (Qwen2.5-0.5B-Instruct)' seed=1 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/schema_1.jsonl
+[decomp_baseline] strategy=fewshot config='base+2shot (Qwen2.5-0.5B-Instruct)' seed=1 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/fewshot_1.jsonl
+[decomp_generate] config='+adapter (Qwen2.5-0.5B-Instruct)' type=decompose seed=1 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/adapter_1.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_adapter_1.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_base_1.jsonl
+[decomp_generate] config='base+retrieval (Qwen2.5-0.5B-Instruct)' type=decompose seed=2 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/base_2.jsonl
+[decomp_baseline] strategy=schema config='base+schema (Qwen2.5-0.5B-Instruct)' seed=2 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/schema_2.jsonl
+[decomp_baseline] strategy=fewshot config='base+2shot (Qwen2.5-0.5B-Instruct)' seed=2 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/fewshot_2.jsonl
+[decomp_generate] config='+adapter (Qwen2.5-0.5B-Instruct)' type=decompose seed=2 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/adapter_2.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_adapter_2.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_base_2.jsonl
+[decomp_generate] config='base+retrieval (Qwen2.5-0.5B-Instruct)' type=decompose seed=3 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/base_3.jsonl
+[decomp_baseline] strategy=schema config='base+schema (Qwen2.5-0.5B-Instruct)' seed=3 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/schema_3.jsonl
+[decomp_baseline] strategy=fewshot config='base+2shot (Qwen2.5-0.5B-Instruct)' seed=3 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/fewshot_3.jsonl
+[decomp_generate] config='+adapter (Qwen2.5-0.5B-Instruct)' type=decompose seed=3 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/adapter_3.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_adapter_3.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_base_3.jsonl
+[decomp_generate] config='base+retrieval (Qwen2.5-0.5B-Instruct)' type=decompose seed=4 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/base_4.jsonl
+[decomp_baseline] strategy=schema config='base+schema (Qwen2.5-0.5B-Instruct)' seed=4 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/schema_4.jsonl
+[decomp_baseline] strategy=fewshot config='base+2shot (Qwen2.5-0.5B-Instruct)' seed=4 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/fewshot_4.jsonl
+[decomp_generate] config='+adapter (Qwen2.5-0.5B-Instruct)' type=decompose seed=4 -> 6 predictions -> artifacts/raw_predictions/fixed_0.5b/adapter_4.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_adapter_4.jsonl
+[next_step_rollout] 6 cases / 19 generated steps -> artifacts/raw_predictions/fixed_0.5b/rollout_base_4.jsonl
+wrote positional-copy predictions for 6 decompose cases -> artifacts/raw_predictions/fixed_0.5b/poscopy.jsonl

@@ -1,0 +1,384 @@
+{
+  "items": {
+    "OUT-001": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "+adapter (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-002": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+schema (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-003": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+schema (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-004": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+schema (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-005": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+2shot (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-006": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+schema (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-007": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "+adapter (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-008": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "+adapter (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-009": {
+      "case_id": "GNSS-spoofing",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+schema (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-010": {
+      "case_id": "GNSS-spoofing",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+schema (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-011": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "+adapter (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-012": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+2shot (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-013": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "+adapter (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-014": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+2shot (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-015": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+schema (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-016": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+2shot (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-017": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+2shot (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-018": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+schema (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-019": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+2shot (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-020": {
+      "case_id": "GNSS-spoofing",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+2shot (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-021": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "+adapter (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-022": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "+adapter (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-023": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+2shot (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-024": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+2shot (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-025": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "+adapter (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-026": {
+      "case_id": "GNSS-spoofing",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+2shot (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-027": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+2shot (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-028": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "+adapter (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-029": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+2shot (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-030": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+2shot (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-031": {
+      "case_id": "GNSS-spoofing",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+2shot (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-032": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+schema (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-033": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+schema (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-034": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+schema (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-035": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "+adapter (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-036": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+2shot (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-037": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+schema (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-038": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+2shot (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-039": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+schema (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-040": {
+      "case_id": "GNSS-spoofing",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "+adapter (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-041": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+schema (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-042": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "+adapter (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-043": {
+      "case_id": "GNSS-spoofing",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+schema (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-044": {
+      "case_id": "Space-Odyssey-unauth-TC",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "+adapter (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-045": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+2shot (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-046": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "+adapter (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-047": {
+      "case_id": "GNSS-spoofing",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "+adapter (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-048": {
+      "case_id": "Pavur-SATCOM-eavesdrop",
+      "condition": "fewshot",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+2shot (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-049": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "0.5b",
+      "source_config": "base+schema (Qwen2.5-0.5B-Instruct)"
+    },
+    "OUT-050": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "7b",
+      "source_config": "base+schema (Qwen2.5-7B-Instruct)"
+    },
+    "OUT-051": {
+      "case_id": "GNSS-spoofing",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "+adapter (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-052": {
+      "case_id": "JTAG-debug-firmware",
+      "condition": "schema",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "base+schema (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-053": {
+      "case_id": "Turla-satellite-C2",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "+adapter (Qwen2.5-1.5B-Instruct)"
+    },
+    "OUT-054": {
+      "case_id": "TC-replay-no-SDLS",
+      "condition": "adapter",
+      "decoding_seed": 0,
+      "model_size": "1.5b",
+      "source_config": "+adapter (Qwen2.5-1.5B-Instruct)"
+    }
+  },
+  "sampling": "All 24 references; fixed-case outputs at decoding seed 0; all three sizes; adapter, schema, two-shot.",
+  "warning": "Keep this condition key from auditors until ratings are frozen."
+}

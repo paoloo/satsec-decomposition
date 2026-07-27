@@ -1,0 +1,75 @@
+{
+  "predictions": "artifacts/training_seed/fixed_7b/training_seed_all.jsonl",
+  "dataset": "data/tuning_set.v2.jsonl",
+  "split": "test",
+  "reference_cases": 6,
+  "decompose": {
+    "+adapter train-seed=42 (7b)": {
+      "completeness": {
+        "mean": 0.8472222222222222,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.736111111111111,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.75,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "+adapter train-seed=43 (7b)": {
+      "completeness": {
+        "mean": 0.8055555555555555,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.8194444444444443,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.888888888888889,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "+adapter train-seed=44 (7b)": {
+      "completeness": {
+        "mean": 0.7638888888888888,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.625,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.7777777777777778,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    }
+  },
+  "next_step": {}
+}

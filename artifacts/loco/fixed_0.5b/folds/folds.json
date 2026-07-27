@@ -1,0 +1,222 @@
+{
+  "n_cases": 24,
+  "n_folds": 24,
+  "folds": [
+    {
+      "fold": 0,
+      "dir": "fold_00_Starlink-UT-fault-injection",
+      "holdout": [
+        "Starlink-UT-fault-injection"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 1,
+      "dir": "fold_01_Santamarta-SATCOM-terminals",
+      "holdout": [
+        "Santamarta-SATCOM-terminals"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 2,
+      "dir": "fold_02_Turla-satellite-C2",
+      "holdout": [
+        "Turla-satellite-C2"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 3,
+      "dir": "fold_03_GNSS-spoofing",
+      "holdout": [
+        "GNSS-spoofing"
+      ],
+      "train": 104,
+      "test": 3
+    },
+    {
+      "fold": 4,
+      "dir": "fold_04_Pavur-SATCOM-eavesdrop",
+      "holdout": [
+        "Pavur-SATCOM-eavesdrop"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 5,
+      "dir": "fold_05_Landsat-7-Terra-EOS-AM-1",
+      "holdout": [
+        "Landsat-7/Terra-EOS-AM-1"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 6,
+      "dir": "fold_06_generic-fw-memsafety",
+      "holdout": [
+        "generic-fw-memsafety"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 7,
+      "dir": "fold_07_generic-cmd-injection",
+      "holdout": [
+        "generic-cmd-injection"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 8,
+      "dir": "fold_08_generic-protocol-integrity",
+      "holdout": [
+        "generic-protocol-integrity"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 9,
+      "dir": "fold_09_generic-supply-chain",
+      "holdout": [
+        "generic-supply-chain"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 10,
+      "dir": "fold_10_ROSAT",
+      "holdout": [
+        "ROSAT"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 11,
+      "dir": "fold_11_jamming",
+      "holdout": [
+        "jamming"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 12,
+      "dir": "fold_12_BEESAT-1",
+      "holdout": [
+        "BEESAT-1"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 13,
+      "dir": "fold_13_Space-Odyssey-unauth-TC",
+      "holdout": [
+        "Space-Odyssey-unauth-TC"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 14,
+      "dir": "fold_14_OPS-SAT-authorized-takeover",
+      "holdout": [
+        "OPS-SAT-authorized-takeover"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 15,
+      "dir": "fold_15_GMR-satphone-cipher",
+      "holdout": [
+        "GMR-satphone-cipher"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 16,
+      "dir": "fold_16_Iridium-plaintext-eavesdrop",
+      "holdout": [
+        "Iridium-plaintext-eavesdrop"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 17,
+      "dir": "fold_17_TC-replay-no-SDLS",
+      "holdout": [
+        "TC-replay-no-SDLS"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 18,
+      "dir": "fold_18_JTAG-debug-firmware",
+      "holdout": [
+        "JTAG-debug-firmware"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 19,
+      "dir": "fold_19_UART-console-check",
+      "holdout": [
+        "UART-console-check"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 20,
+      "dir": "fold_20_SDR-link-bringup-check",
+      "holdout": [
+        "SDR-link-bringup-check"
+      ],
+      "train": 102,
+      "test": 5
+    },
+    {
+      "fold": 21,
+      "dir": "fold_21_Onboard-bus-probe-check",
+      "holdout": [
+        "Onboard-bus-probe-check"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 22,
+      "dir": "fold_22_Safe-mode-abuse",
+      "holdout": [
+        "Safe-mode-abuse"
+      ],
+      "train": 103,
+      "test": 4
+    },
+    {
+      "fold": 23,
+      "dir": "fold_23_ViaSat-KA-SAT",
+      "holdout": [
+        "ViaSat-KA-SAT"
+      ],
+      "train": 101,
+      "test": 6
+    }
+  ]
+}

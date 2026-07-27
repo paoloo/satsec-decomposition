@@ -1,0 +1,438 @@
+{
+  "audit_date": "2026-07-27",
+  "dataset": "data/tuning_set.v2.jsonl",
+  "unique_gold_techniques": 34,
+  "online": true,
+  "scope": "identifier existence and expected-name match only",
+  "semantic_review_required": true,
+  "known_corrected_mapping": {
+    "case": "GNSS-spoofing",
+    "removed": "EX-0002 (PNT Geofencing)",
+    "gold": "EX-0014.04 (PNT Spoofing)"
+  },
+  "records": [
+    {
+      "id": "DE-0001",
+      "expected_name": "Disable Fault Management",
+      "url": "https://sparta.aerospace.org/technique/DE-0001/",
+      "cases": [
+        "Onboard-bus-probe-check"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0001",
+      "expected_name": "Replay",
+      "url": "https://sparta.aerospace.org/technique/EX-0001/",
+      "cases": [
+        "SDR-link-bringup-check",
+        "TC-replay-no-SDLS",
+        "generic-protocol-integrity"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0003",
+      "expected_name": "Modify Authentication Process",
+      "url": "https://sparta.aerospace.org/technique/EX-0003/",
+      "cases": [
+        "generic-cmd-injection",
+        "generic-protocol-integrity"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0004",
+      "expected_name": "Compromise Boot Memory",
+      "url": "https://sparta.aerospace.org/technique/EX-0004/",
+      "cases": [
+        "JTAG-debug-firmware",
+        "Starlink-UT-fault-injection",
+        "UART-console-check"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0009",
+      "expected_name": "Exploit Code Flaws",
+      "url": "https://sparta.aerospace.org/technique/EX-0009/",
+      "cases": [
+        "BEESAT-1",
+        "generic-fw-memsafety",
+        "generic-supply-chain"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0010",
+      "expected_name": "Malicious Code",
+      "url": "https://sparta.aerospace.org/technique/EX-0010/",
+      "cases": [
+        "Santamarta-SATCOM-terminals",
+        "Starlink-UT-fault-injection",
+        "generic-fw-memsafety"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0012",
+      "expected_name": "Modify On-Board Values",
+      "url": "https://sparta.aerospace.org/technique/EX-0012/",
+      "cases": [
+        "OPS-SAT-authorized-takeover",
+        "Onboard-bus-probe-check",
+        "ROSAT",
+        "Safe-mode-abuse",
+        "Space-Odyssey-unauth-TC",
+        "TC-replay-no-SDLS"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0012.03",
+      "expected_name": "Memory Write/Loads",
+      "url": "https://sparta.aerospace.org/technique/EX-0012/03/",
+      "cases": [
+        "BEESAT-1"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0013.01",
+      "expected_name": "Valid Commands",
+      "url": "https://sparta.aerospace.org/technique/EX-0013/01/",
+      "cases": [
+        "Landsat-7/Terra-EOS-AM-1",
+        "generic-cmd-injection"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0014.04",
+      "expected_name": "Position, Navigation, and Timing (PNT) Spoofing",
+      "url": "https://sparta.aerospace.org/technique/EX-0014/04/",
+      "cases": [
+        "GNSS-spoofing"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EX-0016.01",
+      "expected_name": "Uplink Jamming",
+      "url": "https://sparta.aerospace.org/technique/EX-0016/01/",
+      "cases": [
+        "jamming"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EXF-0003",
+      "expected_name": "Signal Interception",
+      "url": "https://sparta.aerospace.org/technique/EXF-0003/",
+      "cases": [
+        "GMR-satphone-cipher",
+        "Iridium-plaintext-eavesdrop",
+        "Pavur-SATCOM-eavesdrop",
+        "TC-replay-no-SDLS",
+        "Turla-satellite-C2"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "EXF-0003.02",
+      "expected_name": "Downlink Exfiltration",
+      "url": "https://sparta.aerospace.org/technique/EXF-0003/02/",
+      "cases": [
+        "Pavur-SATCOM-eavesdrop",
+        "Turla-satellite-C2"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IA-0001",
+      "expected_name": "Compromise Supply Chain",
+      "url": "https://sparta.aerospace.org/technique/IA-0001/",
+      "cases": [
+        "generic-supply-chain"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IA-0001.01",
+      "expected_name": "Software Dependencies & Development Tools",
+      "url": "https://sparta.aerospace.org/technique/IA-0001/01/",
+      "cases": [
+        "generic-supply-chain"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IA-0007",
+      "expected_name": "Compromise Ground System",
+      "url": "https://sparta.aerospace.org/technique/IA-0007/",
+      "cases": [
+        "Landsat-7/Terra-EOS-AM-1",
+        "ROSAT",
+        "ViaSat-KA-SAT"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IA-0008",
+      "expected_name": "Rogue External Entity",
+      "url": "https://sparta.aerospace.org/technique/IA-0008/",
+      "cases": [
+        "SDR-link-bringup-check",
+        "Space-Odyssey-unauth-TC"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IA-0008.01",
+      "expected_name": "Rogue Ground Station",
+      "url": "https://sparta.aerospace.org/technique/IA-0008/01/",
+      "cases": [
+        "BEESAT-1",
+        "Landsat-7/Terra-EOS-AM-1",
+        "ROSAT",
+        "generic-cmd-injection"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IA-0010",
+      "expected_name": "Unauthorized Access During Safe-Mode",
+      "url": "https://sparta.aerospace.org/technique/IA-0010/",
+      "cases": [
+        "Safe-mode-abuse"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IMP-0002",
+      "expected_name": "Disruption",
+      "url": "https://sparta.aerospace.org/technique/IMP-0002/",
+      "cases": [
+        "ViaSat-KA-SAT"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IMP-0004",
+      "expected_name": "Degradation",
+      "url": "https://sparta.aerospace.org/technique/IMP-0004/",
+      "cases": [
+        "OPS-SAT-authorized-takeover",
+        "Space-Odyssey-unauth-TC"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "IMP-0005",
+      "expected_name": "Destruction",
+      "url": "https://sparta.aerospace.org/technique/IMP-0005/",
+      "cases": [
+        "ViaSat-KA-SAT"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "LM-0001",
+      "expected_name": "Hosted Payload",
+      "url": "https://sparta.aerospace.org/technique/LM-0001/",
+      "cases": [
+        "OPS-SAT-authorized-takeover"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "PER-0001",
+      "expected_name": "Memory Compromise",
+      "url": "https://sparta.aerospace.org/technique/PER-0001/",
+      "cases": [
+        "Santamarta-SATCOM-terminals"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "PER-0002",
+      "expected_name": "Backdoor",
+      "url": "https://sparta.aerospace.org/technique/PER-0002/",
+      "cases": [
+        "BEESAT-1",
+        "JTAG-debug-firmware",
+        "OPS-SAT-authorized-takeover",
+        "Santamarta-SATCOM-terminals",
+        "UART-console-check"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "RD-0003.01",
+      "expected_name": "Exploit/Payload",
+      "url": "https://sparta.aerospace.org/technique/RD-0003/01/",
+      "cases": [
+        "ViaSat-KA-SAT"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "RD-0004.02",
+      "expected_name": "Upload Exploit/Payload",
+      "url": "https://sparta.aerospace.org/technique/RD-0004/02/",
+      "cases": [
+        "ViaSat-KA-SAT"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "RD-0005",
+      "expected_name": "Obtain Non-Cyber Capabilities",
+      "url": "https://sparta.aerospace.org/technique/RD-0005/",
+      "cases": [
+        "GNSS-spoofing",
+        "Pavur-SATCOM-eavesdrop",
+        "Starlink-UT-fault-injection",
+        "jamming"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "REC-0001",
+      "expected_name": "Gather Spacecraft Design Information",
+      "url": "https://sparta.aerospace.org/technique/REC-0001/",
+      "cases": [
+        "Onboard-bus-probe-check",
+        "UART-console-check"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "REC-0001.02",
+      "expected_name": "Firmware",
+      "url": "https://sparta.aerospace.org/technique/REC-0001/02/",
+      "cases": [
+        "JTAG-debug-firmware",
+        "Santamarta-SATCOM-terminals",
+        "Starlink-UT-fault-injection",
+        "UART-console-check",
+        "generic-fw-memsafety"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "REC-0003",
+      "expected_name": "Gather Spacecraft Communications Information",
+      "url": "https://sparta.aerospace.org/technique/REC-0003/",
+      "cases": [
+        "GMR-satphone-cipher",
+        "Iridium-plaintext-eavesdrop",
+        "SDR-link-bringup-check",
+        "Safe-mode-abuse",
+        "Space-Odyssey-unauth-TC",
+        "TC-replay-no-SDLS"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "REC-0005",
+      "expected_name": "Eavesdropping",
+      "url": "https://sparta.aerospace.org/technique/REC-0005/",
+      "cases": [
+        "GMR-satphone-cipher",
+        "Iridium-plaintext-eavesdrop",
+        "SDR-link-bringup-check"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "REC-0005.01",
+      "expected_name": "Eavesdropping",
+      "url": "https://sparta.aerospace.org/technique/REC-0005/01/",
+      "cases": [
+        "Turla-satellite-C2",
+        "jamming"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    },
+    {
+      "id": "REC-0006",
+      "expected_name": "Gather FSW Development Information",
+      "url": "https://sparta.aerospace.org/technique/REC-0006/",
+      "cases": [
+        "generic-protocol-integrity"
+      ],
+      "online_status": "pass",
+      "id_match": true,
+      "name_match": true
+    }
+  ],
+  "errors": [],
+  "status": "pass"
+}

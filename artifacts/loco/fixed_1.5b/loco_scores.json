@@ -1,0 +1,75 @@
+{
+  "predictions": "artifacts/loco/fixed_1.5b/loco_all.jsonl",
+  "dataset": "artifacts/loco/fixed_1.5b/folds/refs_all.jsonl",
+  "split": "test",
+  "reference_cases": 24,
+  "decompose": {
+    "+adapter LOCO greedy (1.5b)": {
+      "completeness": {
+        "mean": 0.5861111111111111,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.5826388888888888,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.7152777777777778,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base+2shot LOCO greedy (1.5b)": {
+      "completeness": {
+        "mean": 0.6604166666666667,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.47986111111111107,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.6180555555555556,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 0.9576388888888889,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 0.9836309523809524,
+        "sample_std": 0.0
+      }
+    },
+    "base+schema LOCO greedy (1.5b)": {
+      "completeness": {
+        "mean": 0.6645833333333333,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.475297619047619,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.7361111111111112,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 0.942857142857143,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 0.9113921957671957,
+        "sample_std": 0.0
+      }
+    }
+  },
+  "next_step": {}
+}

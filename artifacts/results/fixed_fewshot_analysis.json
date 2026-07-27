@@ -1,0 +1,620 @@
+{
+  "sizes": {
+    "0.5b": {
+      "controlled_prediction_file": "artifacts/raw_predictions/fixed_0.5b_controlled_all.jsonl",
+      "fixed_exemplar_cases_by_test_case": {
+        "GNSS-spoofing": [
+          "Starlink-UT-fault-injection",
+          "UART-console-check"
+        ],
+        "JTAG-debug-firmware": [
+          "SDR-link-bringup-check",
+          "Onboard-bus-probe-check"
+        ],
+        "Pavur-SATCOM-eavesdrop": [
+          "generic-cmd-injection",
+          "UART-console-check"
+        ],
+        "Space-Odyssey-unauth-TC": [
+          "ViaSat-KA-SAT",
+          "GMR-satphone-cipher"
+        ],
+        "TC-replay-no-SDLS": [
+          "generic-protocol-integrity",
+          "ViaSat-KA-SAT"
+        ],
+        "Turla-satellite-C2": [
+          "GMR-satphone-cipher",
+          "BEESAT-1"
+        ]
+      },
+      "fixed_exemplars": {
+        "check": {
+          "mean": 0.9316137566137567,
+          "sample_std": 0.04932317356694791
+        },
+        "completeness": {
+          "mean": 0.28055555555555556,
+          "sample_std": 0.08062736263166663
+        },
+        "grounding": {
+          "mean": 0.5912698412698413,
+          "sample_std": 0.05942799828656271
+        },
+        "ordering": {
+          "mean": 0.5,
+          "sample_std": 0.11785113019775792
+        },
+        "precision": {
+          "mean": 0.2003174603174603,
+          "sample_std": 0.05105756709313904
+        }
+      },
+      "original_exemplar_cases_by_decoding_seed_and_test_case": {
+        "0": {
+          "GNSS-spoofing": [
+            "Starlink-UT-fault-injection",
+            "UART-console-check"
+          ],
+          "JTAG-debug-firmware": [
+            "SDR-link-bringup-check",
+            "Onboard-bus-probe-check"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "generic-cmd-injection",
+            "UART-console-check"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "ViaSat-KA-SAT",
+            "GMR-satphone-cipher"
+          ],
+          "TC-replay-no-SDLS": [
+            "generic-protocol-integrity",
+            "ViaSat-KA-SAT"
+          ],
+          "Turla-satellite-C2": [
+            "GMR-satphone-cipher",
+            "BEESAT-1"
+          ]
+        },
+        "1": {
+          "GNSS-spoofing": [
+            "generic-cmd-injection",
+            "Onboard-bus-probe-check"
+          ],
+          "JTAG-debug-firmware": [
+            "generic-fw-memsafety",
+            "OPS-SAT-authorized-takeover"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "Landsat-7/Terra-EOS-AM-1",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "generic-protocol-integrity",
+            "SDR-link-bringup-check"
+          ],
+          "TC-replay-no-SDLS": [
+            "Starlink-UT-fault-injection",
+            "Landsat-7/Terra-EOS-AM-1"
+          ],
+          "Turla-satellite-C2": [
+            "OPS-SAT-authorized-takeover",
+            "generic-protocol-integrity"
+          ]
+        },
+        "2": {
+          "GNSS-spoofing": [
+            "BEESAT-1",
+            "Landsat-7/Terra-EOS-AM-1"
+          ],
+          "JTAG-debug-firmware": [
+            "ROSAT",
+            "UART-console-check"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "ViaSat-KA-SAT",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "Starlink-UT-fault-injection",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "TC-replay-no-SDLS": [
+            "Safe-mode-abuse",
+            "Starlink-UT-fault-injection"
+          ],
+          "Turla-satellite-C2": [
+            "SDR-link-bringup-check",
+            "Iridium-plaintext-eavesdrop"
+          ]
+        },
+        "3": {
+          "GNSS-spoofing": [
+            "GMR-satphone-cipher",
+            "generic-cmd-injection"
+          ],
+          "JTAG-debug-firmware": [
+            "OPS-SAT-authorized-takeover",
+            "jamming"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "UART-console-check",
+            "generic-cmd-injection"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "Santamarta-SATCOM-terminals",
+            "generic-cmd-injection"
+          ],
+          "TC-replay-no-SDLS": [
+            "Landsat-7/Terra-EOS-AM-1",
+            "SDR-link-bringup-check"
+          ],
+          "Turla-satellite-C2": [
+            "jamming",
+            "generic-fw-memsafety"
+          ]
+        },
+        "4": {
+          "GNSS-spoofing": [
+            "ViaSat-KA-SAT",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "JTAG-debug-firmware": [
+            "ROSAT",
+            "generic-supply-chain"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "ViaSat-KA-SAT",
+            "generic-protocol-integrity"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "jamming",
+            "ViaSat-KA-SAT"
+          ],
+          "TC-replay-no-SDLS": [
+            "Santamarta-SATCOM-terminals",
+            "Starlink-UT-fault-injection"
+          ],
+          "Turla-satellite-C2": [
+            "Iridium-plaintext-eavesdrop",
+            "Onboard-bus-probe-check"
+          ]
+        }
+      },
+      "original_seed_varying_exemplars": {
+        "check": {
+          "mean": 0.9611772486772487,
+          "sample_std": 0.053163455687456194
+        },
+        "completeness": {
+          "mean": 0.31666666666666665,
+          "sample_std": 0.1171945728318277
+        },
+        "grounding": {
+          "mean": 0.7193783068783068,
+          "sample_std": 0.14365625933554338
+        },
+        "ordering": {
+          "mean": 0.6,
+          "sample_std": 0.190029237516523
+        },
+        "precision": {
+          "mean": 0.2728968253968254,
+          "sample_std": 0.09196397535948726
+        }
+      }
+    },
+    "1.5b": {
+      "controlled_prediction_file": "artifacts/raw_predictions/fixed_1.5b_controlled_all.jsonl",
+      "fixed_exemplar_cases_by_test_case": {
+        "GNSS-spoofing": [
+          "Starlink-UT-fault-injection",
+          "UART-console-check"
+        ],
+        "JTAG-debug-firmware": [
+          "SDR-link-bringup-check",
+          "Onboard-bus-probe-check"
+        ],
+        "Pavur-SATCOM-eavesdrop": [
+          "generic-cmd-injection",
+          "UART-console-check"
+        ],
+        "Space-Odyssey-unauth-TC": [
+          "ViaSat-KA-SAT",
+          "GMR-satphone-cipher"
+        ],
+        "TC-replay-no-SDLS": [
+          "generic-protocol-integrity",
+          "ViaSat-KA-SAT"
+        ],
+        "Turla-satellite-C2": [
+          "GMR-satphone-cipher",
+          "BEESAT-1"
+        ]
+      },
+      "fixed_exemplars": {
+        "check": {
+          "mean": 0.6863756613756614,
+          "sample_std": 0.34380344829570963
+        },
+        "completeness": {
+          "mean": 0.3194444444444444,
+          "sample_std": 0.2373334373699314
+        },
+        "grounding": {
+          "mean": 0.6641269841269841,
+          "sample_std": 0.31519015309645937
+        },
+        "ordering": {
+          "mean": 0.37777777777777777,
+          "sample_std": 0.223606797749979
+        },
+        "precision": {
+          "mean": 0.21730158730158727,
+          "sample_std": 0.15678485554958813
+        }
+      },
+      "original_exemplar_cases_by_decoding_seed_and_test_case": {
+        "0": {
+          "GNSS-spoofing": [
+            "Starlink-UT-fault-injection",
+            "UART-console-check"
+          ],
+          "JTAG-debug-firmware": [
+            "SDR-link-bringup-check",
+            "Onboard-bus-probe-check"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "generic-cmd-injection",
+            "UART-console-check"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "ViaSat-KA-SAT",
+            "GMR-satphone-cipher"
+          ],
+          "TC-replay-no-SDLS": [
+            "generic-protocol-integrity",
+            "ViaSat-KA-SAT"
+          ],
+          "Turla-satellite-C2": [
+            "GMR-satphone-cipher",
+            "BEESAT-1"
+          ]
+        },
+        "1": {
+          "GNSS-spoofing": [
+            "generic-cmd-injection",
+            "Onboard-bus-probe-check"
+          ],
+          "JTAG-debug-firmware": [
+            "generic-fw-memsafety",
+            "OPS-SAT-authorized-takeover"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "Landsat-7/Terra-EOS-AM-1",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "generic-protocol-integrity",
+            "SDR-link-bringup-check"
+          ],
+          "TC-replay-no-SDLS": [
+            "Starlink-UT-fault-injection",
+            "Landsat-7/Terra-EOS-AM-1"
+          ],
+          "Turla-satellite-C2": [
+            "OPS-SAT-authorized-takeover",
+            "generic-protocol-integrity"
+          ]
+        },
+        "2": {
+          "GNSS-spoofing": [
+            "BEESAT-1",
+            "Landsat-7/Terra-EOS-AM-1"
+          ],
+          "JTAG-debug-firmware": [
+            "ROSAT",
+            "UART-console-check"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "ViaSat-KA-SAT",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "Starlink-UT-fault-injection",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "TC-replay-no-SDLS": [
+            "Safe-mode-abuse",
+            "Starlink-UT-fault-injection"
+          ],
+          "Turla-satellite-C2": [
+            "SDR-link-bringup-check",
+            "Iridium-plaintext-eavesdrop"
+          ]
+        },
+        "3": {
+          "GNSS-spoofing": [
+            "GMR-satphone-cipher",
+            "generic-cmd-injection"
+          ],
+          "JTAG-debug-firmware": [
+            "OPS-SAT-authorized-takeover",
+            "jamming"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "UART-console-check",
+            "generic-cmd-injection"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "Santamarta-SATCOM-terminals",
+            "generic-cmd-injection"
+          ],
+          "TC-replay-no-SDLS": [
+            "Landsat-7/Terra-EOS-AM-1",
+            "SDR-link-bringup-check"
+          ],
+          "Turla-satellite-C2": [
+            "jamming",
+            "generic-fw-memsafety"
+          ]
+        },
+        "4": {
+          "GNSS-spoofing": [
+            "ViaSat-KA-SAT",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "JTAG-debug-firmware": [
+            "ROSAT",
+            "generic-supply-chain"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "ViaSat-KA-SAT",
+            "generic-protocol-integrity"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "jamming",
+            "ViaSat-KA-SAT"
+          ],
+          "TC-replay-no-SDLS": [
+            "Santamarta-SATCOM-terminals",
+            "Starlink-UT-fault-injection"
+          ],
+          "Turla-satellite-C2": [
+            "Iridium-plaintext-eavesdrop",
+            "Onboard-bus-probe-check"
+          ]
+        }
+      },
+      "original_seed_varying_exemplars": {
+        "check": {
+          "mean": 0.8947089947089946,
+          "sample_std": 0.09392745282992464
+        },
+        "completeness": {
+          "mean": 0.5083333333333333,
+          "sample_std": 0.2006932429798716
+        },
+        "grounding": {
+          "mean": 0.7453174603174604,
+          "sample_std": 0.16795055376794665
+        },
+        "ordering": {
+          "mean": 0.6,
+          "sample_std": 0.18066236157232332
+        },
+        "precision": {
+          "mean": 0.31825396825396823,
+          "sample_std": 0.12290317418292271
+        }
+      }
+    },
+    "7b": {
+      "controlled_prediction_file": "artifacts/raw_predictions/fixed_7b_controlled_all.jsonl",
+      "fixed_exemplar_cases_by_test_case": {
+        "GNSS-spoofing": [
+          "Starlink-UT-fault-injection",
+          "UART-console-check"
+        ],
+        "JTAG-debug-firmware": [
+          "SDR-link-bringup-check",
+          "Onboard-bus-probe-check"
+        ],
+        "Pavur-SATCOM-eavesdrop": [
+          "generic-cmd-injection",
+          "UART-console-check"
+        ],
+        "Space-Odyssey-unauth-TC": [
+          "ViaSat-KA-SAT",
+          "GMR-satphone-cipher"
+        ],
+        "TC-replay-no-SDLS": [
+          "generic-protocol-integrity",
+          "ViaSat-KA-SAT"
+        ],
+        "Turla-satellite-C2": [
+          "GMR-satphone-cipher",
+          "BEESAT-1"
+        ]
+      },
+      "fixed_exemplars": {
+        "check": {
+          "mean": 0.9200396825396826,
+          "sample_std": 0.019498527798112803
+        },
+        "completeness": {
+          "mean": 0.6611111111111112,
+          "sample_std": 0.04347909956249594
+        },
+        "grounding": {
+          "mean": 0.9167460317460318,
+          "sample_std": 0.02270789775737361
+        },
+        "ordering": {
+          "mean": 0.7444444444444445,
+          "sample_std": 0.20544291207889548
+        },
+        "precision": {
+          "mean": 0.4115079365079365,
+          "sample_std": 0.03735431936345619
+        }
+      },
+      "original_exemplar_cases_by_decoding_seed_and_test_case": {
+        "0": {
+          "GNSS-spoofing": [
+            "Starlink-UT-fault-injection",
+            "UART-console-check"
+          ],
+          "JTAG-debug-firmware": [
+            "SDR-link-bringup-check",
+            "Onboard-bus-probe-check"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "generic-cmd-injection",
+            "UART-console-check"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "ViaSat-KA-SAT",
+            "GMR-satphone-cipher"
+          ],
+          "TC-replay-no-SDLS": [
+            "generic-protocol-integrity",
+            "ViaSat-KA-SAT"
+          ],
+          "Turla-satellite-C2": [
+            "GMR-satphone-cipher",
+            "BEESAT-1"
+          ]
+        },
+        "1": {
+          "GNSS-spoofing": [
+            "generic-cmd-injection",
+            "Onboard-bus-probe-check"
+          ],
+          "JTAG-debug-firmware": [
+            "generic-fw-memsafety",
+            "OPS-SAT-authorized-takeover"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "Landsat-7/Terra-EOS-AM-1",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "generic-protocol-integrity",
+            "SDR-link-bringup-check"
+          ],
+          "TC-replay-no-SDLS": [
+            "Starlink-UT-fault-injection",
+            "Landsat-7/Terra-EOS-AM-1"
+          ],
+          "Turla-satellite-C2": [
+            "OPS-SAT-authorized-takeover",
+            "generic-protocol-integrity"
+          ]
+        },
+        "2": {
+          "GNSS-spoofing": [
+            "BEESAT-1",
+            "Landsat-7/Terra-EOS-AM-1"
+          ],
+          "JTAG-debug-firmware": [
+            "ROSAT",
+            "UART-console-check"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "ViaSat-KA-SAT",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "Starlink-UT-fault-injection",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "TC-replay-no-SDLS": [
+            "Safe-mode-abuse",
+            "Starlink-UT-fault-injection"
+          ],
+          "Turla-satellite-C2": [
+            "SDR-link-bringup-check",
+            "Iridium-plaintext-eavesdrop"
+          ]
+        },
+        "3": {
+          "GNSS-spoofing": [
+            "GMR-satphone-cipher",
+            "generic-cmd-injection"
+          ],
+          "JTAG-debug-firmware": [
+            "OPS-SAT-authorized-takeover",
+            "jamming"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "UART-console-check",
+            "generic-cmd-injection"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "Santamarta-SATCOM-terminals",
+            "generic-cmd-injection"
+          ],
+          "TC-replay-no-SDLS": [
+            "Landsat-7/Terra-EOS-AM-1",
+            "SDR-link-bringup-check"
+          ],
+          "Turla-satellite-C2": [
+            "jamming",
+            "generic-fw-memsafety"
+          ]
+        },
+        "4": {
+          "GNSS-spoofing": [
+            "ViaSat-KA-SAT",
+            "Santamarta-SATCOM-terminals"
+          ],
+          "JTAG-debug-firmware": [
+            "ROSAT",
+            "generic-supply-chain"
+          ],
+          "Pavur-SATCOM-eavesdrop": [
+            "ViaSat-KA-SAT",
+            "generic-protocol-integrity"
+          ],
+          "Space-Odyssey-unauth-TC": [
+            "jamming",
+            "ViaSat-KA-SAT"
+          ],
+          "TC-replay-no-SDLS": [
+            "Santamarta-SATCOM-terminals",
+            "Starlink-UT-fault-injection"
+          ],
+          "Turla-satellite-C2": [
+            "Iridium-plaintext-eavesdrop",
+            "Onboard-bus-probe-check"
+          ]
+        }
+      },
+      "original_seed_varying_exemplars": {
+        "check": {
+          "mean": 0.9408730158730159,
+          "sample_std": 0.04390147176036505
+        },
+        "completeness": {
+          "mean": 0.711111111111111,
+          "sample_std": 0.0409663366770906
+        },
+        "grounding": {
+          "mean": 0.9212301587301587,
+          "sample_std": 0.025014955214410006
+        },
+        "ordering": {
+          "mean": 0.7611111111111112,
+          "sample_std": 0.178514100145107
+        },
+        "precision": {
+          "mean": 0.46420634920634923,
+          "sample_std": 0.05790551464979955
+        }
+      }
+    }
+  },
+  "warning": "The original two-shot condition changed both decoding randomness and exemplar identity. The fixed condition holds exemplar selection at exemplar_seed=0 across decoding seeds."
+}

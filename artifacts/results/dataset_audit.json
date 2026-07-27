@@ -1,0 +1,12 @@
+{
+  "dataset": "data/tuning_set.v2.jsonl",
+  "rows": 107,
+  "cases": 24,
+  "decompose": 24,
+  "next_step": 83,
+  "train": 82,
+  "test": 25,
+  "errors": [],
+  "warnings": [],
+  "status": "pass"
+}

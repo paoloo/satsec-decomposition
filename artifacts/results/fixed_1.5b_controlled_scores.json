@@ -1,0 +1,164 @@
+{
+  "predictions": "artifacts/raw_predictions/fixed_1.5b_controlled_all.jsonl",
+  "dataset": "data/tuning_set.v2.jsonl",
+  "split": "test",
+  "reference_cases": 6,
+  "decompose": {
+    "+adapter (Qwen2.5-1.5B-Instruct)": {
+      "completeness": {
+        "mean": 0.4333333333333333,
+        "sample_std": 0.043256698617770636
+      },
+      "precision": {
+        "mean": 0.44333333333333336,
+        "sample_std": 0.041041607914979565
+      },
+      "ordering": {
+        "mean": 0.7055555555555555,
+        "sample_std": 0.09938079899999067
+      },
+      "grounding": {
+        "mean": 0.913888888888889,
+        "sample_std": 0.05675782428250709
+      },
+      "check": {
+        "mean": 0.9833333333333334,
+        "sample_std": 0.03726779962499651
+      }
+    },
+    "base+retrieval (Qwen2.5-1.5B-Instruct)": {
+      "completeness": {
+        "mean": 0.01944444444444444,
+        "sample_std": 0.043479099562495904
+      },
+      "precision": {
+        "mean": 0.00972222222222222,
+        "sample_std": 0.021739549781247952
+      },
+      "ordering": {
+        "mean": 0.06666666666666667,
+        "sample_std": 0.14907119849998599
+      },
+      "grounding": {
+        "mean": 0.014814814814814814,
+        "sample_std": 0.03312693299999688
+      },
+      "check": {
+        "mean": 0.003333333333333333,
+        "sample_std": 0.007453559924999299
+      }
+    },
+    "poscopy (retrieval-order)": {
+      "completeness": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "precision": {
+        "mean": 0.3958333333333333,
+        "sample_std": 0.0
+      },
+      "ordering": {
+        "mean": 0.4444444444444445,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base+schema (Qwen2.5-1.5B-Instruct)": {
+      "completeness": {
+        "mean": 0.5722222222222222,
+        "sample_std": 0.14678919545128166
+      },
+      "precision": {
+        "mean": 0.3540079365079365,
+        "sample_std": 0.08566907978990072
+      },
+      "ordering": {
+        "mean": 0.7111111111111111,
+        "sample_std": 0.13408353762385744
+      },
+      "grounding": {
+        "mean": 0.8212962962962964,
+        "sample_std": 0.10845794591594442
+      },
+      "check": {
+        "mean": 0.9277248677248677,
+        "sample_std": 0.0361281078572717
+      }
+    },
+    "base+2shot-fixed (Qwen2.5-1.5B-Instruct)": {
+      "completeness": {
+        "mean": 0.3194444444444444,
+        "sample_std": 0.2373334373699314
+      },
+      "precision": {
+        "mean": 0.21730158730158727,
+        "sample_std": 0.15678485554958813
+      },
+      "ordering": {
+        "mean": 0.37777777777777777,
+        "sample_std": 0.223606797749979
+      },
+      "grounding": {
+        "mean": 0.6641269841269841,
+        "sample_std": 0.31519015309645937
+      },
+      "check": {
+        "mean": 0.6863756613756614,
+        "sample_std": 0.34380344829570963
+      }
+    }
+  },
+  "next_step": {
+    "+adapter rollout (Qwen2.5-1.5B-Instruct)": {
+      "completeness": {
+        "mean": 0.06315789473684211,
+        "sample_std": 0.04403473823863555
+      },
+      "precision": {
+        "mean": 0.06315789473684211,
+        "sample_std": 0.04403473823863555
+      },
+      "ordering": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 0.9789473684210526,
+        "sample_std": 0.02882750302658772
+      },
+      "check": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      }
+    },
+    "base rollout (Qwen2.5-1.5B-Instruct)": {
+      "completeness": {
+        "mean": 0.021052631578947368,
+        "sample_std": 0.047075115315785045
+      },
+      "precision": {
+        "mean": 0.021052631578947368,
+        "sample_std": 0.047075115315785045
+      },
+      "ordering": {
+        "mean": 1.0,
+        "sample_std": 0.0
+      },
+      "grounding": {
+        "mean": 0.12631578947368421,
+        "sample_std": 0.06000923289995463
+      },
+      "check": {
+        "mean": 0.05263157894736842,
+        "sample_std": 0.05263157894736842
+      }
+    }
+  }
+}
