@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "satsec-decomposition"
+version = "2.0.0"
+description = "Leakage-controlled grounded decomposition dataset, LoRA training, and evaluation"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = {text = "MIT"}
+authors = [{name = "Joao Paolo Cavalcante Martins Oliveira"}]
+dependencies = []
+
+[project.optional-dependencies]
+train = [
+  "accelerate==1.14.0",
+  "datasets==3.6.0",
+  "peft==0.19.1",
+  "torch>=2.4.1,<2.5",
+  "transformers==4.57.6",
+]
+hub = ["datasets==3.6.0", "huggingface-hub>=0.34,<2"]
+dev = ["pytest==8.3.5", "ruff==0.11.13"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
