@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this dataset or its reproducibility package, please cite it as below."
+title: "SatSec Grounded Objective-Decomposition Dataset"
+type: dataset
+date-released: 2026-07-27
+authors:
+  - family-names: Oliveira
+    given-names: "Joao Paolo Cavalcante Martins"
+  - family-names: Teske
+    given-names: Lucas
+license: CC-BY-4.0
+repository-code: "https://github.com/paoloo/satsec-decomposition"
+url: "https://huggingface.co/datasets/paolocmo/satsec-decomposition"
+keywords:
+  - satellite security
+  - grounded decomposition
+  - SPARTA
+  - low-rank adaptation
