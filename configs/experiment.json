@@ -1,0 +1,45 @@
+{
+  "dataset": "data/tuning_set.v2.jsonl",
+  "dataset_version": "2.0.0",
+  "training": {
+    "epochs": 10.0,
+    "batch_size_per_device": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0002,
+    "max_sequence_length": 2048,
+    "optimizer": "adamw_torch",
+    "scheduler": "linear",
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.0,
+    "precision": "bfloat16",
+    "quantization": null,
+    "seed": 42,
+    "lora": {
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "bias": "none",
+      "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+    }
+  },
+  "generation": {
+    "seeds": [0, 1, 2, 3, 4],
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "max_input_tokens": 4096,
+    "max_new_tokens_decompose": 512,
+    "max_new_tokens_next_step": 192
+  },
+  "evaluation": {
+    "primary": "six-case development-facing disjoint fixed split; seed-42 adapter; five decoding seeds",
+    "robustness": [
+      "two-shot exemplar selection fixed at exemplar seed 0",
+      "format-neutral identifier extraction",
+      "adapter training seeds 42, 43, and 44 with greedy decoding",
+      "24-fold leave-one-case-out at 0.5B and 1.5B with greedy decoding"
+    ],
+    "baselines": ["candidate-only (legacy raw label: base+retrieval)", "base+schema", "base+2-shot with fixed exemplars", "oracle-candidate-order positional copy"],
+    "next_step_context": "autoregressive model-generated prefixes",
+    "next_step_horizon": "reference length (explicit length oracle)"
+  }
+}
