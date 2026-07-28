@@ -26,6 +26,14 @@ rebuilds the complete machine-readable 24-case provenance manifest.
 The data is CC BY 4.0 (`LICENSE-DATA`); code is MIT (`LICENSE`).
 The dataset DOI is [10.57967/hf/9586](https://doi.org/10.57967/hf/9586).
 
+## Authors
+
+- João Paolo Cavalcante Martins Oliveira — Universidade Federal do Rio Grande do Norte
+  (UFRN) and SETI Institute — [ORCID 0000-0003-4117-953X](https://orcid.org/0000-0003-4117-953X)
+- Lucas Teske — TeskesLab — [ORCID 0009-0002-8526-7662](https://orcid.org/0009-0002-8526-7662)
+- Paulo Matias — Universidade Federal de São Carlos —
+  [ORCID 0000-0002-6504-5141](https://orcid.org/0000-0002-6504-5141)
+
 ## Citation
 
 ```bibtex

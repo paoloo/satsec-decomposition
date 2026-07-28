@@ -84,6 +84,14 @@ no ECSS standard text is redistributed. Generative AI assisted code scaffolding,
 dataset/paper review, and language revision; the authors remain responsible for source
 verification, mappings, experiments, and final text.
 
+## Authors
+
+- João Paolo Cavalcante Martins Oliveira — Universidade Federal do Rio Grande do Norte
+  (UFRN) and SETI Institute — [ORCID 0000-0003-4117-953X](https://orcid.org/0000-0003-4117-953X)
+- Lucas Teske — TeskesLab — [ORCID 0009-0002-8526-7662](https://orcid.org/0009-0002-8526-7662)
+- Paulo Matias — Universidade Federal de São Carlos —
+  [ORCID 0000-0002-6504-5141](https://orcid.org/0000-0002-6504-5141)
+
 ## Citation
 
 ```bibtex
