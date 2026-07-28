@@ -31,7 +31,7 @@ The dataset DOI is [10.57967/hf/9586](https://doi.org/10.57967/hf/9586).
 ```bibtex
 @dataset{satsecdecomp2026,
   author    = {Oliveira, João Paolo Cavalcante Martins and Teske, Lucas and Matias, Paulo},
-  title     = {satsec-decomposition},
+  title     = {SatSec Grounded Objective-Decomposition Dataset},
   year      = {2026},
   url       = {https://huggingface.co/datasets/paolocmo/satsec-decomposition},
   doi       = {10.57967/hf/9586},

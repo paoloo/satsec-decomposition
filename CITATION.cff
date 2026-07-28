@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this dataset or its reproducibility package, please cite it as below."
-title: "satsec-decomposition"
+title: "SatSec Grounded Objective-Decomposition Dataset"
 type: dataset
 date-released: 2026-07-27
 doi: "10.57967/hf/9586"
