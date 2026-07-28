@@ -1,0 +1,21 @@
+{
+  "model": "GLM-5.2",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You decompose authorized security objectives into ordered, grounded, checkable steps. Use only supplied technique identifiers. Return JSON only with a steps array; every step must contain action, technique, and deterministic check fields."
+    },
+    {
+      "role": "user",
+      "content": "{\"objective\":\"Recover the input-validation logic, document the accepted input, and confirm the static hypothesis on the authorized fixture.\",\"grounding\":[{\"id\":\"RE-BINARY-INVENTORY\",\"name\":\"Inventory binary structure and analysis prerequisites\",\"description\":\"Record format, architecture, entrypoints, sections, imports, exports, symbols, strings, protections, and analysis blockers before deeper reasoning.\",\"default_checks\":[\"The analyzed artifact hash matches campaign metadata.\",\"Binary format and architecture are recorded.\",\"Expected inventory artifacts exist and parse successfully.\",\"Missing or malformed inputs are reported as incomplete rather than absence.\"],\"prerequisite_techniques\":[]},{\"id\":\"RE-STATIC-CALLGRAPH\",\"name\":\"Map static call relationships around an input surface\",\"description\":\"Identify entrypoints, callers, callees, indirect-call uncertainty, and data-flow-relevant helpers around a target behavior.\",\"default_checks\":[\"Every claimed call edge has an address or symbol locator.\",\"Unresolved indirect calls are listed explicitly.\",\"The call graph identifies which paths are proven and which remain candidates.\"],\"prerequisite_techniques\":[\"RE-BINARY-INVENTORY\"]},{\"id\":\"RE-INPUT-VALIDATION-TRACE\",\"name\":\"Recover input parsing and validation decisions\",\"description\":\"Trace input acquisition through parsing, transformations, comparisons, branch decisions, success paths, and rejection paths without assuming semantics from strings alone.\",\"default_checks\":[\"The input source and destination representation are identified.\",\"Every success and rejection branch has a code locator.\",\"Transformations and comparison constants are supported by decompilation or disassembly evidence.\",\"Unknown helper behavior is represented as an unresolved dependency.\"],\"prerequisite_techniques\":[\"RE-BINARY-INVENTORY\",\"RE-STATIC-CALLGRAPH\"]},{\"id\":\"RE-BOUNDED-RUNTIME-CONFIRMATION\",\"name\":\"Confirm a static hypothesis with a bounded local observation\",\"description\":\"Use an authorized local debugger or instrumentation probe with explicit readiness, trigger, timeout, and hit requirements to confirm a static behavior hypothesis.\",\"default_checks\":[\"Runtime execution is authorized by campaign scope.\",\"The sensor or breakpoint is proven ready before interpreting hits or zero hits.\",\"The trigger window and timeout are bounded and recorded.\",\"Runtime identity is correlated to the same binary hash and module as static evidence.\"],\"prerequisite_techniques\":[\"RE-BINARY-INVENTORY\",\"RE-STATIC-CALLGRAPH\",\"RE-INPUT-VALIDATION-TRACE\"]}]}"
+    }
+  ],
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "seed": 0,
+  "max_tokens": 4096,
+  "include_reasoning": false,
+  "response_format": {
+    "type": "json_object"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "1aa23cc472314d18a5821271af815a82",
+  "object": "chat.completion",
+  "created": 1785174246,
+  "model": "GLM-5.2-NVFP4",
+  "system_fingerprint": "",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"steps\": [\n    {\n      \"action\": \"Inventory the target binary's format, architecture, entrypoints, sections, imports, exports, symbols, strings, and protections, and record any analysis blockers that would impede static analysis of input-validation logic.\",\n      \"technique\": \"RE-BINARY-INVENTORY\",\n      \"deterministic_check\": \"The analyzed artifact hash matches campaign metadata; binary format and architecture are recorded; inventory artifacts (section table, import/export lists, symbol table, string extraction) exist and parse successfully; missing or malformed inputs are reported as incomplete rather than absence.\"\n    },\n    {\n      \"action\": \"Build a static call graph around the identified input surface(s), enumerating entrypoints, callers, callees, and unresolved indirect calls that may participate in input handling and validation.\",\n      \"technique\": \"RE-STATIC-CALLGRAPH\",\n      \"deterministic_check\": \"Every claimed call edge has an address or symbol locator; unresolved indirect calls are listed explicitly; the call graph distinguishes proven paths from candidate paths.\"\n    },\n    {\n      \"action\": \"Trace input acquisition through parsing, transformations, comparisons, and branch decisions to recover the validation logic, documenting both success and rejection paths with decompilation or disassembly evidence, and representing unknown helper behavior as unresolved dependencies.\",\n      \"technique\": \"RE-INPUT-VALIDATION-TRACE\",\n      \"deterministic_check\": \"The input source and destination representation are identified; every success and rejection branch has a code locator; transformations and comparison constants are supported by decompilation or disassembly evidence; unknown helper behavior is represented as an unresolved dependency.\"\n    }\n  ]\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 387,
+    "completion_tokens": 886,
+    "total_tokens": 1273
+  }
+}

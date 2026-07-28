@@ -1,0 +1,22 @@
+{
+  "id": "58fdd5cfe9db4dfb8bc5fcea4fdc3351",
+  "object": "chat.completion",
+  "created": 1785174282,
+  "model": "GLM-5.2-NVFP4",
+  "system_fingerprint": "",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"steps\": [\n    {\n      \"action\": \"Inventory the target binary's format, architecture, entrypoints, sections, imports, exports, symbols, strings, and protections. Record analysis blockers such as virtualization, packing, or obfuscation that may impede deeper recovery of input-validation logic.\",\n      \"technique\": \"RE-BINARY-INVENTORY\",\n      \"deterministic_check\": \"The analyzed artifact hash matches campaign metadata; binary format and architecture are recorded; expected inventory artifacts exist and parse successfully; missing or malformed inputs are reported as incomplete rather than absence.\"\n    },\n    {\n      \"action\": \"Map static call relationships around the input surface, identifying entrypoints, callers, callees, and indirect-call uncertainty. Highlight paths leading into virtualized or obfuscated validation routines and distinguish proven edges from candidate edges.\",\n      \"technique\": \"RE-STATIC-CALLGRAPH\",\n      \"deterministic_check\": \"Every claimed call edge has an address or symbol locator; unresolved indirect calls are listed explicitly; the call graph identifies which paths are proven and which remain candidates.\"\n    },\n    {\n      \"action\": \"Trace input acquisition through parsing, transformations, comparisons, and branch decisions within the virtualized validation logic. Recover each success and rejection path with supporting decompilation or disassembly evidence, and derive the constraints that an accepted input must satisfy. Solve the accepted input by composing the recovered constraints.\",\n      \"technique\": \"RE-INPUT-VALIDATION-TRACE\",\n      \"deterministic_check\": \"The input source and destination representation are identified; every success and rejection branch has a code locator; transformations and comparison constants are supported by decompilation or disassembly evidence; unknown helper behavior is represented as an unresolved dependency; the solved input satisfies every recovered success-path constraint and avoids every recovered rejection-path condition.\"\n    },\n    {\n      \"action\": \"Confirm the solved input with a bounded, network-isolated runtime replay using an authorized local debugger or instrumentation probe. Set explicit readiness, trigger, timeout, and hit requirements to verify that the solved input reaches the success path and does not trigger any rejection branch.\",\n      \"technique\": \"RE-BOUNDED-RUNTIME-CONFIRMATION\",\n      \"deterministic_check\": \"Runtime execution is authorized by campaign scope; the sensor or breakpoint is proven ready before interpreting hits or zero hits; the trigger window and timeout are bounded and recorded; runtime identity is correlated to the same binary hash and module as static evidence; the replay reaches the recovered success path and avoids recovered rejection paths within the recorded bounds.\"\n    }\n  ]\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 528,
+    "completion_tokens": 987,
+    "total_tokens": 1515
+  }
+}

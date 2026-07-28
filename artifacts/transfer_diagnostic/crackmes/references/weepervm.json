@@ -1,0 +1,17 @@
+{
+  "case_id": "crackme-weepervm-difficulty-6",
+  "objective": "Recover the virtualized input-validation logic, solve the accepted input, and confirm it in a bounded network-isolated replay.",
+  "grounding": [
+    "RE-BINARY-INVENTORY",
+    "RE-STATIC-CALLGRAPH",
+    "RE-INPUT-VALIDATION-TRACE",
+    "RE-BOUNDED-RUNTIME-CONFIRMATION"
+  ],
+  "steps": [
+    { "id": "REF-WEEPER-01", "technique": "RE-BINARY-INVENTORY" },
+    { "id": "REF-WEEPER-02", "technique": "RE-STATIC-CALLGRAPH" },
+    { "id": "REF-WEEPER-03", "technique": "RE-INPUT-VALIDATION-TRACE" },
+    { "id": "REF-WEEPER-04", "technique": "RE-INPUT-VALIDATION-TRACE" },
+    { "id": "REF-WEEPER-05", "technique": "RE-BOUNDED-RUNTIME-CONFIRMATION" }
+  ]
+}

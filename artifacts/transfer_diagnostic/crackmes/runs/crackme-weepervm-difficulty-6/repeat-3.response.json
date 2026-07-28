@@ -1,0 +1,22 @@
+{
+  "id": "d958347a9df34e3bb257264ae035f821",
+  "object": "chat.completion",
+  "created": 1785174307,
+  "model": "GLM-5.2-NVFP4",
+  "system_fingerprint": "",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"steps\": [\n    {\n      \"action\": \"Inventory binary structure, architecture, sections, imports, and analysis prerequisites for the virtualized input-validation logic.\",\n      \"technique\": \"RE-BINARY-INVENTORY\",\n      \"deterministic_check\": \"The analyzed artifact hash matches campaign metadata; binary format and architecture are recorded; expected inventory artifacts exist and parse successfully; missing or malformed inputs are reported as incomplete rather than absence.\"\n    },\n    {\n      \"action\": \"Map static call relationships around the input surface to identify entrypoints, callers, callees, and indirect-call uncertainty related to the virtualization dispatch.\",\n      \"technique\": \"RE-STATIC-CALLGRAPH\",\n      \"deterministic_check\": \"Every claimed call edge has an address or symbol locator; unresolved indirect calls are listed explicitly; the call graph identifies which paths are proven and which remain candidates.\"\n    },\n    {\n      \"action\": \"Trace virtualized input parsing, transformations, comparisons, and branch decisions to recover validation logic and derive the accepted input.\",\n      \"technique\": \"RE-INPUT-VALIDATION-TRACE\",\n      \"deterministic_check\": \"The input source and destination representation are identified; every success and rejection branch has a code locator; transformations and comparison constants are supported by decompilation or disassembly evidence; unknown helper behavior is represented as an unresolved dependency.\"\n    },\n    {\n      \"action\": \"Confirm the derived accepted input with a bounded, network-isolated local debugger or instrumentation probe replaying the target binary.\",\n      \"technique\": \"RE-BOUNDED-RUNTIME-CONFIRMATION\",\n      \"deterministic_check\": \"Runtime execution is authorized by campaign scope; the sensor or breakpoint is proven ready before interpreting hits or zero hits; the trigger window and timeout are bounded and recorded; runtime identity is correlated to the same binary hash and module as static evidence.\"\n    }\n  ]\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 528,
+    "completion_tokens": 2269,
+    "total_tokens": 2797
+  }
+}

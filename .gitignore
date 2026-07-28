@@ -20,6 +20,13 @@ checkpoints/
 artifacts/**/adapters/
 artifacts/**/checkpoints/
 artifacts/**/models/
+
+# Public lineage metadata and model cards (weights remain excluded below)
+!artifacts/manifests/
+!artifacts/manifests/**
+!hf/models/
+!hf/models/**
+
 *.safetensors
 *.gguf
 *.ggml

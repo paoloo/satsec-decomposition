@@ -26,11 +26,11 @@ as diagnostics, not as a pass/fail significance filter.
 
 | Configuration | Predictions | Mean matched steps | >=2 matches | Comparable pairs | Pair-weighted ordering |
 |---|---:|---:|---:|---:|---:|
-| positional-copy | 30 | 3.167 | 30 | 110 | 0.364 |
 | adapter | 30 | 0.867 | 4 | 4 | 1.000 |
-| candidate-only | 30 | 0.033 | 0 | 0 | N/A |
 | schema | 30 | 0.533 | 3 | 5 | 0.600 |
 | two-shot | 60 | 0.800 | 12 | 12 | 0.500 |
+| candidate-only | 30 | 0.033 | 0 | 0 | N/A |
+| positional-copy | 30 | 3.167 | 30 | 110 | 0.364 |
 
 ### Authored-reference case sensitivity
 
@@ -54,11 +54,11 @@ authored fixed-case references in turn.
 
 | Configuration | Parsed predictions | Fully structured predictions | Technique fields | Complete steps |
 |---|---:|---:|---:|---:|
-| positional-copy | 1.000 | 1.000 | 1.000 | 1.000 |
 | adapter | 1.000 | 1.000 | 1.000 | 1.000 |
-| candidate-only | 0.567 | 0.000 | 0.068 | 0.000 |
 | schema | 1.000 | 0.300 | 0.553 | 0.531 |
 | two-shot | 1.000 | 0.533 | 0.917 | 0.845 |
+| candidate-only | 0.567 | 0.000 | 0.068 | 0.000 |
+| positional-copy | 1.000 | 1.000 | 1.000 | 1.000 |
 
 ## 1.5b
 
@@ -81,11 +81,11 @@ authored fixed-case references in turn.
 
 | Configuration | Predictions | Mean matched steps | >=2 matches | Comparable pairs | Pair-weighted ordering |
 |---|---:|---:|---:|---:|---:|
-| positional-copy | 30 | 3.167 | 30 | 110 | 0.364 |
-| two-shot | 60 | 1.067 | 24 | 42 | 0.571 |
 | adapter | 30 | 1.467 | 15 | 22 | 0.636 |
 | schema | 30 | 1.867 | 18 | 45 | 0.667 |
+| two-shot | 60 | 1.067 | 24 | 42 | 0.571 |
 | candidate-only | 30 | 0.067 | 0 | 0 | N/A |
+| positional-copy | 30 | 3.167 | 30 | 110 | 0.364 |
 
 ### Authored-reference case sensitivity
 
@@ -109,11 +109,11 @@ authored fixed-case references in turn.
 
 | Configuration | Parsed predictions | Fully structured predictions | Technique fields | Complete steps |
 |---|---:|---:|---:|---:|
-| positional-copy | 1.000 | 1.000 | 1.000 | 1.000 |
-| two-shot | 0.767 | 0.367 | 0.965 | 0.865 |
 | adapter | 1.000 | 0.967 | 1.000 | 0.990 |
 | schema | 1.000 | 0.300 | 0.879 | 0.816 |
+| two-shot | 0.767 | 0.367 | 0.965 | 0.865 |
 | candidate-only | 0.133 | 0.000 | 0.667 | 0.000 |
+| positional-copy | 1.000 | 1.000 | 1.000 | 1.000 |
 
 ## 7b
 
@@ -136,11 +136,11 @@ authored fixed-case references in turn.
 
 | Configuration | Predictions | Mean matched steps | >=2 matches | Comparable pairs | Pair-weighted ordering |
 |---|---:|---:|---:|---:|---:|
+| adapter | 30 | 2.433 | 27 | 62 | 0.742 |
 | schema | 30 | 2.267 | 24 | 55 | 0.818 |
+| two-shot | 60 | 2.200 | 40 | 120 | 0.783 |
 | candidate-only | 30 | 0.333 | 2 | 6 | 0.500 |
 | positional-copy | 30 | 3.167 | 30 | 110 | 0.364 |
-| adapter | 30 | 2.433 | 27 | 62 | 0.742 |
-| two-shot | 60 | 2.200 | 40 | 120 | 0.783 |
 
 ### Authored-reference case sensitivity
 
@@ -164,9 +164,9 @@ authored fixed-case references in turn.
 
 | Configuration | Parsed predictions | Fully structured predictions | Technique fields | Complete steps |
 |---|---:|---:|---:|---:|
+| adapter | 1.000 | 1.000 | 1.000 | 1.000 |
 | schema | 1.000 | 0.967 | 0.994 | 0.994 |
+| two-shot | 1.000 | 0.333 | 0.966 | 0.903 |
 | candidate-only | 0.333 | 0.000 | 0.603 | 0.000 |
 | positional-copy | 1.000 | 1.000 | 1.000 | 1.000 |
-| adapter | 1.000 | 1.000 | 1.000 | 1.000 |
-| two-shot | 1.000 | 0.333 | 0.966 | 0.903 |
 

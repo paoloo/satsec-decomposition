@@ -29,6 +29,7 @@ from satsec.training.decomp_score import (
 SIZES = ("0.5b", "1.5b", "7b")
 METRICS = ("completeness", "precision", "ordering", "grounding", "check")
 BASELINES = ("schema", "two-shot")
+ROLE_ORDER = ("adapter", "schema", "two-shot", "candidate-only", "positional-copy")
 
 
 def quantile(values: list[float], q: float) -> float:
@@ -78,7 +79,7 @@ def leave_one_case_out_sensitivity(deltas: list[float], cases: list[str]) -> dic
 
 def config_roles(configs: set[str]) -> dict[str, str]:
     roles: dict[str, str] = {}
-    for config in configs:
+    for config in sorted(configs):
         if config.startswith("+adapter ("):
             roles["adapter"] = config
         elif config.startswith("base+schema"):
@@ -93,7 +94,7 @@ def config_roles(configs: set[str]) -> dict[str, str]:
     missing = required - roles.keys()
     if missing:
         raise ValueError(f"missing configurations: {sorted(missing)}")
-    return roles
+    return {role: roles[role] for role in ROLE_ORDER}
 
 
 def ordering_counts(pred_text: str, ref) -> dict[str, float | int]:

@@ -9,7 +9,7 @@ tags:
   - sparta
   - defensive-security
   - grounded-generation
-pretty_name: SatSec Grounded Objective-Decomposition v2
+pretty_name: SatSec Grounded Objective-Decomposition Dataset
 size_categories:
   - n<1K
 configs:
@@ -21,7 +21,7 @@ configs:
         path: data/test-*
 ---
 
-# SatSec Grounded Objective-Decomposition v2
+# SatSec Grounded Objective-Decomposition Dataset
 
 Version 2.0 is a leakage-controlled replacement for the original dataset used in
 *A Controlled Candidate-Set Benchmark for Offline Satellite-Security Plan Decomposition*.
@@ -58,6 +58,8 @@ overpowering, and controlled carry-off are represented by `EX-0014.04` PNT Spoof
 | `prompt_policy` | `objective-only-v2` |
 
 The raw source-of-truth JSONL is under `raw/tuning_set.v2.jsonl`.
+The superseded 110-row snapshot is retained only for historical audit under
+`legacy/v1/tuning_set.jsonl`; it must not be used for the reported v2 experiments.
 
 ## Intended use and limitations
 
@@ -80,9 +82,10 @@ ds = load_dataset("paolocmo/satsec-decomposition")
 ## Licensing and disclosure
 
 Dataset: CC BY 4.0. Grounding text is derived from public incident sources and SPARTA;
-no ECSS standard text is redistributed. Generative AI assisted code scaffolding,
-dataset/paper review, and language revision; the authors remain responsible for source
-verification, mappings, experiments, and final text.
+no ECSS standard text is redistributed. Generative AI tools assisted with code scaffolding,
+dataset and manuscript review, and language revision. The authors verified the dataset
+construction, semantic mappings, experimental results, references, and final manuscript and
+take full responsibility for the work.
 
 ## Authors
 

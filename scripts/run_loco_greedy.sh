@@ -46,7 +46,7 @@ python3 tools/merge_predictions.py --glob "$OUTDIR/predictions/*.jsonl" \
   --out "$OUTDIR/loco_all.jsonl"
 python3 -m satsec.training.decomp_score --pred "$OUTDIR/loco_all.jsonl" \
   --data "$FOLDS/refs_all.jsonl" --split test --json-out "$OUTDIR/loco_scores.json"
-python3 tools/analyze_loco.py --pred "$OUTDIR/loco_all.jsonl" \
+python3 -m tools.analyze_loco --pred "$OUTDIR/loco_all.jsonl" \
   --data "$FOLDS/refs_all.jsonl" --folds-manifest "$FOLDS/folds.json" \
   --adapters-dir "$OUTDIR/adapters" \
   --out "$OUTDIR/loco_analysis.json" \

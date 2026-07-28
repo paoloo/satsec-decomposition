@@ -645,7 +645,7 @@
     "predictions_sha256": "fdce1e3503490b51872d6c40e944a51f5b8e37a02da9c2f20c3707b9369234c3",
     "references": "artifacts/loco/fixed_1.5b/folds/refs_all.jsonl",
     "references_sha256": "ad0d604128185c850585115b633adcb79010963b7954d4db28a5780097248561",
-    "training_manifests": "artifacts/loco/fixed_1.5b/adapters",
+    "training_manifests": "artifacts/manifests/loco/fixed_1.5b/adapters",
     "training_manifests_digest_sha256": "0301542835e1ae9dc8ffb2747a0e47df977b19bad3beee908fe8417769e85d42"
   },
   "warning": "The 24 authored cases are the complete benchmark corpus, not a population sample."

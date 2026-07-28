@@ -4,7 +4,7 @@ title: "SatSec Grounded Objective-Decomposition Dataset"
 type: dataset
 date-released: 2026-07-27
 doi: "10.57967/hf/9586"
-version: "2.0.0"
+version: "2.0.1"
 authors:
   - family-names: Oliveira
     given-names: "João Paolo Cavalcante Martins"

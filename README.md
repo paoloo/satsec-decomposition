@@ -102,8 +102,8 @@ paired case differences, exact case-resampling intervals, sign-flip tests, order
 support, and formatting diagnostics with:
 
 ```bash
-python tools/analyze_fixed_split.py
-python tools/analyze_format_neutral.py
+python -m tools.analyze_fixed_split
+python -m tools.analyze_format_neutral
 ```
 
 This writes machine-readable and reviewable summaries to
@@ -121,9 +121,9 @@ Additional split-sensitivity and stability controls are:
 
 ```bash
 scripts/run_fixed_fewshot.sh MODEL MODEL_REVISION OUTDIR
-python tools/analyze_fixed_fewshot.py
+python -m tools.analyze_fixed_fewshot
 scripts/run_training_seed_eval.sh MODEL MODEL_REVISION SIZE_TAG PRIMARY_ADAPTER OUTDIR
-python tools/analyze_training_seeds.py
+python -m tools.analyze_training_seeds
 scripts/run_loco_greedy.sh MODEL MODEL_REVISION SIZE_TAG OUTDIR
 ```
 
@@ -139,13 +139,36 @@ corpus, not family-disjoint validation or an estimate for a target population. I
 reports format-neutral identifier extraction from the same
 outputs so layout compliance cannot silently drive the LOCO comparison.
 
+The training manifests used by the paper are tracked under `artifacts/manifests/`:
+three primary fixed-split manifests, six additional training-seed manifests, and all
+48 LOCO fold manifests. Adapter weights are hosted separately and indexed by immutable
+revision and SHA-256 in `artifacts/manifests/index.json`; base-model weights are not
+redistributed.
+
+## Transfer and execution diagnostic
+
+The self-contained public packet under `artifacts/transfer_diagnostic/` contains the
+three crackme prompts and references, 15 sanitized GLM-5.2-NVFP4 API request/response
+pairs, the bounded CVE-2025-32433 differential lab, retained logs, environment metadata,
+validation, and checksums. Recompute the manuscript values with:
+
+```bash
+python -m tools.analyze_transfer_diagnostic
+```
+
+The released responses support exact metric recomputation. The original service did not
+expose an immutable GLM weight revision or fingerprint, so token-identical generation is
+not claimed. `python -m tools.run_transfer_diagnostic --help` documents how to repeat the
+protocol against a user-supplied OpenAI-compatible endpoint.
+
 `tools/loco_split.py` constructs each leave-one-case-out fold. A fresh adapter must be
 trained per fold; never reuse the fixed-split adapter. `tools/factsep_relabel.py` is a
 controlled grounding-relabeling probe. It measures whether outputs track a supplied
 identifier mapping, not whether facts are absent from weights.
 
-Commit raw predictions, score tables, run manifests, training logs, and adapters for
-the paper's final runs. Do not commit model caches or base weights.
+Commit raw predictions, score tables, run manifests, and training logs for the paper's
+final runs. Publish adapters in the linked Hugging Face model repositories; do not commit
+model caches, adapter weights, or base weights to GitHub.
 
 ## Reproducibility notes
 
@@ -166,7 +189,7 @@ the paper's final runs. Do not commit model caches or base weights.
 
 ## AI-use disclosure
 
-Generative AI tools assisted with code scaffolding, dataset/paper review, and language
-revision. The authors are responsible for the design, mappings, experiments, source
-verification, and final text. This disclosure should remain consistent with the paper
-and submission form.
+Generative AI tools assisted with code scaffolding, dataset and manuscript review, and
+language revision. The authors verified the dataset construction, semantic mappings,
+experimental results, references, and final manuscript and take full responsibility for
+the work. This disclosure should remain consistent with the paper and submission form.

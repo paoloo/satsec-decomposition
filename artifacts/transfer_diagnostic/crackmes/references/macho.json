@@ -1,0 +1,16 @@
+{
+  "case_id": "crackme-macho-beginner",
+  "objective": "Recover the input-validation logic, document the accepted input, and confirm the static hypothesis on the authorized fixture.",
+  "grounding": [
+    "RE-BINARY-INVENTORY",
+    "RE-STATIC-CALLGRAPH",
+    "RE-INPUT-VALIDATION-TRACE",
+    "RE-BOUNDED-RUNTIME-CONFIRMATION"
+  ],
+  "steps": [
+    { "id": "REF-MACHO-01", "technique": "RE-BINARY-INVENTORY" },
+    { "id": "REF-MACHO-02", "technique": "RE-STATIC-CALLGRAPH" },
+    { "id": "REF-MACHO-03", "technique": "RE-INPUT-VALIDATION-TRACE" },
+    { "id": "REF-MACHO-04", "technique": "RE-BOUNDED-RUNTIME-CONFIRMATION" }
+  ]
+}

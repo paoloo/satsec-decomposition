@@ -1,0 +1,22 @@
+{
+  "id": "9c89c18d29e3401fa03c5c935e208d80",
+  "object": "chat.completion",
+  "created": 1785174255,
+  "model": "GLM-5.2-NVFP4",
+  "system_fingerprint": "",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"steps\": [\n    {\n      \"action\": \"Inventory the authorized fixture binary, recording format, architecture, entrypoints, sections, imports, exports, symbols, strings, protections, and analysis blockers before deeper reasoning about input-validation logic.\",\n      \"technique\": \"RE-BINARY-INVENTORY\",\n      \"deterministic check\": [\n        \"The analyzed artifact hash matches campaign metadata.\",\n        \"Binary format and architecture are recorded.\",\n        \"Expected inventory artifacts exist and parse successfully.\",\n        \"Missing or malformed inputs are reported as incomplete rather than absence.\"\n      ]\n    },\n    {\n      \"action\": \"Map static call relationships around the input surface, identifying entrypoints, callers, callees, indirect-call uncertainty, and data-flow-relevant helpers that participate in parsing and validation.\",\n      \"technique\": \"RE-STATIC-CALLGRAPH\",\n      \"deterministic check\": [\n        \"Every claimed call edge has an address or symbol locator.\",\n        \"Unresolved indirect calls are listed explicitly.\",\n        \"The call graph identifies which paths are proven and which remain candidates.\"\n      ]\n    },\n    {\n      \"action\": \"Recover input parsing and validation decisions by tracing input acquisition through parsing, transformations, comparisons, branch decisions, success paths, and rejection paths, and document the accepted input representation and constraints without assuming semantics from strings alone.\",\n      \"technique\": \"RE-INPUT-VALIDATION-TRACE\",\n      \"deterministic check\": [\n        \"The input source and destination representation are identified.\",\n        \"Every success and rejection branch has a code locator.\",\n        \"Transformations and comparison constants are supported by decompilation or disassembly evidence.\",\n        \"Unknown helper behavior is represented as an unresolved dependency.\"\n      ]\n    },\n    {\n      \"action\": \"Confirm the static input-validation hypothesis on the authorized fixture using a bounded local debugger or instrumentation probe with explicit readiness, trigger, timeout, and hit requirements.\",\n      \"technique\": \"RE-BOUNDED-RUNTIME-CONFIRMATION\",\n      \"deterministic check\": [\n        \"Runtime execution is authorized by campaign scope.\",\n        \"The sensor or breakpoint is proven ready before interpreting hits or zero hits.\",\n        \"The trigger window and timeout are bounded and recorded.\",\n        \"Runtime identity is correlated to the same binary hash and module as static evidence.\"\n      ]\n    }\n  ]\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 525,
+    "completion_tokens": 715,
+    "total_tokens": 1240
+  }
+}
