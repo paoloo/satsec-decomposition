@@ -87,12 +87,12 @@ verification, mappings, experiments, and final text.
 ## Citation
 
 ```bibtex
-@dataset{oliveira2026satsecod,
-  title = {SatSec Grounded Objective-Decomposition Dataset},
-  author = {Oliveira, Joao Paolo Cavalcante Martins and Teske, Lucas},
-  publisher = {Hugging Face},
-  year = {2026},
-  version = {2.0.0},
-  url = {https://huggingface.co/datasets/paolocmo/satsec-decomposition}
+@dataset{satsecdecomp2026,
+  author    = {Oliveira, João Paolo Cavalcante Martins and Teske, Lucas and Matias, Paulo},
+  title     = {satsec-decomposition},
+  year      = {2026},
+  url       = {https://huggingface.co/datasets/paolocmo/satsec-decomposition},
+  doi       = {10.57967/hf/9586},
+  publisher = {Hugging Face}
 }
 ```

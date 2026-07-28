@@ -24,6 +24,20 @@ rebuilds the complete machine-readable 24-case provenance manifest.
   `EX-0002` is geofenced execution and is not part of that gold plan.
 
 The data is CC BY 4.0 (`LICENSE-DATA`); code is MIT (`LICENSE`).
+The dataset DOI is [10.57967/hf/9586](https://doi.org/10.57967/hf/9586).
+
+## Citation
+
+```bibtex
+@dataset{satsecdecomp2026,
+  author    = {Oliveira, João Paolo Cavalcante Martins and Teske, Lucas and Matias, Paulo},
+  title     = {satsec-decomposition},
+  year      = {2026},
+  url       = {https://huggingface.co/datasets/paolocmo/satsec-decomposition},
+  doi       = {10.57967/hf/9586},
+  publisher = {Hugging Face}
+}
+```
 
 ## Quick validation
 
