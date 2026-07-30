@@ -24,7 +24,9 @@ configs:
 # SatSec Grounded Objective-Decomposition Dataset
 
 Version 2.0 is a leakage-controlled replacement for the original dataset used in
-*A Controlled Candidate-Set Benchmark for Offline Satellite-Security Plan Decomposition*.
+[*A Controlled Candidate-Set Benchmark for Offline Satellite-Security Plan
+Decomposition*](https://arxiv.org/abs/2607.26371)
+([DOI 10.48550/arXiv.2607.26371](https://doi.org/10.48550/arXiv.2607.26371)).
 It contains 24 authored full decompositions and 83 mechanically derived next-step rows
 across 24 cases.
 There are 82 train rows and 25 test rows; the six test cases never occur in training.
@@ -96,6 +98,21 @@ take full responsibility for the work.
   [ORCID 0000-0002-6504-5141](https://orcid.org/0000-0002-6504-5141)
 
 ## Citation
+
+If you use this dataset, please cite the paper and the dataset:
+
+```bibtex
+@misc{oliveira2026controlled,
+  author        = {Oliveira, João Paolo Cavalcante Martins and Teske, Lucas and Matias, Paulo},
+  title         = {A Controlled Candidate-Set Benchmark for Offline Satellite-Security Plan Decomposition},
+  year          = {2026},
+  eprint        = {2607.26371},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR},
+  doi           = {10.48550/arXiv.2607.26371},
+  url           = {https://arxiv.org/abs/2607.26371}
+}
+```
 
 ```bibtex
 @dataset{satsecdecomp2026,

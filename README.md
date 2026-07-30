@@ -1,9 +1,12 @@
 # SatSec grounded decomposition
 
 This repository is the reproducibility package for *A Controlled Candidate-Set Benchmark
-for Offline Satellite-Security Plan Decomposition*. The released dataset excludes plan text from model
-inputs: each prompt contains only a one-line high-level objective and eight shuffled
-SPARTA grounding candidates. The held-out split is disjoint by case.
+for Offline Satellite-Security Plan Decomposition*, available on
+[arXiv](https://arxiv.org/abs/2607.26371) with
+[DOI 10.48550/arXiv.2607.26371](https://doi.org/10.48550/arXiv.2607.26371).
+The released dataset excludes plan text from model inputs: each prompt contains only a
+one-line high-level objective and eight shuffled SPARTA grounding candidates. The held-out
+split is disjoint by case.
 
 The package includes the source corpus, per-case provenance, deterministic dataset builder, leakage and
 gold audits, completion-masked LoRA training, prompting and non-learned baselines,
@@ -35,6 +38,21 @@ The dataset DOI is [10.57967/hf/9586](https://doi.org/10.57967/hf/9586).
   [ORCID 0000-0002-6504-5141](https://orcid.org/0000-0002-6504-5141)
 
 ## Citation
+
+If you use this work, please cite the paper and the accompanying dataset:
+
+```bibtex
+@misc{oliveira2026controlled,
+  author        = {Oliveira, João Paolo Cavalcante Martins and Teske, Lucas and Matias, Paulo},
+  title         = {A Controlled Candidate-Set Benchmark for Offline Satellite-Security Plan Decomposition},
+  year          = {2026},
+  eprint        = {2607.26371},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR},
+  doi           = {10.48550/arXiv.2607.26371},
+  url           = {https://arxiv.org/abs/2607.26371}
+}
+```
 
 ```bibtex
 @dataset{satsecdecomp2026,
